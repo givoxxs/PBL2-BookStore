@@ -104,10 +104,10 @@ Book &Book::decrease(int a) {
 void Book::search( ) {
     int choose;
     do { 
-        cout<<"Các lựa chọn tìm kiếm: "<<endl;
-        cout<<"<1>: Tìm theo tiêu đề"<<endl<<"<2>: Tìm theo tác giả"<<endl;
-        cout<<"<3>: Tìm theo thể loại: "<<endl<<"<4>: Tìm theo ngôn ngữ"<<endl;
-        cout<<"Nhập lựa chọn của bạn: ";
+        cout<<"Cac lua chon tim kiem: "<<endl;
+        cout<<"<1>: Tim theo TIEU DE"<<endl<<"<2>: Tim theo TAC GIA"<<endl;
+        cout<<"<3>: Tim theo THE LOAI: "<<endl<<"<4>: Tim theo NGON NGU"<<endl;
+        cout<<"Nhap lua chon cua ban: ";
         cin>>choose;
         getchar();
         if (choose < 1 || choose > 4) { 
