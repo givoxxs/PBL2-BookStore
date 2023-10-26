@@ -4,6 +4,17 @@
 #include<iomanip>
 using namespace std;
 
+string person::no_space(const string s) {
+    string result = "";
+        for (char c : s) {
+            if (c != ' ') {
+                result += tolower(c);
+            }
+        }   
+    return result;
+}
+
+
 person::person() {}
 person::person(int id, string name, string phone_number):id(id),name(name),phone_number(phone_number) {}
 person::~person() {}
@@ -12,33 +23,32 @@ int person::get_id() {
     return this->id;
 }
 
-person person::add() {
-    cout<<"Them cac thong tin: "<<endl;
-    cout<<"ID: ";
-    cin>>this->id;
-    cout<<"Ho ten: ";
-    getchar();
-    getline(cin,this->name);
-    cout<<"So dien thoai: ";
-    getline(cin,this->phone_number);
-
-    return *this;
+string person::get_name() {
+    return this->name;
 }
 
-void person::display() const {
-    cout<<setw(5)<<id;
-    cout<<setw(20)<<name;
-    cout<<setw(20)<<phone_number<<endl;
+string person::get_phone_num() {
+    return this->phone_number;
 }
 
-void person::search() {
+void person::search_name(string abc, vector<person> people) {
 
+    for(int i=0;i<people.size();i++) {
+        if(no_space(abc)==no_space(people[i].name)) {
+            people[i].display();
+        }
+    }
 }
 
-person person::re_phone_number() {
-    string new_phone_number;
-    cout<<"Nhap so dien thoai moi: ";
-    getline(cin,new_phone_number);
-    this->phone_number = new_phone_number;
-    return *this;
+void person::search_phone_num(string abc, vector<person> people) {
+
+    for(int i=0;i<people.size();i++) {
+        if(no_space(abc)==no_space(people[i].phone_number)) {
+            people[i].display();
+        }
+    }
 }
+
+void person::re_phone_num() {
+    getline(cin, phone_number);
+}   
