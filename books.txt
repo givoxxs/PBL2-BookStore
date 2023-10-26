@@ -12,4 +12,5 @@
 12,The Road,Cormac McCarthy,Dystopian,17,11,Publisher11,2006,Shelf12,English
 13,The Hunger Games,Suzanne Collins,Dystopian,13,16,Publisher12,2008,Shelf13,English
 14,The Shining,Stephen King,Horror,15,8,Publisher13,1977,Shelf14,English
-15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,22,10,Publisher14,1997,Shelf15,English16,Phan Van Toan,Bame tao,cuoc doi,100000,1,bame tao,2004,Shelf1,vietnamese
+15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,22,10,Publisher14,1997,Shelf15,English
+16,Phan Van Toan,Bame tao,cuoc doi,100000,1,bame tao,2004,Shelf1,vietnamese
