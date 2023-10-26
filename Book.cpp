@@ -103,6 +103,17 @@ Book &Book::add() {
 }
 
 void Book::display() const {
+    cout<<setiosflags(ios::left)<<setw(5)<<"ID";
+    cout<<setw(40)<<"Title";
+    cout<<setw(20)<<"Author";
+    cout<<setw(25)<<"Genre";
+    cout<<setw(10)<<"Price";
+    cout<<setw(10)<<"Quantity";
+    cout<<setw(20)<<"Publisher";
+    cout<<setw(15)<<"PublishingYear";
+    cout<<setw(15)<<"BookShelves";
+    cout<<setw(15)<<"Language"<<endl<<endl;
+
     cout<<setiosflags(ios::left)<<setw(5)<<id;
     cout<<setw(40)<<title;
     cout<<setw(20)<<author;
