@@ -123,46 +123,45 @@ void Add_Book() {
 int main() {
     // Intro_start();
     lay_du_lieu();
-    while (true)
+    int choice;
+    while (1)
 	{
-		system("cls");
-		cout << "\t\t*******************************************\n";
+		cout << "\t\t===========================================\n";
 		cout << "\t\t  1. Hien thi tat ca sach.                 \n";
 		cout << "\t\t  2. Them sach.                            \n";
 		cout << "\t\t  3. Tim kiem sach.                        \n";
 		cout << "\t\t  4. Quan ly.                              \n";
 		cout << "\t\t  0. Thoat!                                \n";
-		cout << "\t\t*******************************************\n";
+		cout << "\t\t===========================================\n";
 		cout << "\t\t   Nhap Lua Chon: ";
-        int nChucNangMenu = 0;
-		cin >> nChucNangMenu;
-        if (nChucNangMenu != 1 && nChucNangMenu != 2 && nChucNangMenu != 3 && nChucNangMenu != 4 && nChucNangMenu != 0)
-		{
-			cout << "Nhap sai vui long lua chon lai.\n";
-			system("pause");
-		} else if (nChucNangMenu == 1)
-		{
-			cout << "\n\t\t*THONG TIN SACH TRONG CUA HANG*\n";
-			Book::display_All(BookInventory);
-			system("pause");
-		} else if (nChucNangMenu == 2)
-		{
-			cout << "\n\t\t*THEM 1 SACH VAO KHO SACH*\n";
-			Add_Book();
-			system("pause");
-		}
-		else if (nChucNangMenu == 3) 
-        {
-            cout << "\n\t\t*TIM KIEM SACH TRONG KHO SACH*\n";
-			Book::search(BookInventory);
-			system("pause");
-        } else if (nChucNangMenu == 4) 
-        {
-            cout<< "hello";
-        } else if (nChucNangMenu == 0) 
+        cin >> choice;
         
-            break;
+        switch (choice) {
+            case 1:
+                cout << "\n\t\t*THONG TIN SACH TRONG CUA HANG*\n";
+                Book::display_All(BookInventory);
+                break;
+            case 2:
+                cout << "\n\t\t*THEM 1 SACH VAO KHO SACH*\n";
+                Add_Book();
+                break;
+            case 3:
+                cout << "\n\t\t*TIM KIEM SACH TRONG KHO SACH*\n";
+                Book::search(BookInventory);
+                break;
+            case 4:
+                cout << "Quan ly"; // Thêm mã lệnh quản lý ở đây
+                break;
+            case 0:
+                return 0; // Thoát khỏi chương trình
+            default:
+                cout << "Nhap sai vui long lua chon lai.\n";
         }
+        
+        cout << "Press Enter to continue...";
+        cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
+        cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
+    }
 
     return 0;
 }

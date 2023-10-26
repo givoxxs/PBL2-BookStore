@@ -28,35 +28,47 @@ string Book::no_space(const string s) {
 
 
 void Book::search_title(string abc,vector<Book> BookInventory) {
+    int count = 0;
     for(int i=0;i<BookInventory.size();i++) {
         if(no_space(abc)==no_space(BookInventory[i].title)) {
             BookInventory[i].display();
+            count ++;
         }
     }
+    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
 }
 
 void Book::search_author(string abc,vector<Book> BookInventory) {
+    int count = 0;
     for(int i=0;i<BookInventory.size();i++) {
         if(no_space(abc)==no_space(BookInventory[i].author)) {
             BookInventory[i].display();
+            count ++;
         }
     }
+    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
 }
 
 void Book::search_genre(string abc,vector<Book> BookInventory) {
+    int count = 0;
     for(int i=0;i<BookInventory.size();i++) {
         if(no_space(abc)==no_space(BookInventory[i].genre)) {
             BookInventory[i].display();
+            count ++;
         }
     }
+    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
 }
 
 void Book::search_language(string abc,vector<Book> BookInventory)  {
+    int count = 0;
     for(int i=0;i<BookInventory.size();i++) {
         if(no_space(abc)==no_space(BookInventory[i].language)) {
             BookInventory[i].display();
+            count ++;
         }
     }
+    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
 }
 
 
