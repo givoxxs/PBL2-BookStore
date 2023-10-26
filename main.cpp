@@ -2,6 +2,7 @@
 #include "Employee.h"
 #include"Customer.h"
 #include"Order.h"
+// #include "MyLib.h"
 #include<iostream>
 #include<vector>
 #include<string.h>
@@ -20,12 +21,11 @@ void setspace(int n)
 }
 void Intro_start()
 {
-    
-    int n = 80;
+    // SetColor(2);
+    int n = 20;
     setspace(n - 5);
     for (int i = 0; i < 60; i++)
         cout << "=";
-        // cout << char(196);
     cout << endl;
     setspace(5 + n);
     cout << "Truong Dai hoc Bach Khoa - Dai hoc Da Nang" << endl;
@@ -50,9 +50,8 @@ void Intro_start()
     setspace(n - 5);
     for (int i = 0; i < 60; i++)
         cout << "=";
-        // cout << char(196);
+    // SetColor(7);
     getchar();
-
     cout << "\n\n";
 }
 void lay_du_lieu () {
@@ -121,7 +120,7 @@ void Add_Book() {
     cout << "Sách mới đã được thêm vào tệp." << endl;
 }
 int main() {
-    // Intro_start();
+    Intro_start();
     lay_du_lieu();
     int choice;
     while (1)
