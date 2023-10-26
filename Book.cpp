@@ -2,11 +2,16 @@
 #include<iostream>
 #include<string.h>
 #include<iomanip>
+#include<vector>
 using namespace std;
 
+
+
 Book::Book() {}
-Book::Book(int id, string title, string author, string genre, int price, int quantity, string publisher, int publishingYear, string bookShelves, string language) 
-:id(id),title(title),author(author),genre(genre),price(price),quantity(quantity),publisher(publisher),publishingYear(publishingYear),bookShelves(bookShelves),language(language) {}
+Book::Book(int id, string title, string author, string genre, int price, int quantity,
+string publisher, int publishingYear, string bookShelves, string language) 
+:id(id),title(title),author(author),genre(genre),price(price),
+quantity(quantity),publisher(publisher),publishingYear(publishingYear),bookShelves(bookShelves),language(language) {}
 
 Book::~Book() {}
 
@@ -22,27 +27,35 @@ string Book::no_space(const string s) {
 }
 
 
-void Book::search_title(string abc) {
-    if(no_space(title) == no_space(abc)) {
-        display();
+void Book::search_title(string abc,vector<Book> BookInventory) {
+    for(int i=0;i<BookInventory.size();i++) {
+        if(no_space(abc)==no_space(BookInventory[i].title)) {
+            BookInventory[i].display();
+        }
     }
 }
 
-void Book::search_author(string abc) {
-    if(no_space(author) == no_space(abc)) {
-        display();
+void Book::search_author(string abc,vector<Book> BookInventory) {
+    for(int i=0;i<BookInventory.size();i++) {
+        if(no_space(abc)==no_space(BookInventory[i].author)) {
+            BookInventory[i].display();
+        }
     }
 }
 
-void Book::search_genre(string abc) {
-    if(no_space(genre) == no_space(abc)) {
-        display();
+void Book::search_genre(string abc,vector<Book> BookInventory) {
+    for(int i=0;i<BookInventory.size();i++) {
+        if(no_space(abc)==no_space(BookInventory[i].genre)) {
+            BookInventory[i].display();
+        }
     }
 }
 
-void Book::search_language(string abc)  {
-    if(no_space(language) == no_space(abc)) {
-        display();
+void Book::search_language(string abc,vector<Book> BookInventory)  {
+    for(int i=0;i<BookInventory.size();i++) {
+        if(no_space(abc)==no_space(BookInventory[i].language)) {
+            BookInventory[i].display();
+        }
     }
 }
 
@@ -50,43 +63,43 @@ void Book::search_language(string abc)  {
 // cac phuong thuc Public
 
 Book &Book::add() {
-    cout<<"nhap id: ";
+    cout<<"Nhap id: ";
     cin>>id;
-    cout<<"nhap tieu de: ";
+    cout<<"Nhap tieu de: ";
     getchar();
     getline(cin, title);
-    cout<<"nhap tac gia: ";
+    cout<<"Nhap tac gia: ";
     getline(cin, author);
-    cout<<"nhap the loai: ";
+    cout<<"Nhap the loai: ";
     getline(cin, genre);
-    cout<<"nhap gia: ";
+    cout<<"Nhap gia: ";
     cin>>price;
-    cout<<"nhap so luong: ";
+    cout<<"Nhap so luong: ";
     cin>>quantity;
-    cout<<"nhap nha xuat ban: ";
+    cout<<"Nhap nha xuat ban: ";
     getchar();
     getline(cin, publisher);
-    cout<<"nhap nam xuat ban: ";
+    cout<<"Nhap nam xuat ban: ";
     cin>>publishingYear;
     getchar();
-    cout<<"nhap ke sach: ";
+    cout<<"Nhap ke sach: ";
     getline(cin, bookShelves);
-    cout<<"nhap ngon ngu: ";
+    cout<<"Nhap ngon ngu: ";
     getline(cin, language);
 
     return *this;
 }
 
-void Book::display() {
-    cout<<setw(10)<<id;
-    cout<<setw(20)<<title;
-    cout<<setw(20)<<author;
-    cout<<setw(20)<<genre;
-    cout<<setw(10)<<price;
-    cout<<setw(10)<<quantity;
+void Book::display() const {
+    cout<<setw(15)<<id;
+    cout<<setw(15)<<title;
+    cout<<setw(15)<<author;
+    cout<<setw(15)<<genre;
+    cout<<setw(15)<<price;
+    cout<<setw(15)<<quantity;
     cout<<setw(15)<<publisher;
-    cout<<setw(10)<<publishingYear;
-    cout<<setw(10)<<bookShelves;
+    cout<<setw(15)<<publishingYear;
+    cout<<setw(15)<<bookShelves;
     cout<<setw(15)<<language<<endl;
 }
 
@@ -101,13 +114,13 @@ Book &Book::decrease(int a) {
 }
 
 
-void Book::search( ) {
+void Book::search(vector<Book> BookInventory) {
     int choose;
     do { 
-        cout<<"Cac lua chon tim kiem: "<<endl;
-        cout<<"<1>: Tim theo TIEU DE"<<endl<<"<2>: Tim theo TAC GIA"<<endl;
-        cout<<"<3>: Tim theo THE LOAI: "<<endl<<"<4>: Tim theo NGON NGU"<<endl;
-        cout<<"Nhap lua chon cua ban: ";
+        cout<<"Các lựa chọn tìm kiếm: "<<endl;
+        cout<<"<1>: Tìm theo tiêu đề"<<endl<<"<2>: Tìm theo tác giả"<<endl;
+        cout<<"<3>: Tìm theo thể loại: "<<endl<<"<4>: Tìm theo ngôn ngữ"<<endl;
+        cout<<"Nhập lựa chọn của bạn: ";
         cin>>choose;
         getchar();
         if (choose < 1 || choose > 4) { 
@@ -122,24 +135,73 @@ void Book::search( ) {
     case 1:
         cout<<"Nhap tac pham can tim: ";
         getline(cin,searching);
-        search_title(searching);
+        search_title(searching,BookInventory);
         break;
     case 2:
         cout<<"Nhap tac gia can tim: ";
         getline(cin,searching);
-        search_author(searching);
+        search_author(searching,BookInventory);
         break;
     case 3:
         cout<<"Nhap the loai can tim: ";
         getline(cin,searching);
-        search_genre(searching);
+        search_genre(searching,BookInventory);
         break;
     case 4:
         cout<<"Nhap ngon ngu can tim: ";
         getline(cin,searching);
-        search_language(searching);
+        search_language(searching,BookInventory);
         break;
     }
 }
+
+int Book::get_id()  {
+    return this->id;
+}
+
+string Book::get_title() {
+    return this->title;
+}
+
+string Book::get_author() {
+    return this->author;
+}
+
+string Book::get_genre() {
+    return this->genre;
+}
+
+int Book::get_price() {
+    return this->price;
+}
+
+int Book::get_quantity() {
+    return this->quantity;
+}
+
+string Book::get_publisher() {
+    return this->publisher;
+}
+
+int Book::get_publishingYear() {
+    return this->publishingYear;
+}
+
+string Book::get_bookShelves() {
+    return this->bookShelves;
+}
+
+string Book::get_language() {
+    return this->language;
+}
+
+
+void Book::display_All(vector<Book> BookInventory)  {
+    for(int i=0;i<BookInventory.size();i++) {
+        BookInventory[i].display();
+        cout<<endl;
+    }
+}
+
 
 

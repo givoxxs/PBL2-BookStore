@@ -2,7 +2,10 @@
 #define BOOK_H
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
+
+
 class Book {
     private:
         int id;
@@ -16,12 +19,6 @@ class Book {
         string bookShelves;
         string language;
 
-        string no_space(const string s);
-
-        void search_title(string abc);
-        void search_author(string abc);
-        void search_genre(string abc);
-        void search_language(string abc);
 
     public:
         Book();
@@ -30,10 +27,26 @@ class Book {
         Book &add();
         Book &increase(int a);
         Book &decrease(int a);
-        void display();
-        void search();
         int get_id();
+        string get_title();
+        string get_author();
+        string get_genre();
         int get_price();
+        int get_quantity();
+        string get_publisher();
+        int get_publishingYear();
+        string get_bookShelves();
+        string get_language();
+
+        // show search 
+        void display() const;
+        static string no_space(const string s);
+        static void search_title(string abc,vector<Book> BookInventory);
+        static void search_author(string abc,vector<Book> BookInventory);
+        static void search_genre(string abc,vector<Book> BookInventory);
+        static void search_language(string abc,vector<Book> BookInventory);
+        static void display_All(vector<Book> BookInventory) ;
+        static void search(vector<Book> BookInventory);
 
 };
 #endif
