@@ -1,0 +1,4 @@
+1|Phan Van Toan|0387517120|2004|046204011596|Phu Loc, TP Hue|toanyogame@gmail.com|19000
+2|Nguyen Thi A|0337237486|2002|0302010306032|Hoa Khanh Bac, TP DN|nta2002@gmail.com|19000
+3|Tran Van B|0572640593|2004|0302010303032|Hoa Khanh Nam, TP DN|tvb2004@gmail.com|19000
+4|Nguyen Van C|9387777777|2004|0462020202020|Thua Thien Hue|bchbrbchs@gmail.com|20000

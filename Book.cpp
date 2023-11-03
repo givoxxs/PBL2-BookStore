@@ -103,16 +103,7 @@ Book &Book::add() {
 }
 
 void Book::display() const {
-    cout<<setiosflags(ios::left)<<setw(5)<<"ID";
-    cout<<setw(40)<<"Title";
-    cout<<setw(20)<<"Author";
-    cout<<setw(25)<<"Genre";
-    cout<<setw(10)<<"Price";
-    cout<<setw(10)<<"Quantity";
-    cout<<setw(20)<<"Publisher";
-    cout<<setw(15)<<"PublishingYear";
-    cout<<setw(15)<<"BookShelves";
-    cout<<setw(15)<<"Language"<<endl<<endl;
+
 
     cout<<setiosflags(ios::left)<<setw(5)<<id;
     cout<<setw(40)<<title;
@@ -140,9 +131,9 @@ Book &Book::decrease(int a) {
 void Book::search(vector<Book> BookInventory) {
     int choose;
     do { 
-        cout<<"Các lựa chọn tìm kiếm: "<<endl;
-        cout<<"<1>: Tìm theo tiêu đề"<<endl<<"<2>: Tìm theo tác giả"<<endl;
-        cout<<"<3>: Tìm theo thể loại: "<<endl<<"<4>: Tìm theo ngôn ngữ"<<endl;
+        cout<<"\t\tCác lựa chọn tìm kiếm: "<<endl;
+        cout<<"\t<1>: Tìm theo TIÊU ĐỀ"<<endl<<"\t<2>: Tìm theo TÁC GIẢ"<<endl;
+        cout<<"\t<3>: Tìm theo THỂ LOẠI: "<<endl<<"\t<4>: Tìm theo NGÔN NGỮ"<<endl;
         cout<<"Nhập lựa chọn của bạn: ";
         cin>>choose;
         getchar();

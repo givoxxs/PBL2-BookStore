@@ -1,29 +1,27 @@
 #ifndef PERSON_H
 #define PERSON_H
-#include<iostream>
+#include <bits/stdc++.h>
 #include<string>
-#include<vector>
 using namespace std;
-class person {
-protected: 
-    int id;
-    string name;
-    string phone_number;
-public:
-    person();
-    person(int id, string name, string phone_num);
-    ~person();
-    static string no_space(const string s);
+class Person {
+    protected: 
+        string Name;
+        string PhoneNumber;
+        int Year_of_birthday;
+    public:
+        Person(){};
+        Person(string name,string PhoneNumber,int Year_of_birthday):Name(name),PhoneNumber(PhoneNumber),Year_of_birthday(Year_of_birthday){};
+        Person(const Person &P);
+        virtual ~Person(){}
 
-    int get_id();
-    string get_name();
-    string get_phone_num();
+        static string no_space(const string s);
 
-    static void search_name(string abc, vector<person> people);
-    static void search_phone_num(string abc, vector<person> people);
-    void re_phone_num();
-
-    virtual void display() = 0;
-    // virtual void search() = 0;
+        void setName(string name);
+        string getName() const;
+        void setPhoneNumber(string PhoneNumber);
+        string getPhoneNumber() const;
+        void setYear_of_birthday(int Year_of_birthday);
+        int getYear_of_birthday() const;
 };
 #endif
+
