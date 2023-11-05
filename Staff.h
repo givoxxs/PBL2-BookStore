@@ -1,9 +1,6 @@
 #ifndef Staff_h
 #define Staff_h
 #include "Person.h"
-#include "Ourlib.h"
-#include <iostream>
-#include <string>
 
 using namespace std;
 

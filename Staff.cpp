@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-#include "Person.h"
 #include "Staff.h"
-#include "Ourlib.h"
-#include <iomanip>
-#include <fstream>
-#include <sstream>
-#include <string.h>
 
 using namespace std;
 

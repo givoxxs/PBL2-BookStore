@@ -1,35 +1,170 @@
 #include "Book.h"
 #include "Staff.h"
-#include"Order.h"
-#include "Ourlib.h"
-// #include "MyLib.h"
-#include<iostream>
-#include<vector>
-#include<string.h>
-#include<iomanip>
-#include <fstream>
-#include <sstream>
 #include <bits/stdc++.h>
-#include <conio.h>
+
 using namespace std;
-// int pickMenu() {
-//     char ch = _getch();
-//     int output = ch - '0';
-//     return output;
-// }
+
 vector<Staff> Staff_Data;
 vector<Book> BookInventory;
-void Title_display() {
-    cout<<setiosflags(ios::left)<<setw(5)<<"ID";
-    cout<<setw(40)<<"Title";
-    cout<<setw(20)<<"Author";
-    cout<<setw(25)<<"Genre";
-    cout<<setw(10)<<"Price";
-    cout<<setw(10)<<"Quantity";
-    cout<<setw(20)<<"Publisher";
-    cout<<setw(15)<<"PublishingYear";
-    cout<<setw(15)<<"BookShelves";
-    cout<<setw(15)<<"Language"<<endl<<endl;
+void setspace(int n);
+void Intro_start();
+void lay_du_lieu ();
+void Readfile();
+void Add_Book();
+void QuanlyNhanvien();
+void QuanlySach();
+int main() {
+    Intro_start();
+    lay_du_lieu();
+    Readfile();
+    
+    int choice;
+    cin >> choice;
+
+    system("cls");
+    
+	do {
+		cout << "\t\t+------------ QUAN LY CUA HANG ------------+\n";
+		cout << "\t\t|  1. Kho SACH                             |\n";
+		cout << "\t\t+------------------------------------------+\n";
+		cout << "\t\t|  2. Danh sach Nhan vien                  |\n";
+        cout << "\t\t+------------------------------------------+\n";
+		cout << "\t\t|  3. Danh sach Khach hang                 |\n";
+        cout << "\t\t+------------------------------------------+\n";
+        cout << "\t\t|  4. Lich su giao dich                    |\n";
+        cout << "\t\t+------------------------------------------+\n";
+		cout << "\t\t|  0. Thoat!                               |\n";
+		cout << "\t\t+------------------------------------------+\n";
+		cout << "\t\t|   Nhap Lua Chon:                         |\n";
+        // cout << "\t\t+------------------------------------------+\n";
+        cin >> choice;
+
+    //     lastCursorPosition = wherey();
+    //     gotoxy(16, lastCursorPosition);
+
+    //     cin >> choice;
+
+    // // Đặt lại vị trí con trỏ sau khi đã nhập
+    //     gotoxy(0, lastCursorPosition);
+
+        
+        switch (choice) {
+            case 1:
+                cout << "\n\t\t*QUAN LY SACH TROG CUA HANG*\n"; 
+                QuanlySach();
+                break;
+            case 2:
+                cout << "\n\t\t*QUAN LY NHAN VIEN TROG CUA HANG*\n"; 
+                QuanlyNhanvien();
+                break;
+            case 3:
+                cout << "\n\t\t*QUAN LY KHACH HANG TROG CUA HANG*\n"; 
+                //QuanlyKhachhang();
+                break;
+            case 4:
+                cout << "\n\t\t*Giao dich cua CUA HANG SACH*\n"; 
+                
+                break;
+            case 0:
+                return 0; // Thoát khỏi chương trình
+            default:
+                cout << "Nhap sai vui long lua chon lai.\n";
+        }
+        
+        // cout << "Press Enter to continue...";
+        // cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
+        // cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
+    } while (1);
+
+    return 0;
+}
+void QuanlySach() {
+    int choice;
+    while (1)
+	{
+        // system("cls");
+        cout << endl;
+		cout << "\t\t\t================== SACH ===================\n";
+		cout << "\t\t\t  1. Hien thi tat ca sach.                 \n";
+		cout << "\t\t\t  2. Them sach.                            \n";
+		cout << "\t\t\t  3. Tim kiem sach.                        \n";
+		cout << "\t\t\t  4. Xoa 1 quyen sach.                     \n";
+		cout << "\t\t\t  0. Thoat!                                \n";
+		cout << "\t\t\t===========================================\n";
+		cout << "\t\t\t   Nhap Lua Chon: ";
+        cin >> choice;
+        
+        switch (choice) {
+            case 1:
+                cout << "\n\t\t*THONG TIN SACH TRONG CUA HANG*\n";
+                Book::display_All(BookInventory);
+                break;
+            case 2:
+                cout << "\n\t\t*THEM 1 SACH VAO KHO SACH*\n";
+                Add_Book();
+                break;
+            case 3:
+                cout << "\n\t\t*TIM KIEM SACH TRONG KHO SACH*\n";
+                Book::search(BookInventory);
+                break;
+            case 4:
+                cout << "\n\t\t*XOA 1 quyen sach*\n"; 
+                
+                break;
+            case 0:
+                return ; // Thoát khỏi chương trình
+            default:
+                cout << "Nhap sai vui long lua chon lai.\n";
+        }
+        
+        // cout << "Press Enter to continue...";
+        // cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
+        // cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
+    }
+
+}
+// QUAN LY NHAN VIEN
+void QuanlyNhanvien() {
+    int choice;
+    while (1) {
+        // system("cls");
+        cout << endl;
+        cout << "\t\t\t===============  NHAN VIEN ================\n";
+		cout << "\t\t\t  1. Hien thi tat ca nhan vien.            \n";
+		cout << "\t\t\t  2. Them moi 1 nhan vien.                 \n";
+		cout << "\t\t\t  3. Tim kiem.                             \n";
+		cout << "\t\t\t  4. hello world.                          \n";
+		cout << "\t\t\t  0. Thoat!                                \n";
+		cout << "\t\t\t===========================================\n";
+		cout << "\t\t\t   Nhap Lua Chon: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "\n\t\t*DANH SACH NHAN VIEN TRONG CUA HANG*\n";
+                Staff::displayAll(Staff_Data);
+                break;
+            case 2:
+                cout << "\n\t\t*THEM 1 NHAN VIEN*\n";
+                Staff::Add(Staff_Data);
+                break;
+            case 3:
+                cout << "\n\t\t*TIM KIEM*\n";
+                Staff::search(Staff_Data);
+                break;
+            case 4:
+                cout << "\n\t\t*HELLO WORLD*\n"; 
+                break;
+            case 0:
+                return ; // Thoát khỏi chương trình
+            default:
+                cout << "\n\t\tNhap sai vui long lua chon lai.\n";
+        }
+            
+            // cout << "Press Enter to continue...";
+            // cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
+            // cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
+    }
 }
 void setspace(int n)
 {
@@ -69,6 +204,7 @@ void Intro_start()
         cout << "=";
     // SetColor(7);
     getchar();
+    system("cls");
     cout << "\n\n";
 }
 void lay_du_lieu () {
@@ -178,148 +314,4 @@ void Add_Book() {
     inventoryFile.close();
     cout << "Sách mới đã được thêm vào tệp." << endl;
 }
-void QuanlyNhanvien();
-void QuanlySach();
-int main() {
-    Intro_start();
-    lay_du_lieu();
-    Readfile();
-    
-    int choice;
-    // while (1)
-	do {
-		cout << "\t\t+------------ QUAN LY CUA HANG ------------+\n";
-		cout << "\t\t+  1. Kho SACH                             +\n";
-		cout << "\t\t+------------------------------------------+\n";
-		cout << "\t\t+  2. Danh sach Nhan vien                  +\n";
-        cout << "\t\t+------------------------------------------+\n";
-		cout << "\t\t+  3. Danh sach Khach hang                 +\n";
-        cout << "\t\t+------------------------------------------+\n";
-        cout << "\t\t+  4. Lich su giao dich                    +\n";
-        cout << "\t\t+------------------------------------------+\n";
-		cout << "\t\t+  0. Thoat!                               +\n";
-		cout << "\t\t+------------------------------------------+\n";
-		cout << "\t\t   Nhap Lua Chon: ";
-        cin >> choice;
-        
-        switch (choice) {
-            case 1:
-                cout << "\n\t\t*QUAN LY SACH TROG CUA HANG*\n"; 
-                QuanlySach();
-                break;
-            case 2:
-                cout << "\n\t\t*QUAN LY NHAN VIEN TROG CUA HANG*\n"; 
-                QuanlyNhanvien();
-                break;
-            case 3:
-                cout << "\n\t\t*QUAN LY KHACH HANG TROG CUA HANG*\n"; 
-                //QuanlyKhachhang();
-                break;
-            case 4:
-                cout << "\n\t\t*Giao dich cua CUA HANG SACH*\n"; 
-                
-                break;
-            case 0:
-                return 0; // Thoát khỏi chương trình
-            default:
-                cout << "Nhap sai vui long lua chon lai.\n";
-        }
-        
-        cout << "Press Enter to continue...";
-        cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
-        cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
-    } while (1);
-
-    return 0;
-}
-void QuanlySach() {
-    int choice;
-    while (1)
-	{
-        // system("cls");
-
-		cout << "\t\t\t================= SACH ====================\n";
-		cout << "\t\t\t  1. Hien thi tat ca sach.                 \n";
-		cout << "\t\t\t  2. Them sach.                            \n";
-		cout << "\t\t\t  3. Tim kiem sach.                        \n";
-		cout << "\t\t\t  4. Xoa 1 quyen sach.                     \n";
-		cout << "\t\t\t  0. Thoat!                                \n";
-		cout << "\t\t\t===========================================\n";
-		cout << "\t\t\t   Nhap Lua Chon: ";
-        cin >> choice;
-        
-        switch (choice) {
-            case 1:
-                cout << "\n\t\t*THONG TIN SACH TRONG CUA HANG*\n";
-                Book::display_All(BookInventory);
-                break;
-            case 2:
-                cout << "\n\t\t*THEM 1 SACH VAO KHO SACH*\n";
-                Add_Book();
-                break;
-            case 3:
-                cout << "\n\t\t*TIM KIEM SACH TRONG KHO SACH*\n";
-                Book::search(BookInventory);
-                break;
-            case 4:
-                cout << "\n\t\t*XOA 1 quyen sach*\n"; 
-                
-                break;
-            case 0:
-                return ; // Thoát khỏi chương trình
-            default:
-                cout << "Nhap sai vui long lua chon lai.\n";
-        }
-        
-        cout << "Press Enter to continue...";
-        cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
-        cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
-    }
-
-}
-// QUAN LY NHAN VIEN
-void QuanlyNhanvien() {
-    int choice;
-    while (1) {
-        // system("cls");
-
-        cout << "\t\t\t===============  NHAN VIEN ================\n";
-		cout << "\t\t\t  1. Hien thi tat ca nhan vien.            \n";
-		cout << "\t\t\t  2. Them moi 1 nhan vien.                 \n";
-		cout << "\t\t\t  3. Tim kiem.                             \n";
-		cout << "\t\t\t  4. hello world.                          \n";
-		cout << "\t\t\t  0. Thoat!                                \n";
-		cout << "\t\t\t===========================================\n";
-		cout << "\t\t\t   Nhap Lua Chon: ";
-        cin >> choice;
-
-        switch (choice) {
-            case 1:
-                cout << "\n\t\t*DANH SACH NHAN VIEN TRONG CUA HANG*\n";
-                Staff::displayAll(Staff_Data);
-                break;
-            case 2:
-                cout << "\n\t\t*THEM 1 NHAN VIEN*\n";
-                Staff::Add(Staff_Data);
-                break;
-            case 3:
-                cout << "\n\t\t*TIM KIEM*\n";
-                Staff::search(Staff_Data);
-                break;
-            case 4:
-                cout << "\n\t\t*HELLO WORLD*\n"; 
-                break;
-            case 0:
-                return ; // Thoát khỏi chương trình
-            default:
-                cout << "\n\t\tNhap sai vui long lua chon lai.\n";
-        }
-            
-            cout << "Press Enter to continue...";
-            cin.ignore(); // Đọc ký tự xuống dòng sau lựa chọn
-            cin.get();    // Đợi người dùng nhấn Enter để tiếp tục         
-    }
-}
-
-
 

@@ -1,7 +1,7 @@
 #ifndef PERSON_H
 #define PERSON_H
 #include <bits/stdc++.h>
-#include<string>
+#include <string>
 using namespace std;
 class Person {
     protected: 

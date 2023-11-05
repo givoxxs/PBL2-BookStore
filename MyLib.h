@@ -8,8 +8,6 @@
 //======= lấy tọa độ x của con trỏ hiện tại =============
 #define KEY_NONE	-1
 
-using namespace std;
-
 int whereX()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;

@@ -1,8 +1,6 @@
 #ifndef BOOK_H
 #define BOOK_H
-#include<iostream>
-#include<string>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 

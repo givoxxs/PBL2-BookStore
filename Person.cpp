@@ -2,8 +2,6 @@
 #include "Person.h"
 #include "Day.h"
 
-using namespace std;
-
 Person::Person(const Person &P)
 {
     this->Name=P.Name;

@@ -1,8 +1,5 @@
 #include "Book.h"
-#include<iostream>
-#include<string.h>
-#include<iomanip>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 
