@@ -1,117 +1,113 @@
 #include "Book.h"
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include <string>
+#include <algorithm>
 
-
+// Không cần sử dụng namespace std nữa
 
 Book::Book() {}
-Book::Book(int id, string title, string author, string genre, int price, int quantity,
-string publisher, int publishingYear, string bookShelves, string language) 
-:id(id),title(title),author(author),genre(genre),price(price),
-quantity(quantity),publisher(publisher),publishingYear(publishingYear),bookShelves(bookShelves),language(language) {}
+Book::Book(int id, std::string title, std::string author, std::string genre, int price, int quantity,
+           std::string publisher, int publishingYear, std::string bookShelves, std::string language)
+    : id(id), title(title), author(author), genre(genre), price(price),
+      quantity(quantity), publisher(publisher), publishingYear(publishingYear), bookShelves(bookShelves), language(language) {}
 
 Book::~Book() {}
 
-// cac phuong thuc Private
-string Book::no_space(const string s) {
-    string result = "";
-        for (char c : s) {
-            if (c != ' ') {
-                result += tolower(c);
-            }
-        }   
+std::string Book::no_space(const std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (c != ' ') {
+            result += tolower(c);
+        }
+    }
     return result;
 }
 
-
-void Book::search_title(string abc,vector<Book> BookInventory) {
+void Book::search_title(std::string abc, std::vector<Book> BookInventory) {
     int count = 0;
-    for(int i=0;i<BookInventory.size();i++) {
-        if(no_space(abc)==no_space(BookInventory[i].title)) {
+    for (int i = 0; i < BookInventory.size(); i++) {
+        if (no_space(abc) == no_space(BookInventory[i].title)) {
             BookInventory[i].display();
-            count ++;
+            count++;
         }
     }
-    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
+    if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_author(string abc,vector<Book> BookInventory) {
+void Book::search_author(std::string abc, std::vector<Book> BookInventory) {
     int count = 0;
-    for(int i=0;i<BookInventory.size();i++) {
-        if(no_space(abc)==no_space(BookInventory[i].author)) {
+    for (int i = 0; i < BookInventory.size(); i++) {
+        if (no_space(abc) == no_space(BookInventory[i].author)) {
             BookInventory[i].display();
-            count ++;
+            count++;
         }
     }
-    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
+    if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_genre(string abc,vector<Book> BookInventory) {
+void Book::search_genre(std::string abc, std::vector<Book> BookInventory) {
     int count = 0;
-    for(int i=0;i<BookInventory.size();i++) {
-        if(no_space(abc)==no_space(BookInventory[i].genre)) {
+    for (int i = 0; i < BookInventory.size(); i++) {
+        if (no_space(abc) == no_space(BookInventory[i].genre)) {
             BookInventory[i].display();
-            count ++;
+            count++;
         }
     }
-    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
+    if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_language(string abc,vector<Book> BookInventory)  {
+void Book::search_language(std::string abc, std::vector<Book> BookInventory) {
     int count = 0;
-    for(int i=0;i<BookInventory.size();i++) {
-        if(no_space(abc)==no_space(BookInventory[i].language)) {
+    for (int i = 0; i < BookInventory.size(); i++) {
+        if (no_space(abc) == no_space(BookInventory[i].language)) {
             BookInventory[i].display();
-            count ++;
+            count++;
         }
     }
-    if (count == 0) cout << "NOT FOUND THIS BOOK !!!" << endl;
+    if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
-
-
-// cac phuong thuc Public
 
 Book &Book::add() {
-    cout<<"Nhap id: ";
-    cin>>id;
-    cout<<"Nhap tieu de: ";
-    getchar();
-    getline(cin, title);
-    cout<<"Nhap tac gia: ";
-    getline(cin, author);
-    cout<<"Nhap the loai: ";
-    getline(cin, genre);
-    cout<<"Nhap gia: ";
-    cin>>price;
-    cout<<"Nhap so luong: ";
-    cin>>quantity;
-    cout<<"Nhap nha xuat ban: ";
-    getchar();
-    getline(cin, publisher);
-    cout<<"Nhap nam xuat ban: ";
-    cin>>publishingYear;
-    getchar();
-    cout<<"Nhap ke sach: ";
-    getline(cin, bookShelves);
-    cout<<"Nhap ngon ngu: ";
-    getline(cin, language);
+    std::cout << "Nhap id: ";
+    std::cin >> id;
+    std::cout << "Nhap tieu de: ";
+    std::cin.ignore();
+    std::getline(std::cin, title);
+    std::cout << "Nhap tac gia: ";
+    std::getline(std::cin, author);
+    std::cout << "Nhap the loai: ";
+    std::getline(std::cin, genre);
+    std::cout << "Nhap gia: ";
+    std::cin >> price;
+    std::cout << "Nhap so luong: ";
+    std::cin >> quantity;
+    std::cout << "Nhap nha xuat ban: ";
+    std::cin.ignore();
+    std::getline(std::cin, publisher);
+    std::cout << "Nhap nam xuat ban: ";
+    std::cin >> publishingYear;
+    std::cin.ignore();
+    std::cout << "Nhap ke sach: ";
+    std::getline(std::cin, bookShelves);
+    std::cout << "Nhap ngon ngu: ";
+    std::getline(std::cin, language);
 
     return *this;
 }
 
 void Book::display() const {
-
-
-    cout<<setiosflags(ios::left)<<setw(5)<<id;
-    cout<<setw(40)<<title;
-    cout<<setw(20)<<author;
-    cout<<setw(25)<<genre;
-    cout<<setw(10)<<price;
-    cout<<setw(10)<<quantity;
-    cout<<setw(20)<<publisher;
-    cout<<setw(15)<<publishingYear;
-    cout<<setw(15)<<bookShelves;
-    cout<<setw(15)<<language<<endl;
+    std::cout << std::setiosflags(std::ios::left) << std::setw(5) << id;
+    std::cout << std::setw(40) << title;
+    std::cout << std::setw(20) << author;
+    std::cout << std::setw(25) << genre;
+    std::cout << std::setw(10) << price;
+    std::cout << std::setw(10) << quantity;
+    std::cout << std::setw(20) << publisher;
+    std::cout << std::setw(15) << publishingYear;
+    std::cout << std::setw(15) << bookShelves;
+    std::cout << std::setw(15) << language << std::endl;
 }
 
 Book &Book::increase(int a) {
@@ -124,61 +120,59 @@ Book &Book::decrease(int a) {
     return *this;
 }
 
-
-void Book::search(vector<Book> BookInventory) {
+void Book::search(std::vector<Book> BookInventory) {
     int choose;
-    do { 
-        cout<<"\t\tCác lựa chọn tìm kiếm: "<<endl;
-        cout<<"\t<1>: Tìm theo TIÊU ĐỀ"<<endl<<"\t<2>: Tìm theo TÁC GIẢ"<<endl;
-        cout<<"\t<3>: Tìm theo THỂ LOẠI: "<<endl<<"\t<4>: Tìm theo NGÔN NGỮ"<<endl;
-        cout<<"Nhập lựa chọn của bạn: ";
-        cin>>choose;
-        getchar();
-        if (choose < 1 || choose > 4) { 
+    do {
+        std::cout << "\t\tCác lựa chọn tìm kiếm: " << std::endl;
+        std::cout << "\t<1>: Tìm theo TIÊU ĐỀ" << std::endl << "\t<2>: Tìm theo TÁC GIẢ" << std::endl;
+        std::cout << "\t<3>: Tìm theo THỂ LOẠI: " << std::endl << "\t<4>: Tìm theo NGÔN NGỮ" << std::endl;
+        std::cout << "Nhập lựa chọn của bạn: ";
+        std::cin >> choose;
+        std::cin.ignore();
+        if (choose < 1 || choose > 4) {
             system("cls");
-            cout<<"Lựa chọn không hợp lệ!!! Vui lòng nhập lại."<<endl; // In ra thông báo
+            std::cout << "Lựa chọn không hợp lệ!!! Vui lòng nhập lại." << std::endl;
         }
     } while (choose < 1 || choose > 4);
 
-    string searching;
-    switch (choose)
-    {
+    std::string searching;
+    switch (choose) {
     case 1:
-        cout<<"Nhap tac pham can tim: ";
-        getline(cin,searching);
-        search_title(searching,BookInventory);
+        std::cout << "Nhap tac pham can tim: ";
+        std::getline(std::cin, searching);
+        search_title(searching, BookInventory);
         break;
     case 2:
-        cout<<"Nhap tac gia can tim: ";
-        getline(cin,searching);
-        search_author(searching,BookInventory);
+        std::cout << "Nhap tac gia can tim: ";
+        std::getline(std::cin, searching);
+        search_author(searching, BookInventory);
         break;
     case 3:
-        cout<<"Nhap the loai can tim: ";
-        getline(cin,searching);
-        search_genre(searching,BookInventory);
+        std::cout << "Nhap the loai can tim: ";
+        std::getline(std::cin, searching);
+        search_genre(searching, BookInventory);
         break;
     case 4:
-        cout<<"Nhap ngon ngu can tim: ";
-        getline(cin,searching);
-        search_language(searching,BookInventory);
+        std::cout << "Nhap ngon ngu can tim: ";
+        std::getline(std::cin, searching);
+        search_language(searching, BookInventory);
         break;
     }
 }
 
-int Book::get_id()  {
+int Book::get_id() {
     return this->id;
 }
 
-string Book::get_title() {
+std::string Book::get_title() {
     return this->title;
 }
 
-string Book::get_author() {
+std::string Book::get_author() {
     return this->author;
 }
 
-string Book::get_genre() {
+std::string Book::get_genre() {
     return this->genre;
 }
 
@@ -190,7 +184,7 @@ int Book::get_quantity() {
     return this->quantity;
 }
 
-string Book::get_publisher() {
+std::string Book::get_publisher() {
     return this->publisher;
 }
 
@@ -198,31 +192,27 @@ int Book::get_publishingYear() {
     return this->publishingYear;
 }
 
-string Book::get_bookShelves() {
+std::string Book::get_bookShelves() {
     return this->bookShelves;
 }
 
-string Book::get_language() {
+std::string Book::get_language() {
     return this->language;
 }
 
-
-void Book::display_All(vector<Book> BookInventory)  {
-    cout<<setiosflags(ios::left)<<setw(5)<<"ID";
-    cout<<setw(40)<<"Title";
-    cout<<setw(20)<<"Author";
-    cout<<setw(25)<<"Genre";
-    cout<<setw(10)<<"Price";
-    cout<<setw(10)<<"Quantity";
-    cout<<setw(20)<<"Publisher";
-    cout<<setw(15)<<"PublishingYear";
-    cout<<setw(15)<<"BookShelves";
-    cout<<setw(15)<<"Language"<<endl<<endl;
-    for(int i=0;i<BookInventory.size();i++) {
+void Book::display_All(std::vector<Book> BookInventory) {
+    std::cout << std::setiosflags(std::ios::left) << std::setw(5) << "ID";
+    std::cout << std::setw(40) << "Title";
+    std::cout << std::setw(20) << "Author";
+    std::cout << std::setw(25) << "Genre";
+    std::cout << std::setw(10) << "Price";
+    std::cout << std::setw(10) << "Quantity";
+    std::cout << std::setw(20) << "Publisher";
+    std::cout << std::setw(15) << "PublishingYear";
+    std::cout << std::setw(15) << "BookShelves";
+    std::cout << std::setw(15) << "Language" << std::endl << std::endl;
+    for (int i = 0; i < BookInventory.size(); i++) {
         BookInventory[i].display();
-        cout<<endl;
+        std::cout << std::endl;
     }
 }
-
-
-
