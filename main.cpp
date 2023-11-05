@@ -19,9 +19,6 @@ int main() {
     Readfile();
     
     int choice;
-    cin >> choice;
-
-    system("cls");
     
 	do {
 		cout << "\t\t+------------ QUAN LY CUA HANG ------------+\n";
@@ -35,7 +32,7 @@ int main() {
         cout << "\t\t+------------------------------------------+\n";
 		cout << "\t\t|  0. Thoat!                               |\n";
 		cout << "\t\t+------------------------------------------+\n";
-		cout << "\t\t|   Nhap Lua Chon:                         |\n";
+		cout << "\t\t|   Nhap Lua Chon:     ";
         // cout << "\t\t+------------------------------------------+\n";
         cin >> choice;
 
@@ -204,7 +201,6 @@ void Intro_start()
         cout << "=";
     // SetColor(7);
     getchar();
-    system("cls");
     cout << "\n\n";
 }
 void lay_du_lieu () {
