@@ -121,43 +121,90 @@ Book &Book::decrease(int a) {
 }
 
 void Book::search(std::vector<Book> BookInventory) {
+    // int choose, n = 5;
+    // std::string nd[n];
+    // nd[0] = "Tim kiem theo TIEU DE";
+    // nd[1] = "Tim kiem theo TAC GIA";
+    // nd[2] = "Tim kiem theo THE LOAI";
+    // nd[3] = "Tim kiem theo NGON NGU";
+    // nd[4] = "Quay lai";
+    
+    // do {
+    //     system("cls");
+    //     choose = Menu(80, 5, 35, 2, 11, 75, nd, n);
+    //     system("cls");
+    //     std::string searching;
+    //     switch (choose) {
+    //         case 0:
+    //             std::cout << "Nhap tac pham can tim: ";
+    //             std::getline(std::cin, searching);
+    //             search_title(searching, BookInventory);
+    //         case 1:
+    //             std::cout << "Nhap tac gia can tim: ";
+    //             std::getline(std::cin, searching);
+    //             search_author(searching, BookInventory);
+    //             break;
+    //         case 2:
+    //             std::cout << "Nhap the loai can tim: ";
+    //             std::getline(std::cin, searching);
+    //             search_genre(searching, BookInventory);
+    //             break;
+    //         case 3:
+    //             std::cout << "Nhap ngon ngu can tim: ";
+    //             std::getline(std::cin, searching);
+    //             search_language(searching, BookInventory);
+    //             break; 
+    //         case 4:
+    //             break;
+    //     }
+
+    // } while (n - choose - 1);
+
     int choose;
     do {
-        std::cout << "\t\tCác lựa chọn tìm kiếm: " << std::endl;
-        std::cout << "\t<1>: Tìm theo TIÊU ĐỀ" << std::endl << "\t<2>: Tìm theo TÁC GIẢ" << std::endl;
-        std::cout << "\t<3>: Tìm theo THỂ LOẠI: " << std::endl << "\t<4>: Tìm theo NGÔN NGỮ" << std::endl;
-        std::cout << "Nhập lựa chọn của bạn: ";
+        std::cout << "\n\t===== Cac lua chon tim kiem: =====" << std::endl;
+        std::cout << "\t= <1>: Tim theo TIEU DE          ="<< std::endl;
+        std::cout << "\t= <2>: Tim theo TAC GIA          =" << std::endl;
+        std::cout << "\t= <3>: Tim theo THE LOAI         =" << std::endl;
+        std::cout << "\t= <4>: Tim theo NGON NGU         =" << std::endl;
+        std::cout << "\t= <0>: Quay lai!                 =" << std::endl;
+
+        std::cout << "Nhap lua chon cua ban: ";
         std::cin >> choose;
         std::cin.ignore();
-        if (choose < 1 || choose > 4) {
-            system("cls");
-            std::cout << "Lựa chọn không hợp lệ!!! Vui lòng nhập lại." << std::endl;
-        }
-    } while (choose < 1 || choose > 4);
 
-    std::string searching;
-    switch (choose) {
-    case 1:
-        std::cout << "Nhap tac pham can tim: ";
-        std::getline(std::cin, searching);
-        search_title(searching, BookInventory);
-        break;
-    case 2:
-        std::cout << "Nhap tac gia can tim: ";
-        std::getline(std::cin, searching);
-        search_author(searching, BookInventory);
-        break;
-    case 3:
-        std::cout << "Nhap the loai can tim: ";
-        std::getline(std::cin, searching);
-        search_genre(searching, BookInventory);
-        break;
-    case 4:
-        std::cout << "Nhap ngon ngu can tim: ";
-        std::getline(std::cin, searching);
-        search_language(searching, BookInventory);
-        break;
-    }
+        std::string searching;
+
+        switch (choose) {
+        case 1:
+            std::cout << "Nhap tac pham can tim: ";
+            std::getline(std::cin, searching);
+            search_title(searching, BookInventory);
+            break;
+        case 2:
+            std::cout << "Nhap tac gia can tim: ";
+            std::getline(std::cin, searching);
+            search_author(searching, BookInventory);
+            break;
+        case 3:
+            std::cout << "Nhap the loai can tim: ";
+            std::getline(std::cin, searching);
+            search_genre(searching, BookInventory);
+            break;
+        case 4:
+            std::cout << "Nhap ngon ngu can tim: ";
+            std::getline(std::cin, searching);
+            search_language(searching, BookInventory);
+            break;
+        case 0:
+            return ;
+        default:
+            std::cout << "\n\tNhap sai vui long lua chon lai.\n"; 
+        }
+
+    } while (true);
+
+    
 }
 
 int Book::get_id() {

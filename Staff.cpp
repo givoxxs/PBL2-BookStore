@@ -111,7 +111,7 @@ void Staff::displayAll(std::vector<Staff> Staff_Data) {
 void Staff::search(std::vector<Staff> Staff_Data) {
     int choice;
     while (true) {
-        std::cout << "\n\t====== Các lựa chọn tìm kiếm: =======" << std::endl;
+        std::cout << "\n\t====== Cac lua chon tim kiem: =======" << std::endl;
         std::cout << "\t=  <1>: Tim kiem theo TEN nhan vien =" << std::endl;
         std::cout << "\t=  <2>: Tim theo tien luong         =" << std::endl;
         std::cout << "\t=  <0>: Thoat.                      =" << std::endl;
@@ -120,6 +120,7 @@ void Staff::search(std::vector<Staff> Staff_Data) {
         std::cout << " Nhap lua chon cua ban: ";
 
         std::cin >> choice;
+
         std::string searching;
         float searching2;
 
@@ -140,6 +141,7 @@ void Staff::search(std::vector<Staff> Staff_Data) {
         default:
             std::cout << "\n\tNhap sai vui long lua chon lai.\n";
         }
+
     }
 }
 

@@ -70,7 +70,7 @@ void QuanlySach() {
     nd[0] = "Hien thi tat ca sach";
     nd[1] = "Them sach";
     nd[2] = "Tim kiem sach";
-    nd[3] = "Thoat!";
+    nd[3] = "Quay lai";
 
     do {
             system("cls");
@@ -106,7 +106,7 @@ void QuanlyNhanvien() {
     nd[0] = "Hien thi tat ca nhan vien";
     nd[1] = "Them moi 1 nhan vien";
     nd[2] = "Tim kiem";
-    nd[3] = "Thoat!";
+    nd[3] = "Quay lai";
 
     do {
             system("cls");
@@ -117,14 +117,17 @@ void QuanlyNhanvien() {
             case 0:
                 std::cout << "\n\t\t*DANH SACH NHAN VIEN TRONG CUA HANG*\n";
                 Staff::displayAll(Staff_Data);
+                system("pause");
                 break;
             case 1:
                 std::cout << "\n\t\t*THEM 1 NHAN VIEN*\n";
                 Staff::Add(Staff_Data);
+                system("pause");
                 break;
             case 2:
                 std::cout << "\n\t\t*TIM KIEM*\n";
                 Staff::search(Staff_Data);
+                system("pause");
                 break;
             case 3:
                 //system("pause");
