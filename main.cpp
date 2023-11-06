@@ -255,7 +255,8 @@ void setspace(int n) {
 }
 // Intro start
 void Intro_start() {
-    int n = 20;
+    cout << "\n\n\n\n";
+    int n = 80;
     setspace(n - 5);
     for (int i = 0; i < 60; i++)
         std::cout << char(196);;
