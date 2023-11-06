@@ -17,24 +17,134 @@ void Add_Book();
 void QuanlyNhanvien();
 void QuanlySach();
 void Main_Menu();
+void FirstMenu();
+int DangNhap(int x);
+bool CheckLog(const string& filename, const string& username, const string& password);
 
 int main() {
     Intro_start();
     lay_du_lieu();
     Readfile();
 
-    Main_Menu();
+    FirstMenu();
+
+    //Main_Menu();
 
     return 0;
 }
+// Giao diện lúc mới vào ứng dụng quản lý
+void FirstMenu() {
+    int choose, n=3;
+    string nd[n], nd1;
+    nd1 = "         Dang nhap";
+    nd[0] = "  Quan ly";
+    nd[1] = "  Nhan vien";
+    nd[2] = "  Thoat";
+    box(80, 3, 35, 2, 11, 75, nd1);
+    //cout << endl;
+    
+    do {
+        system("cls");
+        box(80, 3, 35, 2, 11, 75, nd1);
+        choose = Menu(80, 5, 35, 2, 11, 75, nd, n);
+        gotoXY(80,5); std::cout << char(195);
+        gotoXY(115,5); std::cout << char(180);
+        system("cls");
+        switch(choose) {
+            case 0:
+                if (DangNhap(1) == 99) {
+                    // std::cout << "Nguoi quan ly dang su dung";               
+                    Main_Menu();
+                }
+                break;
+            case 1:
+                if (DangNhap(2) == 99) {
+                    Main_Menu();
+                }
+                gotoXY(80, 19);
+                system("pause");
+                break;
+            case 2:
+                break;
+        }                
+    } while (n -  choose - 1);
+}
+// kiểm tra đăng nhập
+bool CheckLogin(const string& filename, const string& username, const string& password) {
+    ifstream file(filename);
+    if (file.is_open()) {
+        string line;
+        while (getline(file, line)) {
+            size_t pos = line.find(',');
+            if (pos != string::npos) {
+                string fileUsername = line.substr(0, pos);
+                string filePassword = line.substr(pos + 1);
+                if (fileUsername == username && filePassword == password) {
+                    return true;
+                }
+            }
+        }
+        file.close();
+    }
+    return false;
+}
+// Giao diện đăng nhập
+int DangNhap(int choice) {
 
+    system("cls");
+
+    string username, password;
+    gotoXY(80, 5);
+    std::cout << "+---------------------------------+\n";
+    gotoXY(80, 6);
+    std::cout << "|              LOG IN             |\n";  
+    gotoXY(80, 7);
+    std::cout << "+---------------------------------+\n"; 
+    gotoXY(80, 8);
+    std::cout << "| Username:                       |\n";
+    gotoXY(80, 9);
+    std::cout << "+---------------------------------+\n"; 
+    gotoXY(80, 10);  
+    std::cout << "| Password:                       |\n";
+    gotoXY(80, 11);
+    std::cout << "+---------------------------------+\n"; 
+
+    gotoXY(80 + 13, 8);
+    cin >> username;
+    gotoXY(80 + 13, 10);
+    cin >> password;
+
+    bool loginSuccess = false;
+    
+    if (choice == 1) {
+        loginSuccess = CheckLogin("Login_manager.txt", username, password);
+    } else if (choice == 2) {
+        loginSuccess = CheckLogin("Login_staff.txt", username, password);
+    }
+    
+    if (loginSuccess) {
+        gotoXY(80, 13);
+        cout << "Logged in successfully" << endl;
+        gotoXY(80, 15);
+        system("pause");
+        return 99;
+    } else {
+        gotoXY(80, 13);
+        cout << "Login failed. Please try again." << endl;
+        gotoXY(80, 15);
+        system("pause");
+        return -99;
+    }
+}
+// Menu quản lý của Người quản lý
 void Main_Menu() {
-    int choose, n = 4;
+    int choose, n = 5;
     string nd[n];
     nd[0] = "Kho sach";
     nd[1] = "Danh sach Nhan Vien";
     nd[2] = "Danh sach Khach Hang";
-    nd[3] = "Thoat";
+    nd[3] = "Doanh thu va thong ke";
+    nd[4] = "Thoat";
 
     do
     {
@@ -56,13 +166,16 @@ void Main_Menu() {
             // QuanlyKhachhang();
             break;
         case 3:
+            std::cout << "\n\t\t*DOANH THU VA THONGH KE*\n";
+            // Doanhthu();
+            break;
+        case 4:
             //system("pause");
             break;
         }
     } while (n - choose - 1);
 }
-
-
+// Giao diện quản lý sách  - MANAGER
 void QuanlySach() {
 
     int choose, n = 4;
@@ -99,7 +212,7 @@ void QuanlySach() {
             }
         } while (n - choose - 1);
 }
-
+// Giao diện quản lý nhân viên - Manager
 void QuanlyNhanvien() {
     int choose, n = 4;
     string nd[n];
@@ -135,12 +248,12 @@ void QuanlyNhanvien() {
             }
         } while (n - choose - 1);
 }
-
+// Loại bỏ so sánh khi dấu hoa vs k hoa
 void setspace(int n) {
     while (n--)
         std::cout << " ";
 }
-
+// Intro start
 void Intro_start() {
     int n = 20;
     setspace(n - 5);
@@ -173,7 +286,7 @@ void Intro_start() {
     getchar();
     system("cls");
 }
-
+// Lay dữ liệu cho Book Inventory
 void lay_du_lieu() {
     std::ifstream inventoryFile("books.txt");
     if (!inventoryFile) {
@@ -215,7 +328,7 @@ void lay_du_lieu() {
 
     inventoryFile.close();
 }
-
+// Lay dữ liệu cho Mục nhân viên
 void Readfile() {
     std::ifstream file("Staff.txt");
     if (!file) {
@@ -252,7 +365,7 @@ void Readfile() {
 
     file.close();
 }
-
+// Thêm 1 quyển sách vào Kho - Book Inventory
 void Add_Book() {
     Book newBook;
     newBook.add();

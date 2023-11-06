@@ -1,0 +1,2 @@
+admin,password
+manager,123
