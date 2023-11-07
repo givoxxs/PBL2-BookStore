@@ -277,7 +277,7 @@ void Intro_start() {
     std::cout << "Giang vien huong dan:\n";
     setspace(n);
     std::cout << "-Phan Van Toan";
-    setspace(12);
+    setspace(16);
     std::cout << "-Nguyen Van Hieu\n";
     setspace(n);
     std::cout << "-Nguyen Le Nhat Tuan\n";
