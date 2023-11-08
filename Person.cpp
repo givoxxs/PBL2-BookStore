@@ -1,35 +1,57 @@
-#include <bits/stdc++.h>
 #include "Person.h"
-#include "Day.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
 
-Person::Person(const Person &P) {
-    this->Name = P.Name;
-    this->PhoneNumber = P.PhoneNumber;
-    this->Year_of_birthday = P.Year_of_birthday;
+string person::no_space(const string s)
+{
+    string result = "";
+    for (char c : s)
+    {
+        if (c != ' ')
+        {
+            result += tolower(c);
+        }
+    }
+    return result;
 }
 
-// virtual Person::~Person() {}
+person::person() {}
+person::person(string id, string name, string phone_number, int yob) : id(id), name(name), phone_number(phone_number),year_of_birthday(yob) {}
+person::~person() {}
 
-void Person::setName(std::string name) {
-    this->Name = name;
+string person::get_id()
+{
+    return this->id;
 }
 
-std::string Person::getName() const {
-    return Name;
+string person::get_name()
+{
+    return this->name;
 }
 
-void Person::setPhoneNumber(std::string PhoneNumber) {
-    this->PhoneNumber = PhoneNumber;
+string person::get_phone_num()
+{
+    return this->phone_number;
 }
 
-std::string Person::getPhoneNumber() const {
-    return PhoneNumber;
+int person::get_year_of_birthday()  {
+    return year_of_birthday;
 }
 
-void Person::setYear_of_birthday(int Year_of_birthday) {
-    this->Year_of_birthday = Year_of_birthday;
+void person::search_name(string abc)
+{
+
+    if (no_space(get_name())==no_space(abc))
+    {
+        this->display();
+    }
 }
 
-int Person::getYear_of_birthday() const {
-    return Year_of_birthday;
+
+
+void person::re_phone_num()
+{
+    getline(cin, phone_number);
 }

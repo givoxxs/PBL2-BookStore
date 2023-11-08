@@ -1,0 +1,40 @@
+
+/**
+ * Quan li:
+ * Xem tat ca sach -->OK
+ * Them sach -->OK
+ * Xem tat ca nhan vien -->OK
+ * Sua thong tin nhan vien -->OK
+ * Tim kiem nhan vien -->OK
+ * Xem tat ca khach hang -->OK
+ * Xem san pham da duoc ban -> xem ngay gio ban, ID sach, so luong --> Chưa
+*/
+
+
+/**
+ * Nhan vien:
+ * Xem tat ca sach -->OK
+ * Tim kiem sach -->OK
+ * Xem tat ca khach hang -->OK
+ * Tim khach hang -->OK
+ * Them sua khach hang -->OK
+ * Tao hoa don -->OK
+*/
+
+/**
+ * Khach hang
+ * Xem tat ca sach -->OK
+ * Tim kiem sach -->OK
+*/
+
+vector book --> sách trong kho
+vector employees --> nhân viên
+vector customers --> khách hàng
+mang solds --> tong so sach da ban --> để giảm số lượng sách trong kho
+vector saveOrder --> lưu trữ các đơn hàng (ngày/loại/số lượng)
+vector book_sold --> số lượng sách trong 1 đơn hàng
+
+
+
+
+

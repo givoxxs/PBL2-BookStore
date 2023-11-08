@@ -1,0 +1,154 @@
+đọc chương 3 -> chương 2 -> chương 4 5 6 -> thi chương 2 3
+
+    // create_book_list();
+    // create_cus_list();
+    // create_emp_list();
+
+    // int chose1;
+    // cout << "Chao mung den cua hang sach" << endl;
+    // int exit = 0;
+    // while (!exit)
+    // {
+    //     cout << "Ban la: " << endl;
+    //     cout << "1. Quan li" << endl
+    //          << "2. Nhan vien" << endl
+    //          << "3. Khach hang" << endl;
+    //     cout << "Ban chon: ";
+
+    //     cin >> chose1;
+    //     bool exitMenu = false;
+
+    //     if (chose1 == 1)
+    //     {
+    //         int chose2;
+    //         bool menuPrinted = false;
+
+    //         while (!exitMenu)
+    //         {
+    //             if (!menuPrinted)
+    //             {
+    //                 cout << "Ban muon: " << endl;
+    //                 cout << "1. Xem tat ca sach" << endl;
+    //                 cout << "2. Them sach" << endl;
+    //                 cout << "3. Xem tat ca nhan vien" << endl;
+    //                 cout << "4. Tim kiem nhan vien" << endl;
+    //                 cout << "5. Chinh sua thong tin nhan vien" << endl;
+    //                 cout << "6. Xem lich su ban hang" << endl;
+    //                 cout << "Khac. Ket thuc" << endl;
+    //                 menuPrinted = true;
+    //             }
+
+    //             cout << "Nhap lua chon cua ban: ";
+    //             cin >> chose2;
+
+    //             switch (chose2)
+    //             {
+    //             case 1:
+    //                 cout << "Ban chon xem tat ca sach" << endl;
+    //                 Book::display_All();
+    //                 break;
+    //             case 2:
+    //                 cout << "Ban chon them sach" << endl;
+    //                 Book::add_new_book();
+    //                 break;
+    //             case 3:
+    //                 cout << "Ban chon xem danh sach nhan vien" << endl;
+    //                 employee::display_All();
+    //                 break;
+    //             case 4:
+    //                 cout << "Ban chon tim kiem nhan vien" << endl;
+    //                 employee::search();
+    //                 break;
+    //             case 5:
+    //                 cout << "Ban chon thay doi thong tin nhan vien" << endl;
+    //                 employee::change();
+    //                 break;
+    //             case 6:
+    //                 cout << "Ban chon xem lich su giao dich" << endl;
+    //                 Save::display_All();
+    //                 break;
+    //             default:
+    //                 cout << "Ket thuc." << endl;
+    //                 exitMenu = true;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     else if (chose1 == 2)
+    //     {
+    //         int chose2;
+    //         bool menuPrinted = false;
+    //         while (!exitMenu)
+    //         {
+    //             if (!menuPrinted)
+    //             {
+    //                 cout << "Ban muon: " << endl;
+    //                 cout << "1. Xem tat ca khach hang" << endl;
+    //                 cout << "2. Tim kiem khach hang" << endl;
+    //                 cout << "3. Chinh sua thong tin khach hang" << endl;
+    //                 cout << "4. Tao don hang" << endl;
+    //                 cout << "Khac. Ket thuc" << endl;
+    //                 menuPrinted = true;
+    //             }
+
+    //             cout << "Nhap lua chon cua ban: ";
+    //             cin >> chose2;
+
+    //             switch (chose2)
+    //             {
+    //             case 1:
+    //                 customer::display_All();
+    //                 break;
+    //             case 2:
+    //                 customer::search();
+    //                 break;
+    //             case 3:
+    //                 customer::change();
+    //                 break;
+    //             case 4:
+    //                 order::allthing();
+    //                 break;
+    //             default:
+    //                 cout << "Ket thuc." << endl;
+    //                 exitMenu = true;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     else if (chose1 == 3)
+    //     {
+
+    //         int chose2;
+    //         bool menuPrinted = false;
+    //         while (!exitMenu)
+    //         {
+    //             if (!menuPrinted)
+    //             {
+    //                 cout << "Ban muon: " << endl;
+    //                 cout << "1. Xem tat ca sach" << endl;
+    //                 cout << "2. Tim kiem sach" << endl;
+    //                 cout << "Khac. Ket thuc" << endl;
+    //                 menuPrinted = true;
+    //             }
+
+    //             cout << "Nhap lua chon cua ban: ";
+    //             cin >> chose2;
+
+    //             switch (chose2)
+    //             {
+    //             case 1:
+    //                 Book::display_All();
+    //                 break;
+    //             case 2:
+    //                 Book::search();
+    //                 break;
+    //             default:
+    //                 cout << "Ket thuc." << endl;
+    //                 exitMenu = true;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     cout<<"Ban muon ket thuc phien dang nhap? ";
+    //     cin>>exit;
+    // }

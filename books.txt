@@ -15,4 +15,7 @@
 15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,22,10,Publisher14,1997,Shelf15,English
 16,Phan Van Toan,Bame tao,cuoc doi,100000,1,bame tao,2004,Shelf1,vietnamese
 17,Nguyen Le Nhat Tuan,Nguyen Le Nhat Tuan,ca nhan,10000,1,khong biet,2004,Shelf1,Vietnamese
-10,Hello world part 1,C++,Coder,100000,1,Giao Phan,2000,number 1,English
+18,Hello world part 1,C++,Coder,100000,1,Giao Phan,2000,number 1,English
+19,Phan Van Quoc Bao,Bame tao,cuoc doi,100000,1,bame tao,2011,Shelf1,vietnamese
+20,Phan Minh,Phan Lau,Human,10000000,1,Ho Phan,19969,so 1,VietNamese
+21,Phan Thi Ngoc Nhi,Phan Minh,Human,23062000,1,Ho Phan,2000,Shelf 10,VietNamese

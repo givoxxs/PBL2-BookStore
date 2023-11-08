@@ -1,215 +1,225 @@
+#include <windows.h>
 #include "Book.h"
-// #include "MyMenu.h"
-// #include "MyLib.h"
-#include <iostream>
-#include <vector>
-#include <iomanip>
-#include <string>
-#include <algorithm>
+#include "Prepare.h"
+#include "FirstLib.h"
+#include "FirstLib_Menu.h"
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<vector>
 
-// Không cần sử dụng namespace std nữa
+using namespace std;
 
 Book::Book() {}
 Book::Book(int id, std::string title, std::string author, std::string genre, int price, int quantity,
-           std::string publisher, int publishingYear, std::string bookShelves, std::string language)
-    : id(id), title(title), author(author), genre(genre), price(price),
-      quantity(quantity), publisher(publisher), publishingYear(publishingYear), bookShelves(bookShelves), language(language) {}
+std::string publisher, int publishingYear, std::string bookShelves, std::string language) 
+:id(id),title(title),author(author),genre(genre),price(price),
+quantity(quantity),publisher(publisher),publishingYear(publishingYear),bookShelves(bookShelves),language(language) {}
 
 Book::~Book() {}
 
+// cac phuong thuc Private
 std::string Book::no_space(const std::string s) {
     std::string result = "";
-    for (char c : s) {
-        if (c != ' ') {
-            result += tolower(c);
-        }
-    }
+        for (char c : s) {
+            if (c != ' ') {
+                result += tolower(c);
+            }
+        }   
     return result;
 }
 
-void Book::search_title(std::string abc, std::vector<Book> BookInventory) {
+
+void Book::search_title(std::string abc) {
     int count = 0;
-    for (int i = 0; i < BookInventory.size(); i++) {
-        if (no_space(abc) == no_space(BookInventory[i].title)) {
-            BookInventory[i].display();
-            count++;
+    for(int i=0;i<books.size();i++) {
+        if(no_space(books[i].title).find(no_space(abc)) != string::npos)  {
+            books[i].display();
+            cout << endl;
+            count ++;
         }
     }
     if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_author(std::string abc, std::vector<Book> BookInventory) {
+void Book::search_author(std::string abc) {
     int count = 0;
-    for (int i = 0; i < BookInventory.size(); i++) {
-        if (no_space(abc) == no_space(BookInventory[i].author)) {
-            BookInventory[i].display();
-            count++;
+    for(int i=0;i<books.size();i++) {
+        if(no_space(books[i].author).find(no_space(abc)) != string::npos) {
+            books[i].display();
+            cout << endl;
+            count ++;
         }
     }
     if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_genre(std::string abc, std::vector<Book> BookInventory) {
+void Book::search_genre(std::string abc) {
     int count = 0;
-    for (int i = 0; i < BookInventory.size(); i++) {
-        if (no_space(abc) == no_space(BookInventory[i].genre)) {
-            BookInventory[i].display();
-            count++;
+    for(int i=0;i<books.size();i++) {
+        if(no_space(books[i].genre).find(no_space(abc)) != string::npos) {
+            books[i].display();
+            cout << endl;
+            count ++;
         }
     }
     if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
-void Book::search_language(std::string abc, std::vector<Book> BookInventory) {
+void Book::search_language(std::string abc)  {
     int count = 0;
-    for (int i = 0; i < BookInventory.size(); i++) {
-        if (no_space(abc) == no_space(BookInventory[i].language)) {
-            BookInventory[i].display();
-            count++;
+    for(int i=0;i<books.size();i++) {
+        if(no_space(books[i].language).find(no_space(abc)) != string::npos) {
+            books[i].display();
+            cout << endl;
+            count ++;
         }
     }
     if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
 }
 
 Book &Book::add() {
-    std::cout << "Nhap id: ";
-    std::cin >> id;
-    std::cout << "Nhap tieu de: ";
-    std::cin.ignore();
-    std::getline(std::cin, title);
-    std::cout << "Nhap tac gia: ";
-    std::getline(std::cin, author);
-    std::cout << "Nhap the loai: ";
-    std::getline(std::cin, genre);
-    std::cout << "Nhap gia: ";
-    std::cin >> price;
-    std::cout << "Nhap so luong: ";
-    std::cin >> quantity;
-    std::cout << "Nhap nha xuat ban: ";
-    std::cin.ignore();
-    std::getline(std::cin, publisher);
-    std::cout << "Nhap nam xuat ban: ";
-    std::cin >> publishingYear;
-    std::cin.ignore();
-    std::cout << "Nhap ke sach: ";
-    std::getline(std::cin, bookShelves);
-    std::cout << "Nhap ngon ngu: ";
-    std::getline(std::cin, language);
-
+    getchar();
+    int max =  books.size()+1;
+    this->id = max;
+    int x = 80, y = 5, h =2;
+    bar_Add_Book();
+    goto_XY(x + 15, y + 1); cout << max;
+    goto_XY(x + 15, y + 3); getline(cin, title);
+    goto_XY(x + 15, y + 5); getline(cin, author);
+    goto_XY(x + 15, y + 7); getline(cin, genre);
+    goto_XY(x + 15, y + 9); cin >> price;
+    goto_XY(x + 15, y + 11); cin >> quantity;
+    getchar();
+    goto_XY(x + 15, y + 13); getline(cin, publisher);
+    goto_XY(x + 15, y + 15); cin >> publishingYear;
+    getchar();
+    goto_XY(x + 15, y + 17); getline(cin, bookShelves);
+    goto_XY(x + 15, y + 19); getline(cin, language);
     return *this;
 }
 
-void Book::display() const {
+void Book::add_new_book() {
+    Book newBook;
+    newBook.add();
+    books.push_back(newBook);
+    goto_XY(80, 5+25);
+    ofstream inventoryFile("books.txt", ios::app);
+
+    if (!inventoryFile) {
+        cerr << "Khong the mo InventoryBook.txt de ghi du lieu." << endl;
+        return ;
+    }
+    inventoryFile << newBook.get_id() << ","
+                 << newBook.get_title() << ","
+                 << newBook.get_author() << ","
+                 << newBook.get_genre() << ","
+                 << newBook.get_price() << ","
+                 << newBook.get_quantity() << ","
+                 << newBook.get_publisher() << ","
+                 << newBook.get_publishingYear() << ","
+                 << newBook.get_bookShelves() << ","
+                 << newBook.get_language() << endl;
+    inventoryFile.close();
+    cout << "Sach moi da duoc them vao kho" << endl;
+    goto_XY(80, 5+26);
+    system("pause");
+}
+
+void Book::display()  {
+
     std::cout << std::setiosflags(std::ios::left) << std::setw(5) << id;
     std::cout << std::setw(40) << title;
-    std::cout << std::setw(20) << author;
-    std::cout << std::setw(25) << genre;
-    std::cout << std::setw(10) << price;
-    std::cout << std::setw(10) << quantity;
+    std::cout << std::setw(25) << author;
+    std::cout << std::setw(20) << genre;
+    std::cout << std::setw(10) <<  price;
+    std::cout << std::setw(1)<< " ";
+    std::cout << std::setw(9) << quantity;
     std::cout << std::setw(20) << publisher;
-    std::cout << std::setw(15) << publishingYear;
+    std::cout << std::setw(3)<< "   ";
+    std::cout << std::setw(17) << publishingYear;
     std::cout << std::setw(15) << bookShelves;
     std::cout << std::setw(15) << language << std::endl;
 }
 
-Book &Book::increase(int a) {
-    this->quantity += a;
-    return *this;
+void Book::increase() {
+    int ids,a;
+    cout<<"Nhap vao id cuon sach va so luong can them: ";
+    cin>>ids>>a;
+    for(int i=0;i<books.size();i++) {
+        if(books[i].id==ids) {
+            books[i].quantity +=a;
+            cout<<"Thay doi thanh cong!!!"<<endl;
+            // return;
+        }
+    }
 }
 
-Book &Book::decrease(int a) {
-    this->quantity -= a;
-    return *this;
+void Book::decrease(int a) {
+    this->set_quantity(a);
+
 }
 
-void Book::search(std::vector<Book> BookInventory) {
-    // int choose, n = 5;
-    // std::string nd[n];
-    // nd[0] = "Tim kiem theo TIEU DE";
-    // nd[1] = "Tim kiem theo TAC GIA";
-    // nd[2] = "Tim kiem theo THE LOAI";
-    // nd[3] = "Tim kiem theo NGON NGU";
-    // nd[4] = "Quay lai";
-    
-    // do {
-    //     system("cls");
-    //     choose = Menu(80, 5, 35, 2, 11, 75, nd, n);
-    //     system("cls");
-    //     std::string searching;
-    //     switch (choose) {
-    //         case 0:
-    //             std::cout << "Nhap tac pham can tim: ";
-    //             std::getline(std::cin, searching);
-    //             search_title(searching, BookInventory);
-    //         case 1:
-    //             std::cout << "Nhap tac gia can tim: ";
-    //             std::getline(std::cin, searching);
-    //             search_author(searching, BookInventory);
-    //             break;
-    //         case 2:
-    //             std::cout << "Nhap the loai can tim: ";
-    //             std::getline(std::cin, searching);
-    //             search_genre(searching, BookInventory);
-    //             break;
-    //         case 3:
-    //             std::cout << "Nhap ngon ngu can tim: ";
-    //             std::getline(std::cin, searching);
-    //             search_language(searching, BookInventory);
-    //             break; 
-    //         case 4:
-    //             break;
-    //     }
+void Book::set_quantity(int a) {
+    this->quantity = a;
+}
 
-    // } while (n - choose - 1);
+void Book::search() {
 
-    int choose;
-    do {
-        std::cout << "\n\t===== Cac lua chon tim kiem: =====" << std::endl;
-        std::cout << "\t= <1>: Tim theo TIEU DE          ="<< std::endl;
-        std::cout << "\t= <2>: Tim theo TAC GIA          =" << std::endl;
-        std::cout << "\t= <3>: Tim theo THE LOAI         =" << std::endl;
-        std::cout << "\t= <4>: Tim theo NGON NGU         =" << std::endl;
-        std::cout << "\t= <0>: Quay lai!                 =" << std::endl;
+    int choose, n = 5;
+    string nd[n], nd1;
+    nd[0] = "Theo TIEU DE / Search by Book Title";
+    nd[1] = "Theo TAC GIA / Search by Author";
+    nd[2] = "Theo THE LOAI / Search by Category";
+    nd[3] = "Theo NGON NGU / Search by Language";
+    nd[4] = "THOAT / EXIT";
 
-        std::cout << "Nhap lua chon cua ban: ";
-        std::cin >> choose;
-        std::cin.ignore();
-
-        std::string searching;
-
-        switch (choose) {
+    nd1 = "             CAC LUA CHON TIM KIEM";
+    //std::string searching;
+    do
+    {
+        system("cls");
+        system("cls");
+        bar(70 - 2, 5 - 2, 50 + 4, 2 + 17, 11, 75, nd1);
+        choose = Menu_bar(70, 5, 50, 2, 11, 75, nd, n);
+        //system("cls");
+        std::string searching = "";
+        switch (choose)
+        {
+        case 0:
+            searching = bar_Search_BOOK("TEN SACH");
+            search_title(searching);
+            system("pause");
+            break;
         case 1:
-            std::cout << "Nhap tac pham can tim: ";
-            std::getline(std::cin, searching);
-            search_title(searching, BookInventory);
+            searching = bar_Search_BOOK("TAC GIA");
+            search_author(searching);
+            system("pause");
             break;
         case 2:
-            std::cout << "Nhap tac gia can tim: ";
-            std::getline(std::cin, searching);
-            search_author(searching, BookInventory);
+            // cout<<"Nhap the loai can tim: ";
+            // getchar();
+            // getline(cin,searching);
+            // cout << endl;
+            // search_genre(searching);
+            // system("pause");
+            // break;
+            searching = bar_Search_BOOK("THE LOAI");
+            search_genre(searching);
+            system("pause");
             break;
         case 3:
-            std::cout << "Nhap the loai can tim: ";
-            std::getline(std::cin, searching);
-            search_genre(searching, BookInventory);
+            searching = bar_Search_BOOK("NGON NGU");
+            search_language(searching);
+            system("pause");
             break;
-        case 4:
-            std::cout << "Nhap ngon ngu can tim: ";
-            std::getline(std::cin, searching);
-            search_language(searching, BookInventory);
+        case 4: 
             break;
-        case 0:
-            return ;
-        default:
-            std::cout << "\n\tNhap sai vui long lua chon lai.\n"; 
         }
-
-    } while (true);
-
-    
+    } while (n - choose - 1);
 }
 
-int Book::get_id() {
+int Book::get_id()  {
     return this->id;
 }
 
@@ -249,19 +259,23 @@ std::string Book::get_language() {
     return this->language;
 }
 
-void Book::display_All(std::vector<Book> BookInventory) {
+void Book::display_All()  {
     std::cout << std::setiosflags(std::ios::left) << std::setw(5) << "ID";
     std::cout << std::setw(40) << "Title";
-    std::cout << std::setw(20) << "Author";
-    std::cout << std::setw(25) << "Genre";
+    std::cout << std::setw(25) << "Author";
+    std::cout << std::setw(20) << "Genre";
     std::cout << std::setw(10) << "Price";
     std::cout << std::setw(10) << "Quantity";
     std::cout << std::setw(20) << "Publisher";
-    std::cout << std::setw(15) << "PublishingYear";
+    std::cout << std::setw(20) << "PublishingYear";
     std::cout << std::setw(15) << "BookShelves";
     std::cout << std::setw(15) << "Language" << std::endl << std::endl;
-    for (int i = 0; i < BookInventory.size(); i++) {
-        BookInventory[i].display();
-        std::cout << std::endl;
+
+    for(int i=0;i<books.size();i++) {
+        books[i].display();
+        cout<<endl;
     }
 }
+
+
+
