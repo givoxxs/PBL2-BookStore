@@ -16,7 +16,7 @@ public:
     person();
     person(std::string id, std::string name, std::string phone_num, int year_of_birth);
     ~person();
-    std::string no_space(std::string s);
+    static std::string no_space(std::string s);
 
     std::string get_id();
     std::string get_name();

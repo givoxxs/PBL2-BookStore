@@ -34,7 +34,13 @@ mang solds --> tong so sach da ban --> để giảm số lượng sách trong kh
 vector saveOrder --> lưu trữ các đơn hàng (ngày/loại/số lượng)
 vector book_sold --> số lượng sách trong 1 đơn hàng
 
+------------------------------------------------------------------------------------------------
 
+Chuc nang them nhan vien: chua nhap ten da chuyen sang nhap so dien thoai --> da sua
+cac cot cua nhan vien, khach hang chua thang hang -->da sua
+danh sach tat ca khach hang chua co ten cot --> da sua
+thay doi thong tin nhan vien, khach hang --. da them/ chua test
+tang so luong sach --> chua them
 
 
 

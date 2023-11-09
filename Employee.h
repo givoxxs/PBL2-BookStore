@@ -17,10 +17,10 @@ public:
 
     std::string get_CI();
     std::string getAddress();
-    float get_wage();
+    int get_wage();
 
     void set_wage(float wage);
-    void set_address(float address);
+    void set_address(std::string address);
     static void re_wage();
     static void re_phone();
     static void re_address();
