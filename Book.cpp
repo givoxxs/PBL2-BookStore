@@ -1,8 +1,9 @@
 #include <windows.h>
 #include "Book.h"
 #include "Prepare.h"
-#include "FirstLib.h"
-#include "FirstLib_Menu.h"
+// #include "FirstLib.h"
+// #include "FirstLib_Menu.h"
+#include "MyLib.h"
 #include<iostream>
 #include<string>
 #include<iomanip>
@@ -84,18 +85,18 @@ Book &Book::add() {
     this->id = max;
     int x = 80, y = 5, h =2;
     bar_Add_Book();
-    goto_XY(x + 15, y + 1); cout << max;
-    goto_XY(x + 15, y + 3); getline(cin, title);
-    goto_XY(x + 15, y + 5); getline(cin, author);
-    goto_XY(x + 15, y + 7); getline(cin, genre);
-    goto_XY(x + 15, y + 9); cin >> price;
-    goto_XY(x + 15, y + 11); cin >> quantity;
+    gotoXY(x + 15, y + 1); cout << max;
+    gotoXY(x + 15, y + 3); getline(cin, title);
+    gotoXY(x + 15, y + 5); getline(cin, author);
+    gotoXY(x + 15, y + 7); getline(cin, genre);
+    gotoXY(x + 15, y + 9); cin >> price;
+    gotoXY(x + 15, y + 11); cin >> quantity;
     getchar();
-    goto_XY(x + 15, y + 13); getline(cin, publisher);
-    goto_XY(x + 15, y + 15); cin >> publishingYear;
+    gotoXY(x + 15, y + 13); getline(cin, publisher);
+    gotoXY(x + 15, y + 15); cin >> publishingYear;
     getchar();
-    goto_XY(x + 15, y + 17); getline(cin, bookShelves);
-    goto_XY(x + 15, y + 19); getline(cin, language);
+    gotoXY(x + 15, y + 17); getline(cin, bookShelves);
+    gotoXY(x + 15, y + 19); getline(cin, language);
     return *this;
 }
 
@@ -103,7 +104,7 @@ void Book::add_new_book() {
     Book newBook;
     newBook.add();
     books.push_back(newBook);
-    goto_XY(80, 5+25);
+    gotoXY(80, 5+25);
     ofstream inventoryFile("books.txt", ios::app);
 
     if (!inventoryFile) {
@@ -122,7 +123,7 @@ void Book::add_new_book() {
                  << newBook.get_language() << endl;
     inventoryFile.close();
     cout << "Sach moi da duoc them vao kho" << endl;
-    goto_XY(80, 5+26);
+    gotoXY(80, 5+26);
     system("pause");
 }
 
@@ -180,8 +181,8 @@ void Book::search() {
     {
         system("cls");
         system("cls");
-        bar(70 - 2, 5 - 2, 50 + 4, 2 + 17, 11, 75, nd1);
-        choose = Menu_bar(70, 5, 50, 2, 11, 75, nd, n);
+        box(70 - 2, 5 - 2, 50 + 4, 2 + 17, 11, 75, nd1);
+        choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
         //system("cls");
         std::string searching = "";
         switch (choose)

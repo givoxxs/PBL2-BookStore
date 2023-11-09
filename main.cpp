@@ -6,7 +6,6 @@
 #include "Customer.h"
 #include "Employee.h"
 #include "Save.h"
-#include "MyMenu.h"
 #include "MyLib.h"
 #include <iostream>
 #include <vector>
@@ -243,7 +242,7 @@ void QuanlySach() {
             switch (choose)
             {
             case 0:
-                box(20, 0, 40, 2, 11, 75, "             THONG TIN SACH TRONG CUA HANG              ");
+                box(20, 0, 60, 2, 11, 75, "             THONG TIN SACH TRONG CUA HANG              ");
                 cout << "\n\n";
                 SetColor(15);
                 Book::display_All();
@@ -277,7 +276,7 @@ void QuanlyNhanvien() {
             switch (choose)
             {
             case 0:
-                 box(20, 0, 50, 2, 11, 75, "            THONG TIN NHAN VIEN TRONG CUA HANG              ");
+                 box(20, 0, 60, 2, 11, 75, "            THONG TIN NHAN VIEN TRONG CUA HANG              ");
                 cout << "\n\n";
                 SetColor(15);
                 employee::display_All();
@@ -321,7 +320,7 @@ void QuanlyKhachhang() {
             switch (choose)
             {
             case 0:
-                box(20, 0, 50, 2, 11, 75, "             DANH SACH KHACH HANG TRONG CUA HANG             ");
+                box(20, 0, 60, 2, 11, 75, "             DANH SACH KHACH HANG TRONG CUA HANG             ");
                 cout << "\n\n";
                 SetColor(15);
                 customer::display_All();

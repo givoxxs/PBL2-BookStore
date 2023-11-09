@@ -1,5 +1,6 @@
 #include "Customer.h"
 #include "Prepare.h"
+#include "MyLib.h"
 #include <vector>
 #include <iostream>
 #include <string.h>
