@@ -1,6 +1,7 @@
-#include <windows.h>
 #include "Employee.h"
 #include "Prepare.h"
+#include "MyLib.h"
+#include "EmployeeLib_Menu.h"
 #include<iostream>
 #include<iomanip>
 #include<vector>
@@ -25,7 +26,7 @@ string employee::getAddress() {
     return this->address;
 }
 
-int employee::get_wage()
+float employee::get_wage()
 {
     return wage;
 }
@@ -34,31 +35,23 @@ void employee::set_wage(float wage) {
     this->wage = wage;
 }
 
-void employee::set_address(string address) {
-    this->address = address;
-}
-
 employee employee::add()
 {
-    
+    getchar();
     int max =  employees.size()+1;
     string temp = "NV" + to_string(max);
     this->id = temp;
+    int x = 80, y = 5, h =2;
+    bar_Add_Employee();
+    gotoXY(x + 11, y + 1); cout << temp;
+    gotoXY(x + 12, y + 3); getline(cin, name); getchar();
+    gotoXY(x + 16, y + 5); getline(cin, phone_number);
+    gotoXY(x + 11, y + 7); cin>>year_of_birthday; 
     getchar();
-    cout << "Nhap vao ten: ";
-    getline(cin, name);
-    cout << "Nhap vao so dien thoai: ";
-    getline(cin, phone_number);
-    cout<<"Nhap nam sinh: ";
-    cin>>year_of_birthday;
-    cout << "Nhap so Can cuoc cong dan:  ";
+    gotoXY(x + 12, y + 9); getline(cin,CICard);
     getchar();
-    getline(cin,CICard);
-    cout << "Nhap Dia Chi (Huyen va Tinh):  ";
-    getline(cin, address);
-    cout << "Nhap vao luong: ";
-    cin>>wage;
-    getchar();
+    gotoXY(x + 25, y + 11); getline(cin, address);
+    gotoXY(x + 14, y + 13);cin>>wage;
     return *this;
 }
 
@@ -67,12 +60,12 @@ void employee::add_new_emp()
     employee newemp;
     newemp.add();
     employees.push_back(newemp);
-
+    gotoXY(80, 5+16);
     ofstream inventoryFile("employees.txt", ios::app);
 
     if (!inventoryFile)
     {
-        cerr << "Không thể mở tệp employees.txt để ghi dữ liệu." << endl;
+        cerr << "Khong the mo employees.txt de ghi du lieu." << endl;
         return;
     }
     inventoryFile << newemp.get_id() << ","
@@ -83,15 +76,17 @@ void employee::add_new_emp()
                   << newemp.getAddress() << ","
                   << newemp.get_wage() << ","<<endl;
     inventoryFile.close();
-    cout << "Nhân viên đã được thêm vào tệp." << endl;
+    cout << "Nhan vien da duoc them vao tep" << endl;
+    gotoXY(80, 5+16);
+    system("pause");
 }
 
 void employee::display()
 {
-    cout << setiosflags(ios::left) << setw(20) << id;
+    cout << setiosflags(ios::left) << setw(10) << id;
     cout << setw(30) << name;
-    cout << setw(20) << phone_number;
-    cout << setw(15) << year_of_birthday;
+    cout << setw(18) << phone_number;
+    cout << setw(14) << year_of_birthday;
     cout << setw(20) << CICard;
     cout << setw(20) << address;
     cout << setw(20) << wage;
@@ -100,10 +95,10 @@ void employee::display()
 
 void employee::display_All()
 {
-    cout << setiosflags(ios::left) << setw(20) << "ID_Staff";
+    cout << setiosflags(ios::left) << setw(10) << "ID_Staff";
     cout << setw(30) << "Ten nhan vien";
-    cout << setw(20) << "So dien thoai";
-    cout << setw(15) << "Nam sinh";
+    cout << setw(18) << "So dien thoai";
+    cout << setw(14) << "Nam sinh";
     cout << setw(20) << "Can cuoc cong dan";
     cout << setw(20) << "Dia chi";
     cout << setw(20) << "Luong";
@@ -116,143 +111,131 @@ void employee::display_All()
 }
 
 void employee::re_wage()
-{
-    bool success = false;
-    string thay_doi;
-    cout << "Nhap vao id can thay doi luong: ";
+{   
+    int x = 70, y = 14;
+    string thay_doi = "";
+    gotoXY(x + 15, y + 1); getchar();
     getline(cin,thay_doi);
-    
     for (int i = 0; i < employees.size(); i++)
     {
         if (employees[i].get_id() == thay_doi)
         {
-            cout << "Nhap vao luong moi: ";
-            float new_wage;
+            float new_wage = 0;
+            gotoXY(x + 22, y + 3);
             cin>>new_wage;
             employees[i].set_wage(new_wage);
-            success = true;
-            break;
+            gotoXY(70, 14 + 10);
+            cout << "Thay doi thanh cong!!!" << endl;
+            gotoXY(70, 14 + 11);
+            return;
         }
     }
-    if(success) {
-        cout << "Thay doi thanh cong!!!" << endl;
-    } else {
-        cout<<"Khong tim thay khach hang co ID tren"<<endl;
-    }
+    cout << "Thay doi chua thanh cong!!!" << endl;
 }
 
 void employee::re_phone()
-{
-    bool success = false;
-    string thay_doi;
-    cout << "Nhap vao id can thay doi luong: ";
+{   
+    int x = 70, y = 14;
+    string thay_doi = "";
+    gotoXY(x + 15, y + 1);  getchar();
     getline(cin,thay_doi);
-    
+
     for (int i = 0; i < employees.size(); i++)
     {
         if (employees[i].get_id() == thay_doi)
-        {
-            cout << "Nhap vao so dien thoai moi: ";
+        {   
+            gotoXY(x + 22, y + 3);
+            getchar();
             employees[i].re_phone_num();
-            success = true;
-            break;
+            gotoXY(70, 14 + 10);
+            cout << "Thay doi thanh cong!!!" << endl;
+            gotoXY(70, 14 + 11);
+            return;
         }
     }
-    if(success) {
-        cout << "Thay doi thanh cong!!!" << endl;
-    } else {
-        cout<<"Khong tim thay khach hang co ID tren"<<endl;
-    }
-}
-
-void employee::re_address() {
-    bool success = false;
-    string thay_doi;
-    cout << "Nhap vao id can thay doi dia chi: ";
-    getline(cin,thay_doi);
-    
-    for (int i = 0; i < employees.size(); i++)
-    {
-        if (employees[i].get_id() == thay_doi)
-        {
-            cout << "Nhap vao dia chi moi: ";
-            string new_address;
-            getline(cin,new_address);
-            employees[i].set_address(new_address);
-            success = true;
-            break;
-        }
-    }
-    if(success) {
-        cout << "Thay doi thanh cong!!!" << endl;
-    } else {
-        cout<<"Khong tim thay khach hang co ID tren"<<endl;
-    }
-}
-
-void employee::change() {
-
-    int chon;
-    string abc;
-    cout << "1. Thay doi luong" << endl;
-    cout << "2. Thay doi so dien thoai" << endl;
-    cout << "3. Thay doi dia chi" << endl;
-    cout << "Nhap lua chon cua ban: ";
-    cin >> chon;
-    getchar();
-    
-    switch (chon)
-    {
-    case 1:
-
-        employee::re_wage();
-        break;
-    case 2:
-        employee::re_phone();
-        break;
-    case 3:
-        employee::re_address();
-        break;
-    default:
-        cout << "Lua chon sai!!!";
-        break;
-    }
-
+    cout << "Thay doi chua thanh cong!!!" << endl;
 }
 
 void employee::search()
 {
-    int chon;
-    string abc1;
-    float abc2;
-    cout << "1. Tim theo ten" << endl;
-    cout << "2. Tim theo luong" << endl;
-    cout << "Nhap lua chon cua ban: ";
-    cin >> chon;
-    getchar();
-    switch (chon)
-    {
-    case 1:
+    int choose, n = 3,count;
+    string nd[n], nd1;
+    nd[0] = "Tim theo TEN / Search by Name";
+    nd[1] = "Tim theo LUONG / Search by Wage";
+    nd[2] = "THOAT / EXIT";
+    nd1 = "             CAC LUA CHON TIM KIEM";
 
-        cout << "Nhap vao ten can tim: ";
-        getline(cin, abc1);
-        for (int i = 0; i < employees.size(); i++)
+    do {
+        system("cls");
+        system("cls");
+        box(70 - 2, 5 - 2, 50 + 4, 2 + 12, 11, 75, nd1);
+        choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
+        std::string searching = "";
+        float searching2 = 0.0;
+        switch (choose)
         {
-            employees[i].search_name(abc1);
+        case 0:
+            searching = bar_Search_Employee_1("Ten Nhan vien");
+            count = 0;
+            for (int i = 0; i < employees.size(); i++)
+            {
+                employees[i].search_name(searching);
+                count = 1;
+            }
+            if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
+            system("pause");
+            break;
+        case 1:
+            searching2 = bar_Search_Employee_2("Tien Luong");
+            count = 0;
+            for (int i = 0; i < employees.size(); i++)
+            {
+                employees[i].search_wage(searching2);
+            }
+            if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
+            system("pause");
+            break;
+        case 2:
+            break;
         }
-        break;
-    case 2:
-        cout << "Nhap vao luong can tim: ";
-        cin>>abc2;
-        for (int i = 0; i < employees.size(); i++)
-        {
-            employees[i].search_wage(abc2);
+    } while (n - choose - 1);
+}
+
+void employee::change() {
+    int choose, n = 4;
+    string nd[n], nd1;
+    nd[0] = "Thay doi luong / Change wage";
+    nd[1] = "Thay doi so dien thoai / Change phone number";
+    nd[2] = "Thay doi dia chi / Change Address";
+    nd[3] = "THOAT / EXIT";
+    nd1 = "         TUY CHON TIM KIEM / CHANGE OPTIONS";
+    
+    do {
+        system("cls");
+        box(70 - 2, 5 - 2, 50 + 4, 2 + 15, 11, 75, nd1);
+        choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
+        bar_Change(); 
+        // std::string searching = "";
+        switch (choose) {
+        case 0:
+            void bar_Change();
+            employee::re_wage();
+            system("pause");
+            break;
+        case 1:
+            void bar_Change();
+            employee::re_phone();
+            system("pause");
+            break;
+        case 2:
+            void bar_Change();
+            employee::re_address();
+            system("pause");
+            break;
+        case 3:
+            break;
         }
-        break;
-    default:
-        cout << "Lua chon sai!!!";
-        break;
-    }
+    } while (n - choose - 1);
 }
 
 void employee::search_wage(float abc)
@@ -260,7 +243,35 @@ void employee::search_wage(float abc)
     if (abc == get_wage())
     {
         this->display();
+        cout << endl;
     }
 }
 
+void employee::re_address() {
+    int x = 70, y = 14;
+    string thay_doi = "";
 
+    gotoXY(x + 15, y + 1); getchar();
+    getline(cin,thay_doi);
+
+    for (int i = 0; i < employees.size(); i++)
+    {
+        if (employees[i].get_id() == thay_doi)
+        {
+            string new_address = "";
+            gotoXY(x + 22, y + 3);
+            getchar();
+            getline(cin,new_address);
+            employees[i].set_address(new_address);
+            gotoXY(70, 14 + 10);
+            cout << "Thay doi thanh cong!!!" << endl;
+            gotoXY(70, 14 + 11);
+            return ;
+        }
+    }
+    cout << "Thay doi chua thanh cong!!!" << endl;
+}
+
+void employee::set_address(string address) {
+    this->address = address;
+}

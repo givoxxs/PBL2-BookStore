@@ -4,9 +4,7 @@
 #include "MyLib.h"
 
 using namespace std;
-
-
-
+// BOX
 void box(int x,int y,int w,int h,int t_color,int b_color,string nd)
 {
     SetColor(b_color);
@@ -41,8 +39,7 @@ void box(int x,int y,int w,int h,int t_color,int b_color,string nd)
     gotoXY(x,y+h);cout << char(192);
     gotoXY(x+w,y+h);cout << char(217);
 }
-
-
+// MUL BOX
 void MulBox(int x,int y,int w,int h,int t_color,int b_color,string nd[],int n)
 {
     for (int i=0;i<n;i++)
@@ -55,8 +52,7 @@ void MulBox(int x,int y,int w,int h,int t_color,int b_color,string nd[],int n)
         }
     }
 }
-
-
+// Thanh sáng
 void thanh_sang(int x,int y,int w,int h,int b_color,string nd)
 {
     SetColor(b_color);
@@ -71,8 +67,7 @@ void thanh_sang(int x,int y,int w,int h,int b_color,string nd)
     gotoXY(x+1,y+1);
     cout << nd;
 }
-
-
+// MENU chinh
 int Menu(int x,int y,int w,int h,int t_color,int b_color,string nd[],int n)
 {
     ShowCur(0);
@@ -132,8 +127,7 @@ int Menu(int x,int y,int w,int h,int t_color,int b_color,string nd[],int n)
     ShowCur(1);
     return pos;
 }
-
-
+// Toa do X
 int whereX()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -141,7 +135,7 @@ int whereX()
 		return csbi.dwCursorPosition.X;
 	return -1;
 }
-//========= lấy tọa độ y của con trỏ hiện tại =======
+// Toa do Y
 int whereY()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -221,60 +215,17 @@ int inputKey()
 	return KEY_NONE;
 }
 
-void bar_Add_Book() {
+void bar_Change_E() {
     int t_color = 11, b_color = 75;
-    int x = 80, y = 5, w = 50, h = 2, n = 10;
-    string nd[n];
-    nd[0] = "ID: ";
-    nd[1] = "Tieu de: ";    nd[2] = "Tac gia: ";    nd[3] = "The loai: ";
-    nd[4] = "Gia: ";        nd[5] = "So luong: ";   nd[6] = "Nha xuat ban: ";
-    nd[7] = "Nam xuat ban: ";    nd[8] = "Ke sach: ";  nd[9] = "Ngon ngu: ";
-
-    // Set_Color(b_color%t_color);
-    for(int i=x;i<=x+w;i++)
-    {
-        for (int j=0;j<=n;j++) {
-            gotoXY(i,y+h*j);
-            cout << char(196);
-        }
-    }
-    for (int i=y;i<=y+h*n;i++)
-    {
-        gotoXY(x,i); 
-        cout << char(179);
-        gotoXY(x+w,i);
-        cout << char(179);
-    }
-    gotoXY(x,y);cout << char(218);
-    gotoXY(x+w,y);cout << char(191);
-    gotoXY(x,y+h*n);cout << char(192);
-    gotoXY(x+w,y+h*n);cout << char(217);
-    for (int i = 1; i<n; i++) {
-        gotoXY(x,y+h*i); cout << char(195);
-        gotoXY(x+w,y+h*i); cout << char(180);
-    }
-
-
-    SetColor(t_color);
-    for (int i = 0; i<n; i=i+1) {
-        gotoXY(x + 1, y + 2*i + 1);
-        cout << nd[i] ;
-    }
-    SetColor(15);
-}
-
-string bar_Search_BOOK(string nd) {
-    int t_color = 11, b_color = 75;
-    int x = 70, y = 16, w = 50, h = 2;
-    string answer;
+    int x = 70, y = 14, w = 50, h = 2;  
     SetColor(b_color);
-    for (int i=x;i<=x+w;i++)
-    {
-        for(int j=y;j<=y+h+2;j++)
-        {
-            gotoXY(i,j);cout << " ";
-        }
-    }
+    // for (int i=x;i<=x+w;i++)
+    // {
+    //     for(int j=y;j<=y+h+2;j++)
+    //     {
+    //         gotoXY(i,j);cout << " ";
+    //     }
+    // }
     SetColor(b_color%t_color);
     for(int i=x;i<=x+w;i++)
     {
@@ -299,15 +250,10 @@ string bar_Search_BOOK(string nd) {
     gotoXY(x,y+h); cout << char(195);
     gotoXY(x+w,y+h); cout << char(180);
 
+    SetColor(11);
+    gotoXY(x + 1, y + 1);
+    cout << "ID nhan vien: ";
+    gotoXY(x + 1, y + 3);
+    cout << "Nhap vao dia chi moi: ";
     SetColor(15);
-    gotoXY(x+1,y+1);
-    cout <<"Nhap " + nd + " can tim kiem";
-    gotoXY(x+1, y+3);
-    cout << nd + ":  ";
-    gotoXY(x+12, y+3);
-    SetColor(15);
-    cin >> answer;
-    gotoXY(0, y + 8);
-    return answer;
-
 }

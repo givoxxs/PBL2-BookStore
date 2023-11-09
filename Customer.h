@@ -21,7 +21,6 @@ public:
     static void display_All();
     static void re_point();
     static void re_phone();
-    void search_phone(std::string abc);
     static void search();
     static void change();
 };

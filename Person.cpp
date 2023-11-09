@@ -42,16 +42,17 @@ int person::get_year_of_birthday()  {
 
 void person::search_name(string abc)
 {
-
-    if (no_space(get_name())==no_space(abc))
+    if (no_space(get_name()).find(no_space(abc)) != string::npos) 
     {
         this->display();
+        cout << endl;
     }
 }
 
 
 
 void person::re_phone_num()
-{
+{   
+    getchar();
     getline(cin, phone_number);
 }

@@ -1,9 +1,7 @@
-#include <windows.h>
 #include "Book.h"
 #include "Prepare.h"
-// #include "FirstLib.h"
-// #include "FirstLib_Menu.h"
 #include "MyLib.h"
+#include "BookLib_Menu.h"
 #include<iostream>
 #include<string>
 #include<iomanip>
@@ -84,7 +82,7 @@ Book &Book::add() {
     int max =  books.size()+1;
     this->id = max;
     int x = 80, y = 5, h =2;
-    bar_Add_Book();
+    box_Add_Book();
     gotoXY(x + 15, y + 1); cout << max;
     gotoXY(x + 15, y + 3); getline(cin, title);
     gotoXY(x + 15, y + 5); getline(cin, author);
@@ -104,7 +102,7 @@ void Book::add_new_book() {
     Book newBook;
     newBook.add();
     books.push_back(newBook);
-    gotoXY(80, 5+25);
+    gotoXY(80, 5+23);
     ofstream inventoryFile("books.txt", ios::app);
 
     if (!inventoryFile) {
@@ -123,7 +121,7 @@ void Book::add_new_book() {
                  << newBook.get_language() << endl;
     inventoryFile.close();
     cout << "Sach moi da duoc them vao kho" << endl;
-    gotoXY(80, 5+26);
+    gotoXY(80, 5+24);
     system("pause");
 }
 
@@ -175,42 +173,33 @@ void Book::search() {
     nd[3] = "Theo NGON NGU / Search by Language";
     nd[4] = "THOAT / EXIT";
 
-    nd1 = "             CAC LUA CHON TIM KIEM";
-    //std::string searching;
+    nd1 = "         TUY CHON TIM KIEM / CHANGE OPTIONS";
     do
     {
         system("cls");
         system("cls");
         box(70 - 2, 5 - 2, 50 + 4, 2 + 17, 11, 75, nd1);
         choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
-        //system("cls");
         std::string searching = "";
         switch (choose)
         {
         case 0:
-            searching = bar_Search_BOOK("TEN SACH");
+            searching = box_Search_BOOK("TEN SACH");
             search_title(searching);
             system("pause");
             break;
         case 1:
-            searching = bar_Search_BOOK("TAC GIA");
+            searching = box_Search_BOOK("TAC GIA");
             search_author(searching);
             system("pause");
             break;
         case 2:
-            // cout<<"Nhap the loai can tim: ";
-            // getchar();
-            // getline(cin,searching);
-            // cout << endl;
-            // search_genre(searching);
-            // system("pause");
-            // break;
-            searching = bar_Search_BOOK("THE LOAI");
+            searching = box_Search_BOOK("THE LOAI");
             search_genre(searching);
             system("pause");
             break;
         case 3:
-            searching = bar_Search_BOOK("NGON NGU");
+            searching = box_Search_BOOK("NGON NGU");
             search_language(searching);
             system("pause");
             break;

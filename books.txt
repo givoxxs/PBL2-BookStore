@@ -8,7 +8,7 @@
 8,The Lord of the Rings,J.R.R. Tolkien,Fantasy,30,10,Publisher6,1954,Shelf8,English
 9,The Alchemist,Paulo Coelho,Adventure,12,20,Publisher8,1988,Shelf9,Portuguese
 10,Brave New World,Aldous Huxley,Science Fiction,16,9,Publisher9,1932,Shelf10,English
-11,The Odyssey,Homer,Classics,14,5,Publisher10,8,Shelf11,Greek
+11,The Odyssey,Homer,Classics,14,5,Publisher10,8th Century BC,Shelf11,Greek
 12,The Road,Cormac McCarthy,Dystopian,17,11,Publisher11,2006,Shelf12,English
 13,The Hunger Games,Suzanne Collins,Dystopian,13,16,Publisher12,2008,Shelf13,English
 14,The Shining,Stephen King,Horror,15,8,Publisher13,1977,Shelf14,English
@@ -19,3 +19,4 @@
 19,Phan Van Quoc Bao,Bame tao,cuoc doi,100000,1,bame tao,2011,Shelf1,vietnamese
 20,Phan Minh,Phan Lau,Human,10000000,1,Ho Phan,19969,so 1,VietNamese
 21,Phan Thi Ngoc Nhi,Phan Minh,Human,23062000,1,Ho Phan,2000,Shelf 10,VietNamese
+22,Giao Phan,Phan Van Toan,No one,123456,100,NXB Giao Phan,2004,Shelf1,VietNamese

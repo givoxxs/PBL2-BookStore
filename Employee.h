@@ -17,7 +17,7 @@ public:
 
     std::string get_CI();
     std::string getAddress();
-    int get_wage();
+    float get_wage();
 
     void set_wage(float wage);
     void set_address(std::string address);

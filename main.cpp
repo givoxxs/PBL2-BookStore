@@ -1,4 +1,3 @@
-#include <windows.h>
 #include "Book.h"
 #include "Date.h"
 #include "Order.h"
@@ -11,8 +10,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-
-
 
 void Intro_start(), First_Menu(), Menu_Manager(), Menu_Staff(),setspace(),QuanlySach(), QuanlyNhanvien(), QuanlyKhachhang(), QuanlySach_Staff();
 bool CheckLog(const string& filename, const string& username, const string& password);
@@ -171,8 +168,7 @@ void First_Menu() {
         system("cls");
         switch(choose) {
             case 0:
-                if (DangNhap(1) == 99) {
-                    // std::cout << "Nguoi quan ly dang su dung";               
+                if (DangNhap(1) == 99) {               
                     Menu_Manager();
                 }
                 break;
@@ -185,10 +181,6 @@ void First_Menu() {
                 break;
         }                
     } while (n -  choose - 1);
-    thay_doi_tep_books();
-    thay_doi_tep_customers();
-    thay_doi_tep_employees();
-    thay_doi_tep_save();
 }
 // Menu cua Manager 
 void Menu_Manager() {
@@ -217,7 +209,9 @@ void Menu_Manager() {
             QuanlyKhachhang();
             break;
         case 3:
-            std::cout << "\n\t\t*DOANH THU VA THONGH KE*\n";
+            box(20, 0, 35, 2, 11, 75, "    DOANH THU VA THONG KE");
+            cout << "\n\n";\
+            SetColor(15);
             Save::display_All();
             system("pause");
             break;
@@ -242,7 +236,7 @@ void QuanlySach() {
             switch (choose)
             {
             case 0:
-                box(20, 0, 60, 2, 11, 75, "             THONG TIN SACH TRONG CUA HANG              ");
+                box(20, 0, 40, 2, 11, 75, "    THONG TIN SACH TRONG CUA HANG");
                 cout << "\n\n";
                 SetColor(15);
                 Book::display_All();
@@ -266,7 +260,7 @@ void QuanlyNhanvien() {
     nd[0] = "Hien thi tat ca nhan vien";
     nd[1] = "Them moi 1 nhan vien";
     nd[2] = "Tim kiem";
-    nd[3] = "Thay doi thong tin";
+    nd[3] = "Thay doi thong tin nhan vien";
     nd[4] = "Quay lai";
 
     do {
@@ -276,25 +270,22 @@ void QuanlyNhanvien() {
             switch (choose)
             {
             case 0:
-                 box(20, 0, 60, 2, 11, 75, "            THONG TIN NHAN VIEN TRONG CUA HANG              ");
+                box(20, 0, 50, 2, 11, 75, "     THONG TIN NHAN VIEN TRONG CUA HANG");
                 cout << "\n\n";
                 SetColor(15);
                 employee::display_All();
                 system("pause");
                 break;
             case 1:
-                std::cout << "\n\t\t*THEM 1 NHAN VIEN*\n";
                 employee::add_new_emp();
-                system("pause");
                 break;
             case 2:
-                std::cout << "\n\t\t*TIM KIEM*\n";
                 employee::search();
-                system("pause");
                 break;
-            //CHINH SUA O DAY
             case 3:
-                std::cout << "\n\t\t*THAY DOI THONG TIN NHAN VIEN*\n";
+                box(20, 0, 50, 2, 11, 75, "     Thay doi thong tin nhan vien");
+                cout << "\n\n";
+                SetColor(15);
                 employee::change();
                 system("pause");
                 break;
@@ -310,7 +301,7 @@ void QuanlyKhachhang() {
     nd[0] = "Hien thi tat ca khach hang";
     nd[1] = "Them moi 1 khach hang";
     nd[2] = "Tim kiem";
-    nd[3] = "Thay doi thong tin";
+    nd[3] = "Thay doi thong tin khach hang";
     nd[4] = "Quay lai";
 
     do {
@@ -320,7 +311,7 @@ void QuanlyKhachhang() {
             switch (choose)
             {
             case 0:
-                box(20, 0, 60, 2, 11, 75, "             DANH SACH KHACH HANG TRONG CUA HANG             ");
+                box(20, 0, 50, 2, 11, 75, "     THONG TIN KHACH HANG TRONG CUA HANG");
                 cout << "\n\n";
                 SetColor(15);
                 customer::display_All();
@@ -337,12 +328,13 @@ void QuanlyKhachhang() {
                 system("pause");
                 break;
             case 3:
-                std::cout << "\n\t\t*THAY DOI THONG TIN KHACH HANG*\n";
+                box(20, 0, 50, 2, 11, 75, "     Thay doi thong tin Khach hang");
+                cout << "\n\n";
+                SetColor(15);
                 customer::change();
                 system("pause");
                 break;
-            case 4:
-                //system("pause");
+            case 4: 
                 break;
             }
         } while (n - choose - 1);
@@ -393,7 +385,7 @@ void QuanlySach_Staff() {
             switch (choose)
             {
             case 0:
-                box(20, 0, 40, 2, 11, 75, "             THONG TIN SACH TRONG CUA HANG               ");
+                box(20, 0, 40, 2, 11, 75, "    THONG TIN SACH TRONG CUA HANG");
                 cout << "\n\n";
                 SetColor(15);
                 Book::display_All();
