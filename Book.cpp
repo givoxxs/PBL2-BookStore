@@ -85,7 +85,7 @@ Book &Book::add() {
     box_Add_Book();
     gotoXY(x + 15, y + 1); cout << max;
     gotoXY(x + 15, y + 3); getline(cin, title);
-    gotoXY(x + 15, y + 5); getline(cin, author);
+    gotoXY(x + 15, y + 5);   getline(cin, author);
     gotoXY(x + 15, y + 7); getline(cin, genre);
     gotoXY(x + 15, y + 9); cin >> price;
     gotoXY(x + 15, y + 11); cin >> quantity;

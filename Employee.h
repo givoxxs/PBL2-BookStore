@@ -17,9 +17,9 @@ public:
 
     std::string get_CI();
     std::string getAddress();
-    float get_wage();
+    int get_wage();
 
-    void set_wage(float wage);
+    void set_wage(int wage);
     void set_address(std::string address);
     static void re_wage();
     static void re_phone();
@@ -31,7 +31,7 @@ public:
     void display();
     static void display_All();
 
-    void search_wage(float abc);
+    void search_wage(int abc);
     static void search();
     static void change();
 

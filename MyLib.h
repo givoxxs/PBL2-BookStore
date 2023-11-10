@@ -18,6 +18,5 @@ void SetColor(WORD color);
 void SetBGColor(WORD color);
 void ShowCur(bool CursorVisibility);
 int inputKey();
-void bar_Change_E();
 
 #endif // MyLib_h // tránh đụng độ thư viện khi gọi chồng file lên nhau

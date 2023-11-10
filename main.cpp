@@ -287,7 +287,6 @@ void QuanlyNhanvien() {
                 cout << "\n\n";
                 SetColor(15);
                 employee::change();
-                system("pause");
                 break;
             case 4:
                 break;

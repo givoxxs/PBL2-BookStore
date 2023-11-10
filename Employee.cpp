@@ -4,6 +4,7 @@
 #include "EmployeeLib_Menu.h"
 #include<iostream>
 #include<iomanip>
+#include <string>
 #include<vector>
 using namespace std;
 
@@ -26,30 +27,32 @@ string employee::getAddress() {
     return this->address;
 }
 
-float employee::get_wage()
+int employee::get_wage()
 {
     return wage;
 }
 
-void employee::set_wage(float wage) {
+void employee::set_wage(int wage) {
     this->wage = wage;
 }
 
 employee employee::add()
 {
-    getchar();
+    //getchar();
     int max =  employees.size()+1;
     string temp = "NV" + to_string(max);
     this->id = temp;
     int x = 80, y = 5, h =2;
+    system("cls");
     bar_Add_Employee();
     gotoXY(x + 11, y + 1); cout << temp;
-    gotoXY(x + 12, y + 3); getline(cin, name); getchar();
+    getchar();
+    gotoXY(x + 12, y + 3); getline(cin, name); 
+    //getchar();
     gotoXY(x + 16, y + 5); getline(cin, phone_number);
     gotoXY(x + 11, y + 7); cin>>year_of_birthday; 
     getchar();
     gotoXY(x + 12, y + 9); getline(cin,CICard);
-    getchar();
     gotoXY(x + 25, y + 11); getline(cin, address);
     gotoXY(x + 14, y + 13);cin>>wage;
     return *this;
@@ -77,7 +80,7 @@ void employee::add_new_emp()
                   << newemp.get_wage() << ","<<endl;
     inventoryFile.close();
     cout << "Nhan vien da duoc them vao tep" << endl;
-    gotoXY(80, 5+16);
+    gotoXY(80, 5+17);
     system("pause");
 }
 
@@ -114,15 +117,16 @@ void employee::re_wage()
 {   
     int x = 70, y = 14;
     string thay_doi = "";
-    gotoXY(x + 15, y + 1); getchar();
+    gotoXY(x + 15, y + 1); 
+    getchar();
     getline(cin,thay_doi);
     for (int i = 0; i < employees.size(); i++)
     {
         if (employees[i].get_id() == thay_doi)
         {
-            float new_wage = 0;
+            int new_wage = 0;
             gotoXY(x + 22, y + 3);
-            cin>>new_wage;
+            cin >> new_wage;
             employees[i].set_wage(new_wage);
             gotoXY(70, 14 + 10);
             cout << "Thay doi thanh cong!!!" << endl;
@@ -130,7 +134,10 @@ void employee::re_wage()
             return;
         }
     }
+    thay_doi = "";
+    gotoXY(70, 14 + 10);
     cout << "Thay doi chua thanh cong!!!" << endl;
+    gotoXY(70, 14 + 11);
 }
 
 void employee::re_phone()
@@ -138,14 +145,13 @@ void employee::re_phone()
     int x = 70, y = 14;
     string thay_doi = "";
     gotoXY(x + 15, y + 1);  getchar();
-    getline(cin,thay_doi);
+    getline(cin, thay_doi);
 
     for (int i = 0; i < employees.size(); i++)
     {
         if (employees[i].get_id() == thay_doi)
         {   
-            gotoXY(x + 22, y + 3);
-            getchar();
+            gotoXY(x + 22 + 7, y + 3);
             employees[i].re_phone_num();
             gotoXY(70, 14 + 10);
             cout << "Thay doi thanh cong!!!" << endl;
@@ -153,7 +159,10 @@ void employee::re_phone()
             return;
         }
     }
+    thay_doi = "";
+    gotoXY(70, 14 + 10);
     cout << "Thay doi chua thanh cong!!!" << endl;
+    gotoXY(70, 14 + 11);
 }
 
 void employee::search()
@@ -171,7 +180,7 @@ void employee::search()
         box(70 - 2, 5 - 2, 50 + 4, 2 + 12, 11, 75, nd1);
         choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
         std::string searching = "";
-        float searching2 = 0.0;
+        int searching2 = 0.0;
         switch (choose)
         {
         case 0:
@@ -182,17 +191,18 @@ void employee::search()
                 employees[i].search_name(searching);
                 count = 1;
             }
-            if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
+            if (count == 0) std::cout << "NOT FOUND STAFF !!!" << std::endl;
             system("pause");
             break;
         case 1:
             searching2 = bar_Search_Employee_2("Tien Luong");
             count = 0;
             for (int i = 0; i < employees.size(); i++)
-            {
+            {   
                 employees[i].search_wage(searching2);
+                count = 1;
             }
-            if (count == 0) std::cout << "NOT FOUND THIS BOOK !!!" << std::endl;
+            if (count == 0) std::cout << "NOT FOUND STAFF !!!" << std::endl;
             system("pause");
             break;
         case 2:
@@ -212,23 +222,23 @@ void employee::change() {
     
     do {
         system("cls");
+        system("cls");
         box(70 - 2, 5 - 2, 50 + 4, 2 + 15, 11, 75, nd1);
         choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
-        bar_Change(); 
-        // std::string searching = "";
+        //bar_Change(); 
         switch (choose) {
         case 0:
-            void bar_Change();
+            bar_Change("Luong");
             employee::re_wage();
             system("pause");
             break;
         case 1:
-            void bar_Change();
+            bar_Change("So dien thoai");
             employee::re_phone();
             system("pause");
             break;
         case 2:
-            void bar_Change();
+            bar_Change("Dia chi");
             employee::re_address();
             system("pause");
             break;
@@ -238,7 +248,7 @@ void employee::change() {
     } while (n - choose - 1);
 }
 
-void employee::search_wage(float abc)
+void employee::search_wage(int abc)
 {
     if (abc == get_wage())
     {
@@ -251,7 +261,8 @@ void employee::re_address() {
     int x = 70, y = 14;
     string thay_doi = "";
 
-    gotoXY(x + 15, y + 1); getchar();
+    gotoXY(x + 15, y + 1); 
+    getchar();
     getline(cin,thay_doi);
 
     for (int i = 0; i < employees.size(); i++)
@@ -269,7 +280,10 @@ void employee::re_address() {
             return ;
         }
     }
+    thay_doi = "";
+    gotoXY(70, 14 + 10);
     cout << "Thay doi chua thanh cong!!!" << endl;
+    gotoXY(70, 14 + 11);
 }
 
 void employee::set_address(string address) {

@@ -8,7 +8,7 @@
 using namespace std;
 
 string bar_Search_Employee_1(string nd);
-float bar_Search_Employee_2(string nd);
+int bar_Search_Employee_2(string nd);
 void bar_Add_Employee();
 void bar_Change();
 
@@ -57,15 +57,16 @@ string bar_Search_Employee_1(string nd) {
     cout << nd + ":  ";
     gotoXY(x+18, y+3);
     SetColor(15);
-    cin >> answer;
+    getchar();
+    getline(cin, answer);
     gotoXY(0, y + 7);
     return answer;
 }
 // Bar search tien luong
-float bar_Search_Employee_2(string nd) {
+int bar_Search_Employee_2(string nd) {
     int t_color = 11, b_color = 75;
     int x = 70, y = 12, w = 50, h = 2;
-    float answer = 0.0;
+    int answer = 0;
     SetColor(b_color);
     for (int i=x;i<=x+w;i++)
     {
@@ -150,17 +151,10 @@ void bar_Add_Employee() {
     SetColor(15);
 }
 // Change options
-void bar_Change() {
+void bar_Change(string nd) {
     int t_color = 11, b_color = 75;
     int x = 70, y = 14, w = 50, h = 2;  
     SetColor(b_color);
-    // for (int i=x;i<=x+w;i++)
-    // {
-    //     for(int j=y;j<=y+h+2;j++)
-    //     {
-    //         gotoXY(i,j);cout << " ";
-    //     }
-    // }
     SetColor(b_color%t_color);
     for(int i=x;i<=x+w;i++)
     {
@@ -189,7 +183,7 @@ void bar_Change() {
     gotoXY(x + 1, y + 1);
     cout << "ID nhan vien: ";
     gotoXY(x + 1, y + 3);
-    cout << "Nhap vao dia chi moi: ";
+    cout << "Nhap vao " + nd +  " moi: ";
     SetColor(15);
 }
 #endif // MyMenu_h
