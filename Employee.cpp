@@ -118,11 +118,10 @@ void employee::re_wage()
     int x = 70, y = 14;
     string thay_doi = "";
     gotoXY(x + 15, y + 1); 
-    getchar();
-    getline(cin,thay_doi);
+    cin >> thay_doi;
     for (int i = 0; i < employees.size(); i++)
     {
-        if (employees[i].get_id() == thay_doi)
+        if (no_space(employees[i].get_id()) == no_space(thay_doi))
         {
             int new_wage = 0;
             gotoXY(x + 22, y + 3);
@@ -132,6 +131,9 @@ void employee::re_wage()
             cout << "Thay doi thanh cong!!!" << endl;
             gotoXY(70, 14 + 11);
             return;
+        } else {
+            
+            cout << "Thay doi chua thanh cong!!!  " << thay_doi << " \n" << endl;
         }
     }
     thay_doi = "";
@@ -144,12 +146,12 @@ void employee::re_phone()
 {   
     int x = 70, y = 14;
     string thay_doi = "";
-    gotoXY(x + 15, y + 1);  getchar();
-    getline(cin, thay_doi);
+    gotoXY(x + 15, y + 1); 
+    cin >> thay_doi;
 
     for (int i = 0; i < employees.size(); i++)
     {
-        if (employees[i].get_id() == thay_doi)
+        if (no_space(employees[i].get_id()) == no_space(thay_doi))
         {   
             gotoXY(x + 22 + 7, y + 3);
             employees[i].re_phone_num();
@@ -262,12 +264,11 @@ void employee::re_address() {
     string thay_doi = "";
 
     gotoXY(x + 15, y + 1); 
-    getchar();
-    getline(cin,thay_doi);
+    cin >> thay_doi;
 
     for (int i = 0; i < employees.size(); i++)
     {
-        if (employees[i].get_id() == thay_doi)
+        if (no_space(employees[i].get_id()) == no_space(thay_doi))
         {
             string new_address = "";
             gotoXY(x + 22, y + 3);
