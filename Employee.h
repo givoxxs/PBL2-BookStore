@@ -34,6 +34,8 @@ public:
     void search_wage(int abc);
     static void search();
     static void change();
+    static void delete_emp();
+    int get_number(std::string );
 
 };
 #endif

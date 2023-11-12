@@ -39,8 +39,9 @@ void employee::set_wage(int wage) {
 employee employee::add()
 {
     //getchar();
-    int max =  employees.size()+1;
-    string temp = "NV" + to_string(max);
+    int max =  employees.size();
+    int new_id = get_number(employees[max - 1].get_id()) + 1;
+    string temp = "NV" + to_string(new_id);
     this->id = temp;
     int x = 80, y = 5, h =2;
     system("cls");
@@ -288,4 +289,28 @@ void employee::re_address() {
 
 void employee::set_address(string address) {
     this->address = address;
+}
+
+void employee::delete_emp() {
+    string id_dlt;
+    cout<<"Nhap vao ID nhan vien can xoa: ";
+    cin>>id_dlt;
+    int max=employees.size();
+    for(int i=0;i<max;i++) {
+        if(employees[i].get_id() == id_dlt) {
+            employees.erase(employees.begin()+i);
+            break;
+        }
+    }
+    thay_doi_tep_employees();
+}
+
+int employee::get_number(std::string a ) {
+    int number = 0;
+    for (int i = 0; i < a.length(); i++) {
+        if (isdigit(a[i])) {
+            number = number * 10 + (a[i] - '0');
+        }
+    }
+    return number;
 }

@@ -80,12 +80,13 @@ void Book::search_language(std::string abc)  {
 }
 
 Book &Book::add() {
-    getchar();
-    int max =  books.size()+1;
-    this->id = max;
+   getchar();
+    int max =  books.size();
+    int new_id = books[max-1].get_id() + 1;
+    this->id = new_id;
     int x = 80, y = 5, h =2;
     box_Add_Book();
-    gotoXY(x + 15, y + 1); cout << max;
+    gotoXY(x + 15, y + 1); cout << new_id;
     gotoXY(x + 15, y + 3); getline(cin, title);
     gotoXY(x + 15, y + 5);   getline(cin, author);
     gotoXY(x + 15, y + 7); getline(cin, genre);
@@ -269,5 +270,58 @@ void Book::display_All()  {
     }
 }
 
+void Book::re_price() {
+    int thay_doi;
+    int new_price;
+    cout << "Nhap vao id can thay doi gia: ";
+    cin>>thay_doi;
 
+    for (int i = 0; i < books.size(); i++)
+    {
+        if (books[i].get_id() == thay_doi)
+        {
+            cout << "Nhap vao gia ban moi: ";
+            cin >> new_price;
+            books[i].set_price(new_price);
+            break;
+        }
+    }
+}
+
+void Book::set_price(int price) {
+    this->price = price;
+}
+
+void Book::change() {
+    int chon;
+    cout<<"Them sach or Thay doi gia: ";
+    cin>>chon;
+    switch (chon)
+    {
+    case 1:
+        increase();
+        thay_doi_tep_books();
+        break;
+    case 2:
+        re_price();
+        thay_doi_tep_books();
+        break;
+    default:
+        break;
+    }
+}
+
+void Book::delete_book() {
+    int id_dlt;
+    cout<<"Nhap ID quyen sach can loai bo: ";
+    cin>>id_dlt;
+    int max=books.size();
+    for(int i=0;i<max;i++) {
+        if(books[i].get_id() == id_dlt) {
+            books.erase(books.begin()+i);
+            break;
+        }
+    }
+    thay_doi_tep_books();
+}
 

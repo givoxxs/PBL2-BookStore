@@ -317,11 +317,18 @@ void order::display()
              << endl;
     }
     cout << setw(20) << "So loai sach: " << so_loai << endl;
-    cout << setw(20) << "ID"
-         << "So luong" << endl;
+    cout << setw(20) << "ID"<<setw(50)<<"Ten sach"<<setw(10)<<"Gia (VND)"<<setw(20)<< "So luong" << endl;
     for (int i = 0; i < so_loai; i++)
     {
-        cout << setw(20) << book_sold[i].get_book_id() << book_sold[i].get_book_qtt() << endl;
+        cout << setw(20) << book_sold[i].get_book_id();
+        for(int j=0;j<books.size();j++) {
+            if(books[j].get_id() == book_sold[i].get_book_id()) {
+                cout<<setw(50)<<books[j].get_title();
+                cout<<setw(10)<<books[j].get_price();
+                break;
+            }
+        }
+        cout<< book_sold[i].get_book_qtt() << endl;
     }
 
     Save s;

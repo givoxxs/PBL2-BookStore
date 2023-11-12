@@ -48,8 +48,12 @@ class Book {
 
         static void increase();
         void decrease(int);
-        void set_quantity(int );
-        static void add_new_book();
+        static void re_price();
 
+        void set_quantity(int );
+        void set_price(int );
+        static void add_new_book();
+        static void change();
+        static void delete_book();
 };
 #endif
