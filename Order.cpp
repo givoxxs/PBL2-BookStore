@@ -4,6 +4,7 @@
 #include "Sold.h"
 #include "Prepare.h"
 #include "Save.h"
+#include "Mylib.h"
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -62,29 +63,40 @@ void order::change(int x)
 // tao 1 hoa don moi
 order order::create()
 {
-
-    cout << "Nhap vao tong so loai sach: ";
-    cin >> this->so_loai;
-    cout << "Nhap vao id cua tung cuon sach va so luong tuong ung: " << endl;
-    for (int i = 0; i < so_loai; i++)
-    {
+    int x = 20;
+    int y = whereY();
+    box(x,y,20,2,11, 75, "So loai sach: "); 
+    SetColor(15);
+    gotoXY(x + 15, y + 1);  cin >> this->so_loai;
+    int n = this->so_loai;
+    y = y + 3;
+    string nd[n];
+    for (int i =0 ;i < n; i++)  nd[i] = "Book";
+    MulBox(x, y, 40, 2, 7, 15,nd, n);
+    // Tạo bảng mẫu
+    for (int i = 0; i<n ; i++) {
+        gotoXY(x + 6, y + 2*i + 1);     cout << i + 1 << " : ";
+        gotoXY(x + 10, y + 2*i + 1);    cout << "ID = ";
+        gotoXY(x + 20, y + 2*i + 1);    cout << "| So luong = ";
+    }
+    // Điền thông tin
+    for (int i = 0; i<n ; i++) {
+        SetColor(15);
         sold a;
-        cout << "ID cuon sach thu " << i + 1 << ": ";
-        int x;
-        cin >> x;
-        a.set_book_id(x);
-        cout << "So luong: ";
-        int y;
-        cin >> y;
-        a.set_book_qtt(y);
+        int id, qtt;
+        gotoXY(x + 10 + 6, y + 2*i + 1);    cin >> id;
+        a.set_book_id(id);
+        gotoXY(x + 20 + 13, y + 2*i + 1);   cin >> qtt;
+        a.set_book_qtt(qtt);
         book_sold.push_back(a);
     }
+    gotoXY(x, y + 2*n + 1);
 
     return *this;
 }
 
 int order::set_info()
-{
+{   
     this->order_id = "HD" + to_string(saveOrder.size() + 1);
     int chon;
     getchar();
@@ -128,38 +140,54 @@ int order::set_info()
 // lua chon
 void order::choose()
 {
-    int chosen;
-    do
-    {
-        cout << "Ban muon: " << endl;
-        cout << "1. Tinh tien" << endl
-             << "2. Thay doi don hang" << endl;
-        cout << "Ban chon: ";
-        cin >> chosen;
+    int x = 20; 
+    int y = whereY();
+    int choose, n = 2;
+    string nd[n];
+    nd[0] = "Tinh tien";
+    nd[1] = "Thay doi gio hang";
+    
 
-        switch (chosen)
-        {
-        case 1:
-            cout << "Tong tien: " << sum_total() << " VDN" << endl;
-            cout << "Tien nhan cua khach (don vi: VDN): ";
-            pay();
-            break;
-        case 2:
-            remove();
-            cout << "Tong tien con lai: " << sum_total() << " VND" << endl;
-            break;
-        default:
-            cout << "Lua chon sai. Vui long nhap lai." << endl;
-            break;
+    do {
+        //system("cls");
+        gotoXY(20, 3);
+        box(x, y, 30 + 4, 2 + 5, 11, 75, "\tBan chon?") ;
+        choose = Menu(x + 2, y + 2, 30, 2, 11, 75, nd, n);
+        gotoXY(x, y + 7);
+        cout << endl;
+        switch (choose) {
+            case 0: 
+                SetColor(15);
+                y = whereY();
+                gotoXY(x, y+2);
+                cout << "Tong tien: " << sum_total() << " VND";
+                gotoXY(x ,y+3);
+                cout << "Tien nhan cua khach (don vi: VND): ";          
+                pay();
+                y = y + 4;
+                gotoXY(x, y);
+                break;
+            case 1:
+                SetColor(15);
+                y = whereY();
+                gotoXY(x, y+1);
+                remove();
+                y = whereY() + 1;
+                gotoXY(x, y);
+                cout << "Tong tien con lai: " << sum_total() << " VND" << endl;
+                y++;
+                gotoXY(x, y);
+                break;
         }
-    } while (chosen != 1);
+    } while (choose != 0);
 }
 
 // xoa 1 loai sach khoi don hang
 order order::remove_type()
 {
     int dlt_id;
-    cout << "Nhap vao ID sach ban muon xoa khoi don hang: ";
+    cout << "---------------------------------------------" << endl;
+    cout << "\tNhap vao ID sach ban muon xoa khoi don hang: ";
     cin >> dlt_id;
     bool found = false;
     for (int i = 0; i < so_loai; i++)
@@ -169,14 +197,16 @@ order order::remove_type()
             book_sold.erase(book_sold.begin() + i);
             so_loai--;
             found = true;
-            cout << "Xoa thanh cong!!" << endl;
+            cout << "\tXoa thanh cong!!" << endl;
+            cout << "---------------------------------------------" << endl;
             break;
         }
     }
 
     if (!found)
-    {
-        cout << "Khong tim thay sach co ID " << dlt_id << " trong don hang." << endl;
+    {   
+        cout << "\tKhong tim thay sach co ID " << dlt_id << " trong don hang." << endl;
+        cout << "---------------------------------------------" << endl;
     }
 
     return *this;
@@ -184,11 +214,12 @@ order order::remove_type()
 
 // giam so luong 1 cuon sach
 order order::remove_qtt()
-{
+{   
     int dlt_id, qtt;
-    cout << "Nhap vao ID sach ban muon thay doi so luong: ";
+    cout << "---------------------------------------------" << endl;
+    cout << "\tNhap vao ID sach ban muon thay doi so luong: ";
     cin >> dlt_id;
-    cout << "So luong muon giam: ";
+    cout << "\tSo luong muon giam: ";
     cin >> qtt;
     bool found = false;
     for (int i = 0; i < so_loai; i++)
@@ -198,14 +229,16 @@ order order::remove_qtt()
             int qtt_old = book_sold[i].get_book_qtt();
             book_sold[i].set_book_qtt(qtt_old - qtt);
             found = true;
-            cout << "Thay doi thanh cong!!" << endl;
+            cout << "\tThay doi thanh cong!!" << endl;
+            cout << "---------------------------------------------" << endl;
             break;
         }
     }
 
     if (!found)
     {
-        cout << "Khong tim thay sach co ID " << dlt_id << " trong don hang." << endl;
+        cout << "\tKhong tim thay sach co ID " << dlt_id << " trong don hang." << endl;
+        cout << "---------------------------------------------" << endl;
     }
 
     return *this;
@@ -213,34 +246,53 @@ order order::remove_qtt()
 
 void order::remove()
 {
-    int chon;
+    int chon, n = 3;
+    int x = 20;
+    int y = whereY();
+    string nd[n] ;
+    nd[0] = "Xoa 1 cuon sach khoi don hang";
+    nd[1] = "Thay doi so luong 1 cuon sach";
+    nd[2] = "Thoat!";
     do
-    {
-        cout << "1. Xoa 1 cuon sach khoi don hang" << endl;
-        cout << "2. Thay doi so luong 1 cuon sach" << endl;
-        cout << "Khac. Hoan thanh thay doi" << endl;
-        cout << "Ban chon: ";
-        cin >> chon;
+    {   
+        // system("cls");
+        chon = Menu(x + 2, y + 1, 30, 2, 11, 75, nd, n);
+        gotoXY(x, y + 1 + 7);
+        cout << endl;
         switch (chon)
         {
-        case 1:
+        case 0:
+            y = whereY();
+            gotoXY(x,y);
             remove_type();
+            y = whereY() + 1;
+            gotoXY(x, y);
             sum_total();
+            y = whereY() + 1;
+            gotoXY(x, y);
+            break;
+        case 1:
+            y = whereY();
+            gotoXY(x,y);
+            remove_qtt();
+            y = whereY() + 1;
+            gotoXY(x, y);
+            sum_total();
+            y = whereY() + 1;
+            gotoXY(x, y);
             break;
         case 2:
-            remove_qtt();
-            sum_total();
-            break;
-        default:
-            cout << "Hoan thanh!" << endl;
             break;
         }
-    } while (chon == 1 || chon == 2);
+    } while (n - chon - 1);
 }
 
 // xuat don hang
 void order::display()
-{
+{   
+    int x = 20;
+    int y = whereY() + 2;
+    gotoXY(x,y);
     int daco = set_info();
     int discount = 0;
     cout << "------------------------------------------------------------" << endl;
@@ -316,19 +368,21 @@ void order::allthing()
         // system("cls");
         order o;
         int chon;
-        cout << "Tao don hang moi" << endl;
-        o.create();
-        o.choose();
+        //cout << "Tao don hang moi" << endl;
+        o.create(); // done
+        o.choose(); // pending
         o.display();
-
+        int x = 20;
+        int y = whereY() + 2;
+        gotoXY(x,y);
         for (int i = 0; i < o.so_loai; i++)
         {
             solds[o.book_sold[i].get_book_id()] = o.book_sold[i].get_book_qtt();
         }
-
+        cout << "---------------------------------------------" << endl;
         cout << endl
-             << "Ban muon tao 1 don hang moi khong??" << endl;
-        cout << "Chon 1 de tao, phim bat ki ket thuc" << endl;
+             << "Ban muon tao 1 don hang moi khong??" << endl << endl;
+        cout << "Chon 1 de tao, phim bat ki ket thuc" << endl << endl; 
         cout << "Ban chon: ";
         cin >> chon;
         if (chon != 1)

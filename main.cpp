@@ -369,7 +369,9 @@ void Menu_Staff() {
             QuanlyKhachhang();
             break;
         case 2:
-            std::cout << "\n\t\t*TAO HOA DON MOI*\n";
+            box(20, 0, 50, 2, 11, 75, "     TAO HOA DON MOI");
+            cout << "\n\n";
+            SetColor(15);
             order::allthing();
             break;
         case 3:
