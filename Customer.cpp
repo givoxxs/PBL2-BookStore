@@ -1,8 +1,10 @@
 #include "Customer.h"
 #include "Prepare.h"
+#include "MyLib.h"
+#include "CustomerLib_Menu.h"
 #include <vector>
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <iomanip>
 using namespace std;
 
@@ -26,17 +28,23 @@ void customer::set_point(int x) {
 
 customer customer::add()
 {
-    getchar();
+    //getchar();
     int max =  customers.size()+1;
     string temp = "KH" + to_string(max);
     this->id = temp;
-    cout << "Nhap vao ten: ";
+    int x = 80, y = 5, h =2;
+    system("cls");
+    bar_Add_Customer();
+    gotoXY(x + 8, y + 1);   cout << temp;
+    getchar();
+    gotoXY(x + 12, y + 3);  
     getline(cin, name);
-    cout << "Nhap vao so dien thoai: ";
+    gotoXY(x + 16, y + 5);
     getline(cin, phone_number);
-    cout<<"Nhap nam sinh: ";
+    gotoXY(x + 11, y + 7);
     cin>>year_of_birthday;
     this->point = 0;
+    gotoXY(x , y + 13);
     return *this;
 }
 
@@ -50,7 +58,7 @@ void customer::add_new_cus()
 
     if (!inventoryFile)
     {
-        cerr << "Không thể mở tệp customers.txt để ghi dữ liệu." << endl;
+        cerr << "Khong the mo customers.txt de ghi du lieu." << endl;
         return;
     }
     inventoryFile << newcus.get_id() << ","
@@ -60,22 +68,32 @@ void customer::add_new_cus()
                   << newcus.get_point()<<endl;
     inventoryFile.close();
     cout << "Khach hang da duoc them vao." << endl;
+    gotoXY(80 , 5 + 15);
+    system("pause");
 }
 
 void customer::display()
 {
-    cout << setw(5) << id;
-    cout << setw(20) << name;
+    cout << setiosflags(ios::left) << setw(8) << id;
+    cout << setw(30) << name;
     cout << setw(20) << phone_number;
-    cout << setw(10) << year_of_birthday;
-    cout << setw(10) << point<<endl;
+    cout << setw(13) << year_of_birthday;
+    cout << setw(10) << point << endl;
 }
 
 void customer::display_All()
 {
+    cout << setiosflags(ios::left) << setw(8) << "ID";
+    cout << setw(30) << "Ten Khach hang";
+    cout << setw(20) << "So dien thoai";
+    cout << setw(10) << "Nam sinh";
+    cout << setw(13) << "Diem tich luy";
+    cout << endl << endl;
+
     for (int i = 0; i < customers.size(); i++)
     {
         customers[i].display();
+        cout << endl;
     }
 }
 
@@ -100,30 +118,54 @@ void customer::re_phone()
 
 void customer::search()
 {
-    int chon;
-    string abc;
-    cout << "1. Tim theo ten" << endl;
-    cout << "2. Tim theo so dien thoai" << endl;
-    cout << "Nhap lua chon cua ban: ";
-    cin >> chon;
-    getchar();
-    switch (chon)
-    {
-    case 1:
+    int choose, n  = 3, count;
+    string nd[n], nd1;
+    nd[0] = "Tim voi TEN / Search by Name";
+    nd[1] = "Tim voi So dien thoai / Search by Phone Number";
+    nd[2] = "THOAT / EXIT";
+    nd1 = "         TUY CHON TIM KIEM / CHANGE OPTIONS";
 
-        cout << "Nhap vao ten can tim: ";
-        getline(cin, abc);
-        for (int i = 0; i < customers.size(); i++)
-        {
-            customers[i].search_name(abc);
+    do {
+        system("cls");
+        box(70 - 2, 5 - 2, 50 + 4, 2 + 12, 11, 75, nd1);
+        choose = Menu(70, 5, 50, 2, 11, 75, nd, n);
+        std::string searching = "";
+        switch (choose) {
+            case 0:
+                searching = bar_Search_Customer("Ten Khach hang");
+                // count  = 0;
+                for (int i = 0; i < customers.size(); i++)
+                {
+                    customers[i].search_name(searching);
+                    count = 1;
+                }
+                // if (count == 0) cout << "KHONG TIM THAY KHACH HANG!" << endl;
+                system("pause");
+                break;
+            case 1:
+                searching = bar_Search_Customer("So dien thoai");
+                // count  = 0;
+                for (int i = 0; i < customers.size(); i++)
+                {
+                    customers[i].search_phone(searching);
+                    // count = 1;
+                }
+                // if (count == 0) cout << "KHONG TIM THAY KHACH HANG!" << endl;
+                system("pause");
+                break;
+            case 2:
+                break;
         }
-        break;
-    default:
-        cout << "Lua chon sai!!!";
-        break;
+    }   while (n - choose - 1);
+}
+void customer::search_phone(string abc)
+{
+    if (abc == get_phone_num())
+    {
+        this->display();
+        cout << endl;
     }
 }
-
 void customer::change() {
     int chon = 0;
     string abc;

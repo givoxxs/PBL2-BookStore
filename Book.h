@@ -5,7 +5,6 @@
 #include<vector>
 #include<time.h>
 
-
 class Book {
     private:
         int id;

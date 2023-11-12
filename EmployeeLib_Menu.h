@@ -119,7 +119,7 @@ void bar_Add_Employee() {
     nd[1] = "Ho va ten: ";      nd[2] = "So dien thoai: ";    
     nd[3] = "Nam sinh: ";       nd[4] = "CCCD/CMND: ";            
     nd[5] = "Dia chi(Huyen va Tinh): ";   nd[6] = "He so luong: ";
-
+    box(80, 2, 55, 2, 11, 75, "      DIEN THONG TIN NHAN VIEN");
     for(int i=x;i<=x+w;i++)
     {
         for (int j=0;j<=n;j++) {

@@ -52,7 +52,8 @@ employee employee::add()
     gotoXY(x + 16, y + 5); getline(cin, phone_number);
     gotoXY(x + 11, y + 7); cin>>year_of_birthday; 
     getchar();
-    gotoXY(x + 12, y + 9); getline(cin,CICard);
+    gotoXY(x + 12, y + 9); getline(cin,CICard)
+    ;
     gotoXY(x + 25, y + 11); getline(cin, address);
     gotoXY(x + 14, y + 13);cin>>wage;
     return *this;
@@ -98,7 +99,7 @@ void employee::display()
 
 void employee::display_All()
 {
-    cout << setiosflags(ios::left) << setw(10) << "ID_Staff";
+    cout << setiosflags(ios::left) << setw(10) << "ID";
     cout << setw(30) << "Ten nhan vien";
     cout << setw(18) << "So dien thoai";
     cout << setw(14) << "Nam sinh";
@@ -109,7 +110,7 @@ void employee::display_All()
     for (int i = 0; i < employees.size(); i++)
     {
         employees[i].display();
-        cout<<endl;
+        cout<< endl;
     }
 }
 
@@ -131,10 +132,7 @@ void employee::re_wage()
             cout << "Thay doi thanh cong!!!" << endl;
             gotoXY(70, 14 + 11);
             return;
-        } else {
-            
-            cout << "Thay doi chua thanh cong!!!  " << thay_doi << " \n" << endl;
-        }
+        } 
     }
     thay_doi = "";
     gotoXY(70, 14 + 10);
@@ -174,7 +172,7 @@ void employee::search()
     nd[0] = "Tim theo TEN / Search by Name";
     nd[1] = "Tim theo LUONG / Search by Wage";
     nd[2] = "THOAT / EXIT";
-    nd1 = "             CAC LUA CHON TIM KIEM";
+    nd1 = "         TUY CHON TIM KIEM / CHANGE OPTIONS";
 
     do {
         system("cls");
@@ -187,24 +185,25 @@ void employee::search()
         {
         case 0:
             searching = bar_Search_Employee_1("Ten Nhan vien");
-            count = 0;
+            // count = 0;
             for (int i = 0; i < employees.size(); i++)
             {
                 employees[i].search_name(searching);
-                count = 1;
+                 // count = 1;
             }
-            if (count == 0) std::cout << "NOT FOUND STAFF !!!" << std::endl;
+            // cout << "count = " << count << endl; 
+            // if (count == 0) cout << "KHONG TIM THAY NHAN VIEN!" << endl;
             system("pause");
             break;
         case 1:
             searching2 = bar_Search_Employee_2("Tien Luong");
-            count = 0;
+            // count = 0;
             for (int i = 0; i < employees.size(); i++)
             {   
                 employees[i].search_wage(searching2);
-                count = 1;
+                // count = 1;
             }
-            if (count == 0) std::cout << "NOT FOUND STAFF !!!" << std::endl;
+            // if (count == 0) cout << "KHONG TIM THAY NHAN VIEN!" << endl;
             system("pause");
             break;
         case 2:

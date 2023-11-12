@@ -189,7 +189,7 @@ void Menu_Manager() {
     nd[0] = "Kho sach";
     nd[1] = "Danh sach Nhan Vien";
     nd[2] = "Danh sach Khach Hang";
-    nd[3] = "Doanh thu va thong ke";
+    nd[3] = "Doanh thu va Lich su giao dich";
     nd[4] = "Thoat";
 
     do
@@ -209,7 +209,7 @@ void Menu_Manager() {
             QuanlyKhachhang();
             break;
         case 3:
-            box(20, 0, 35, 2, 11, 75, "    DOANH THU VA THONG KE");
+            box(20, 0, 50, 2, 11, 75, "    DOANH THU VA LICH SU GIAO DICH");
             cout << "\n\n";\
             SetColor(15);
             Save::display_All();
@@ -298,8 +298,8 @@ void QuanlyKhachhang() {
     int choose, n = 5;
     string nd[n];
     nd[0] = "Hien thi tat ca khach hang";
-    nd[1] = "Them moi 1 khach hang";
-    nd[2] = "Tim kiem";
+    nd[1] = "Dang ky khach hang";
+    nd[2] = "Tim kiem khach hang";
     nd[3] = "Thay doi thong tin khach hang";
     nd[4] = "Quay lai";
 
@@ -317,14 +317,10 @@ void QuanlyKhachhang() {
                 system("pause");
                 break;
             case 1:
-                std::cout << "\n\t\t*THEM 1 KHACH HANG*\n";
                 customer::add_new_cus();
-                system("pause");
                 break;
             case 2:
-                std::cout << "\n\t\t*TIM KIEM*\n";
                 customer::search();
-                system("pause");
                 break;
             case 3:
                 box(20, 0, 50, 2, 11, 75, "     Thay doi thong tin Khach hang");
