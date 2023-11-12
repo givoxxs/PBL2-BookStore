@@ -54,7 +54,8 @@ string box_Search_BOOK(string nd) {
     cout << nd + ":  ";
     gotoXY(x+12, y+3);
     SetColor(15);
-    cin >> answer;
+    getchar();
+    getline(cin,answer);
     gotoXY(0, y + 8);
     return answer;
 

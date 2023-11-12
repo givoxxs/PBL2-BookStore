@@ -9,8 +9,8 @@
 
 class order {
     private: 
+        std::string order_id;
         std::string id_emp;
-        std::string id_cus;
         std::string name_cus;
         std::string sdt_cus;
 
@@ -22,13 +22,13 @@ class order {
         
     public:
         order();
-        order(int id_emp, std::string id_cus, int so_loai, int pay_money, std::vector<sold> book_sold ,Date d);
+        order(int id_emp, std::string sdt_cus, int so_loai, int pay_money, std::vector<sold> book_sold ,Date d);
         ~order();
 
         int get_price(int a);// lay ra gia tien moi loai sach
         int sum_total();// tong tien don hang
         void pay();// tien nhan 
-        void change();//tien thua
+        void change(int );//tien thua
 
         
         order create();// tao don hang
@@ -45,6 +45,7 @@ class order {
 
 
         static void allthing();
+        
 
 };
 

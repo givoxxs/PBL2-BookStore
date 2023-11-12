@@ -134,12 +134,14 @@ void create_save_list()
         while (std::getline(inputFile, line))
         {
             std::istringstream iss(line);
+             std::string order_id;
             int year, month, day, hour, minute, second;
             std::string id_nhanvien;
+            std::string sdt_cus;
             std::vector<sold> items;
 
             // Đọc dữ liệu từ mỗi dòng
-            iss >> year >> month >> day >> hour >> minute >> second >> id_nhanvien;
+            iss >> order_id >> year >> month >> day >> hour >> minute >> second >> id_nhanvien >> sdt_cus;
 
             int book_id, book_qtt;
             while (iss >> book_id >> book_qtt)
@@ -154,7 +156,7 @@ void create_save_list()
             Date date(year, month, day, hour, minute, second);
 
             // Tạo đối tượng Save và thêm vào vector s
-            saveOrder.emplace_back(date, id_nhanvien, items);
+            saveOrder.emplace_back(order_id, date, id_nhanvien, sdt_cus, items);
         }
 
         inputFile.close();
@@ -238,12 +240,16 @@ void thay_doi_tep_save()
     {
         for (Save temp : saveOrder)
         {
+            //ghi ma hoa don
+            outputFile << temp.getOrder_id() << " ";
             // Ghi thông tin ngày
             outputFile << temp.getDate().getYear() << " " << temp.getDate().getMonth() << " " << temp.getDate().getDay() << " ";
             outputFile << temp.getDate().getHour() << " " << temp.getDate().getMinute() << " " << temp.getDate().getSecond() << " ";
 
             // Ghi mã nhân viên
             outputFile << temp.getEmp_id() << " ";
+            //ghi ma khach hang
+            outputFile << temp.getSdt_cus() << " ";
 
             // Ghi thông tin về sách
             for (int i = 0; i < temp.getSave().size(); i++)

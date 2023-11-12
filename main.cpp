@@ -181,6 +181,10 @@ void First_Menu() {
                 break;
         }                
     } while (n -  choose - 1);
+    thay_doi_tep_books();
+    thay_doi_tep_customers();
+    thay_doi_tep_employees();
+    thay_doi_tep_save();
 }
 // Menu cua Manager 
 void Menu_Manager() {
@@ -295,13 +299,14 @@ void QuanlyNhanvien() {
 }
 // Quan ly khach hang
 void QuanlyKhachhang() {
-    int choose, n = 5;
+    int choose, n = 6;
     string nd[n];
     nd[0] = "Hien thi tat ca khach hang";
     nd[1] = "Dang ky khach hang";
     nd[2] = "Tim kiem khach hang";
     nd[3] = "Thay doi thong tin khach hang";
-    nd[4] = "Quay lai";
+    nd[4] = "Lich su giao dich";
+    nd[5] = "Quay lai";
 
     do {
             system("cls");
@@ -329,7 +334,14 @@ void QuanlyKhachhang() {
                 customer::change();
                 system("pause");
                 break;
-            case 4: 
+            case 4:
+                box(20, 0, 50, 2, 11, 75, "     Lich su giao dich");
+                cout << "\n\n";
+                SetColor(15);
+                customer::order_history();
+                system("pause");
+                break;
+            case 5: 
                 break;
             }
         } while (n - choose - 1);

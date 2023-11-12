@@ -1,22 +1,15 @@
-1,The Great Gatsby,F. Scott Fitzgerald,Fiction,15,10,Publisher1,1925,Shelf1,English
-2,To Kill a Mockingbird,Harper Lee,Fiction,12,15,Publisher2,1960,Shelf2,English
-3,1984,George Orwell,Fiction,10,8,Publisher3,1949,Shelf3,English
-4,The Catcher in the Rye,J.D. Salinger,Fiction,14,12,Publisher4,1951,Shelf4,English
-5,Pride and Prejudice,Jane Austen,Romance,18,7,Publisher5,1813,Shelf5,English
-6,The Hobbit,J.R.R. Tolkien,Fantasy,20,5,Publisher6,1937,Shelf6,English
-7,War and Peace,Leo Tolstoy,Classics,25,6,Publisher7,1869,Shelf7,Russian
-8,The Lord of the Rings,J.R.R. Tolkien,Fantasy,30,10,Publisher6,1954,Shelf8,English
-9,The Alchemist,Paulo Coelho,Adventure,12,20,Publisher8,1988,Shelf9,Portuguese
-10,Brave New World,Aldous Huxley,Science Fiction,16,9,Publisher9,1932,Shelf10,English
-11,The Odyssey,Homer,Classics,14,5,Publisher10,8th Century BC,Shelf11,Greek
-12,The Road,Cormac McCarthy,Dystopian,17,11,Publisher11,2006,Shelf12,English
-13,The Hunger Games,Suzanne Collins,Dystopian,13,16,Publisher12,2008,Shelf13,English
-14,The Shining,Stephen King,Horror,15,8,Publisher13,1977,Shelf14,English
-15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,22,10,Publisher14,1997,Shelf15,English
-16,Phan Van Toan,Bame tao,cuoc doi,100000,1,bame tao,2004,Shelf1,vietnamese
-17,Nguyen Le Nhat Tuan,Nguyen Le Nhat Tuan,ca nhan,10000,1,khong biet,2004,Shelf1,Vietnamese
-18,Hello world part 1,C++,Coder,100000,1,Giao Phan,2000,number 1,English
-19,Phan Van Quoc Bao,Bame tao,cuoc doi,100000,1,bame tao,2011,Shelf1,vietnamese
-20,Phan Minh,Phan Lau,Human,10000000,1,Ho Phan,19969,so 1,VietNamese
-21,Phan Thi Ngoc Nhi,Phan Minh,Human,23062000,1,Ho Phan,2000,Shelf 10,VietNamese
-22,Giao Phan,Phan Van Toan,No one,123456,100,NXB Giao Phan,2004,Shelf1,VietNamese
+1,The Great Gatsby,F. Scott Fitzgerald,Fiction,150000,1252,Publisher1,1925,Shelf1,English
+2,To Kill a Mockingbird,Harper Lee,Fiction,120000,700,Publisher2,1960,Shelf2,English
+3,1984,George Orwell,Fiction,100000,480,Publisher3,1949,Shelf3,English
+4,The Catcher in the Rye,J.D. Salinger,Fiction,14000,395,Publisher4,1951,Shelf4,English
+5,Pride and Prejudice,Jane Austen,Romance,18000,876,Publisher5,1813,Shelf5,English
+6,The Hobbit,J.R.R. Tolkien,Fantasy,200000,500,Publisher6,1937,Shelf6,English
+7,War and Peace,Leo Tolstoy,Classics,250000,700,Publisher7,1869,Shelf7,Russian
+8,The Lord of the Rings,J.R.R. Tolkien,Fantasy,300000,1000,Publisher6,1954,Shelf8,English
+9,The Alchemist,Paulo Coelho,Adventure,125000,2000,Publisher8,1988,Shelf9,Portuguese
+10,Brave New World,Aldous Huxley,Science Fiction,160000,900,Publisher9,1932,Shelf10,English
+11,The Odyssey,Homer,Classics,140000,500,Publisher10,8,Shelf11,Greek
+12,The Road,Cormac McCarthy,Dystopian,170000,1100,Publisher11,2006,Shelf12,English
+13,The Hunger Games,Suzanne Collins,Dystopian,130000,1600,Publisher12,2008,Shelf13,English
+14,The Shining,Stephen King,Horror,155000,800,Publisher13,1977,Shelf14,English
+15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,220000,1000,Publisher14,1997,Shelf15,English

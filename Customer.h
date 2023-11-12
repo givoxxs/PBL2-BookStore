@@ -19,10 +19,11 @@ public:
     static void add_new_cus();
     void display();
     static void display_All();
-    static void re_point();
+    void re_point(int);
     static void re_phone();
     void search_phone(std::string abc);
     static void search();
     static void change();
+    static void order_history();
 };
 #endif

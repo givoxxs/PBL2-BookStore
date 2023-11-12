@@ -178,7 +178,7 @@ void customer::change() {
     switch (chon)
     {
     case 1:
-        customer::re_point();
+        // customer::re_point();
         break;
     case 2:
         customer::re_phone();
@@ -190,22 +190,26 @@ void customer::change() {
 
 }
 
-void customer::re_point() {
-    getchar();
-    string thay_doi;
-    int new_point;
-    cout << "Nhap vao id can thay doi diem tich luy: ";
-    getline(cin,thay_doi);
-    getchar();
-    cout << "Nhap vao diem tich luy moi: ";
-    cin>>new_point;
-    for (int i = 0; i < customers.size(); i++)
-    {
-        if (customers[i].id == thay_doi)
-        {
-            customers[i].set_point(new_point);
-            break;
+void customer::re_point(int new_point)
+{
+    this->point += new_point;
+}
+
+
+void customer::order_history() {
+    string check;
+    bool co = false;
+    cout<<"SDT khach hang: ";
+    cin>>check;
+    cout<<"==================================================="<<endl;
+    int size = saveOrder.size() - 1;
+    for(int i=0;i<size;i++) {
+        if(saveOrder[i].getSdt_cus() == check) {
+            saveOrder[i].display();
+            co = true;
         }
     }
-    cout << "Thay doi thanh cong!!!" << endl;
+    if(!co) {
+        cout<<"Khong tim thay lich su giao dich!!!"<<endl;
+    }
 }

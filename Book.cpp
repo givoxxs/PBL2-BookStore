@@ -23,6 +23,8 @@ std::string Book::no_space(const std::string s) {
         for (char c : s) {
             if (c != ' ') {
                 result += tolower(c);
+            } else {
+                result+=c;
             }
         }   
     return result;
