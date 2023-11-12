@@ -64,7 +64,8 @@ void order::change(int x)
 order order::create()
 {
     int x = 20;
-    int y = whereY();
+    // int y = whereY();
+    int y = 5;
     box(x,y,20,2,11, 75, "So loai sach: "); 
     SetColor(15);
     gotoXY(x + 15, y + 1);  cin >> this->so_loai;
@@ -149,36 +150,35 @@ void order::choose()
     
 
     do {
-        //system("cls");
-        gotoXY(20, 3);
         box(x, y, 30 + 4, 2 + 5, 11, 75, "\tBan chon?") ;
         choose = Menu(x + 2, y + 2, 30, 2, 11, 75, nd, n);
-        gotoXY(x, y + 7);
+        gotoXY(20, 3);
         cout << endl;
         switch (choose) {
             case 0: 
                 SetColor(15);
-                y = whereY();
-                gotoXY(x, y+2);
+                system("cls");
+                gotoXY(x, 0);
                 cout << "Tong tien: " << sum_total() << " VND";
-                gotoXY(x ,y+3);
+                gotoXY(20 ,3);
                 cout << "Tien nhan cua khach (don vi: VND): ";          
                 pay();
-                y = y + 4;
-                gotoXY(x, y);
                 break;
             case 1:
                 SetColor(15);
-                y = whereY();
-                gotoXY(x, y+1);
                 remove();
-                y = whereY() + 1;
-                gotoXY(x, y);
+                y = whereY();
+                gotoXY(x, y + 1);
                 cout << "Tong tien con lai: " << sum_total() << " VND" << endl;
-                y++;
-                gotoXY(x, y);
+                gotoXY(x, y + 2);
+                system("pause");
+                system("cls");
+                y = 0;
+                gotoXY(x,y);
                 break;
         }
+        
+        
     } while (choose != 0);
 }
 
@@ -248,14 +248,16 @@ void order::remove()
 {
     int chon, n = 3;
     int x = 20;
-    int y = whereY();
+    int y = 0;
     string nd[n] ;
     nd[0] = "Xoa 1 cuon sach khoi don hang";
     nd[1] = "Thay doi so luong 1 cuon sach";
     nd[2] = "Thoat!";
     do
     {   
-        // system("cls");
+        system("cls");
+        x = 20; y = 0;
+        gotoXY(x ,y);
         chon = Menu(x + 2, y + 1, 30, 2, 11, 75, nd, n);
         gotoXY(x, y + 1 + 7);
         cout << endl;
@@ -265,21 +267,13 @@ void order::remove()
             y = whereY();
             gotoXY(x,y);
             remove_type();
-            y = whereY() + 1;
-            gotoXY(x, y);
             sum_total();
-            y = whereY() + 1;
-            gotoXY(x, y);
             break;
         case 1:
             y = whereY();
             gotoXY(x,y);
             remove_qtt();
-            y = whereY() + 1;
-            gotoXY(x, y);
             sum_total();
-            y = whereY() + 1;
-            gotoXY(x, y);
             break;
         case 2:
             break;
@@ -291,7 +285,7 @@ void order::remove()
 void order::display()
 {   
     int x = 20;
-    int y = whereY() + 2;
+    int y = whereY() + 1;
     gotoXY(x,y);
     int daco = set_info();
     int discount = 0;
@@ -377,8 +371,8 @@ void order::allthing()
         int chon;
         //cout << "Tao don hang moi" << endl;
         o.create(); // done
-        o.choose(); // pending
-        o.display();
+        o.choose(); // done
+        o.display(); // pending
         int x = 20;
         int y = whereY() + 2;
         gotoXY(x,y);

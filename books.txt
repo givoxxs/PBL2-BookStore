@@ -1,7 +1,6 @@
-1,Suc Manh Tiem An,Nguyen Duy Can,Tu Luyen,20,-1,Nha Xuat Ban Viet Nam,2010,Ke 1,Tieng Viet
-2,The Da Vinci Code,Dan Brown,Mystery,18,-29,Random House,2003,Shelf2,English
-3,Chien Tranh va Hoa Binh,Leo Tolstoy,Classics,22,3,Publisher15,1869,Shelf3,Vietnamese
-4,One Hundred Years of Solitude,Gabriel Garcia Marquez,Magic Realism,25,12,Publisher16,1967,Shelf4,Spanish
+1,Suc Manh Tiem An,Nguyen Duy Can,Tu Luyen,20,-2,Nha Xuat Ban Viet Nam,2010,Ke 1,Tieng Viet
+3,Chien Tranh va Hoa Binh,Leo Tolstoy,Classics,22,-16,Publisher15,1869,Shelf3,Vietnamese
+4,One Hundred Years of Solitude,Gabriel Garcia Marquez,Magic Realism,25,2,Publisher16,1967,Shelf4,Spanish
 5,Nguoi Me Noi Gi Khi Noi Ve Yeu Thuong,Nguyen Nhat Anh,Fiction,15,15,Nha Nam,2018,Ke 5,Vietnamese
 6,The Hitchhiker's Guide to the Galaxy,Douglas Adams,Science Fiction,16,10,Publisher17,1979,Shelf6,English
 7,Ngay Xua Co Mot Chuyen Tinh,Nguyen Nhat Anh,Romance,14,20,Kim Dong,2005,Ke 7,Vietnamese
@@ -37,4 +36,3 @@
 37,The Fault in Our Stars,John Green,Young Adult,16,15,Publisher35,2012,Shelf37,English
 38,Phia Dong Vuon Dao,Haruki Murakami,Fiction,21,8,Publisher25,1993,Ke 38,Japanese
 39,The Picture of Dorian Gray,Oscar Wilde,Classics,26,6,Publisher36,1890,Shelf39,English
-40,Mat Biec,Nguyen Nhat Anh,Romance,15,20,Van Hoc,1990,Ke 40,Vietnamese
