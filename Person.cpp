@@ -12,6 +12,8 @@ string person::no_space(const string s)
         if (c != ' ')
         {
             result += tolower(c);
+        } else {
+            result += c;
         }
     }
     return result;
@@ -48,8 +50,6 @@ void person::search_name(string abc)
         cout << endl;
     }
 }
-
-
 
 void person::re_phone_num()
 {   

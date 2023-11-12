@@ -1,15 +1,40 @@
-1,The Great Gatsby,F. Scott Fitzgerald,Fiction,150000,1252,Publisher1,1925,Shelf1,English
-2,To Kill a Mockingbird,Harper Lee,Fiction,120000,700,Publisher2,1960,Shelf2,English
-3,1984,George Orwell,Fiction,100000,480,Publisher3,1949,Shelf3,English
-4,The Catcher in the Rye,J.D. Salinger,Fiction,14000,395,Publisher4,1951,Shelf4,English
-5,Pride and Prejudice,Jane Austen,Romance,18000,876,Publisher5,1813,Shelf5,English
-6,The Hobbit,J.R.R. Tolkien,Fantasy,200000,500,Publisher6,1937,Shelf6,English
-7,War and Peace,Leo Tolstoy,Classics,250000,700,Publisher7,1869,Shelf7,Russian
-8,The Lord of the Rings,J.R.R. Tolkien,Fantasy,300000,1000,Publisher6,1954,Shelf8,English
-9,The Alchemist,Paulo Coelho,Adventure,125000,2000,Publisher8,1988,Shelf9,Portuguese
-10,Brave New World,Aldous Huxley,Science Fiction,160000,900,Publisher9,1932,Shelf10,English
-11,The Odyssey,Homer,Classics,140000,500,Publisher10,8,Shelf11,Greek
-12,The Road,Cormac McCarthy,Dystopian,170000,1100,Publisher11,2006,Shelf12,English
-13,The Hunger Games,Suzanne Collins,Dystopian,130000,1600,Publisher12,2008,Shelf13,English
-14,The Shining,Stephen King,Horror,155000,800,Publisher13,1977,Shelf14,English
-15,Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,220000,1000,Publisher14,1997,Shelf15,English
+1,Suc Manh Tiem An,Nguyen Duy Can,Tu Luyen,20,5,Nha Xuat Ban Viet Nam,2010,Ke 1,Tieng Viet
+2,The Da Vinci Code,Dan Brown,Mystery,18,8,Random House,2003,Shelf2,English
+3,Chien Tranh va Hoa Binh,Leo Tolstoy,Classics,22,7,Publisher15,1869,Shelf3,Vietnamese
+4,One Hundred Years of Solitude,Gabriel Garcia Marquez,Magic Realism,25,12,Publisher16,1967,Shelf4,Spanish
+5,Nguoi Me Noi Gi Khi Noi Ve Yeu Thuong,Nguyen Nhat Anh,Fiction,15,15,Nha Nam,2018,Ke 5,Vietnamese
+6,The Hitchhiker's Guide to the Galaxy,Douglas Adams,Science Fiction,16,10,Publisher17,1979,Shelf6,English
+7,Ngay Xua Co Mot Chuyen Tinh,Nguyen Nhat Anh,Romance,14,20,Kim Dong,2005,Ke 7,Vietnamese
+8,Les Miserables,Victor Hugo,Classics,28,6,Publisher18,1862,Shelf8,French
+9,The Art of War,Sun Tzu,Philosophy,12,18,Publisher19,5,Shelf9,Chinese
+10,Dac Nhan Tam,Dale Carnegie,Self-Help,15,25,Nha Nam,1936,Ke 10,Vietnamese
+11,Anna Karenina,Leo Tolstoy,Classics,24,9,Publisher15,1877,Shelf11,Russian
+12,The Little Prince,Antoine de Saint-Exupery,Literature,20,15,Publisher20,1943,Shelf12,French
+13,Sapiens: A Brief History of Humankind,Yuval Noah Harari,History,23,8,Publisher21,2011,Shelf13,English
+14,Loi Nguon Cua Rong,Thuy Thu Mat Trang,Manga,10,30,Kim Dong,1991,Ke 14,Vietnamese
+15,The Road Not Taken and Other Poems,Robert Frost,Poetry,14,12,Publisher22,1916,Shelf15,English
+16,The Girl with the Dragon Tattoo,Stieg Larsson,Mystery,19,7,Publisher23,2005,Shelf16,Swedish
+17,Ta Tot Nhu Hoa,Nguyen Quang Thai,Tieu Thuyet,16,20,Van Hoc,2019,Ke 17,Vietnamese
+18,Dune,Frank Herbert,Science Fiction,26,6,Publisher24,1965,Shelf18,English
+19,Haruki Murakami's Kafka on the Shore,Haruki Murakami,Magic Realism,21,10,Publisher25,2002,Shelf19,Japanese
+20,The Great Expectations,Charles Dickens,Classics,17,18,Publisher26,1861,Shelf20,English
+21,Bien Quang Cao,Duong Thu Huong,Fiction,13,15,Van Hoc,1992,Ke 21,Vietnamese
+22,The Chronicles of Narnia,C.S. Lewis,Fantasy,24,8,Publisher27,1950,Shelf22,English
+23,Phong Cach Donald Trump,Donald J. Trump,Biography,30,5,Random House,1987,Ke 23,English
+24,The Silent Patient,Alex Michaelides,Thriller,18,10,Publisher28,2019,Shelf24,English
+25,Chay Di Cho Chi,Gao,Graphic Novel,12,25,Kim Dong,2018,Ke 25,Vietnamese
+26,The Kite Runner,Khaled Hosseini,Fiction,22,12,Publisher29,2003,Shelf26,English
+27,Song Va Yeu Nhu Mot Quyen Sach,Nguyen Nhat Anh,Romance,16,15,Nha Nam,2015,Ke 27,Vietnamese
+28,The Count of Monte Cristo,Alexandre Dumas,Adventure,28,7,Publisher30,1844,Shelf28,French
+29,Ahok: My Time Will Come,Ahok,Memoir,20,8,Publisher31,2019,Shelf29,Indonesian
+30,Người Lớn Không Khóc,Nha Nam,Self-Help,14,20,Nha Nam,2010,Ke 30,Vietnamese
+31,The Old Man and the Sea,Ernest Hemingway,Classics,19,10,Publisher32,1952,Shelf31,English
+32,Dac Nhan Tam Cho Nguoi Moi Bat Dau,Dale Carnegie,Self-Help,13,25,Nha Nam,1936,Ke 32,Vietnamese
+33,The Godfather,Mario Puzo,Crime,24,9,Publisher33,1969,Shelf33,English
+34,Khu Vuon Bi Mat,Frances Hodgson Burnett,Literature,15,15,Nha Nam,1911,Ke 34,Vietnamese
+35,The Silence of the Girls,Pat Barker,Mythology,18,12,Publisher34,2018,Shelf35,English
+36,Bi Mat Tu Duy Trieu Phu,Adam Khoo,Self-Help,20,10,Nha Nam,2008,Ke 36,Vietnamese
+37,The Fault in Our Stars,John Green,Young Adult,16,15,Publisher35,2012,Shelf37,English
+38,Phia Dong Vuon Dao,Haruki Murakami,Fiction,21,8,Publisher25,1993,Ke 38,Japanese
+39,The Picture of Dorian Gray,Oscar Wilde,Classics,26,6,Publisher36,1890,Shelf39,English
+40,Mat Biec,Nguyen Nhat Anh,Romance,15,20,Van Hoc,1990,Ke 40,Vietnamese

@@ -28,7 +28,6 @@ void customer::set_point(int x) {
 
 customer customer::add()
 {
-    //getchar();
     int max =  customers.size()+1;
     string temp = "KH" + to_string(max);
     this->id = temp;
@@ -98,27 +97,34 @@ void customer::display_All()
 }
 
 void customer::re_phone()
-{
-    getchar();
-    string thay_doi;
-    cout << "Nhap vao id can thay doi so dien thoai: ";
-    getline(cin,thay_doi);
-    getchar();
-    cout << "Nhap vao so dien thoai moi: ";
+{   
+    int x = 70, y = 14;
+    bar_Change();
+    string thay_doi = "";
+    gotoXY(x + 15, y + 1);
+    cin >> thay_doi;
+
     for (int i = 0; i < customers.size(); i++)
     {
         if (customers[i].id == thay_doi)
-        {
+        {   
+            gotoXY(x + 9, y + 3);
             customers[i].re_phone_num();
-            break;
+            gotoXY(x, y + 7);
+            cout << "Thay doi thanh cong!!!" << endl;
+            gotoXY(x, y + 8);
+            return;
         }
     }
-    cout << "Thay doi thanh cong!!!" << endl;
+    thay_doi = "";
+    gotoXY(x, y + 7);
+    cout << "Thay doi chua thanh cong!!!" << endl;
+    gotoXY(x, y + 8);
 }
 
 void customer::search()
 {
-    int choose, n  = 3, count;
+    int choose, n  = 3;
     string nd[n], nd1;
     nd[0] = "Tim voi TEN / Search by Name";
     nd[1] = "Tim voi So dien thoai / Search by Phone Number";
@@ -133,24 +139,18 @@ void customer::search()
         switch (choose) {
             case 0:
                 searching = bar_Search_Customer("Ten Khach hang");
-                // count  = 0;
                 for (int i = 0; i < customers.size(); i++)
                 {
                     customers[i].search_name(searching);
-                    count = 1;
                 }
-                // if (count == 0) cout << "KHONG TIM THAY KHACH HANG!" << endl;
                 system("pause");
                 break;
             case 1:
                 searching = bar_Search_Customer("So dien thoai");
-                // count  = 0;
                 for (int i = 0; i < customers.size(); i++)
                 {
                     customers[i].search_phone(searching);
-                    // count = 1;
                 }
-                // if (count == 0) cout << "KHONG TIM THAY KHACH HANG!" << endl;
                 system("pause");
                 break;
             case 2:
@@ -160,13 +160,15 @@ void customer::search()
 }
 void customer::search_phone(string abc)
 {
-    if (abc == get_phone_num())
+    if (get_phone_num().find(abc) != string::npos)
     {
         this->display();
         cout << endl;
     }
 }
 void customer::change() {
+    // int choose, n = 2;
+    // string 
     int chon = 0;
     string abc;
     cout << "1. Thay doi diem tich luy" << endl;
@@ -200,7 +202,8 @@ void customer::order_history() {
     string check;
     bool co = false;
     cout<<"SDT khach hang: ";
-    cin>>check;
+    getchar();
+    getline(cin, check);
     cout<<"==================================================="<<endl;
     int size = saveOrder.size() - 1;
     for(int i=0;i<size;i++) {

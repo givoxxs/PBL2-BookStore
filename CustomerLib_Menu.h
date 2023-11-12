@@ -9,6 +9,7 @@ using namespace std;
 
 void bar_Add_Customer();
 string bar_Search_Customer(string nd);
+void bar_Change();
 //Dang ky thanh vien
 void bar_Add_Customer() {
     int t_color = 11, b_color = 75;
@@ -97,4 +98,41 @@ string bar_Search_Customer(string nd) {
     return answer;
 
 }
+// Change options
+void bar_Change() {
+    int t_color = 11, b_color = 75;
+    int x = 70, y = 14, w = 50, h = 2;  
+    SetColor(b_color);
+    SetColor(b_color%t_color);
+    for(int i=x;i<=x+w;i++)
+    {
+        gotoXY(i,y);
+        cout << char(196);
+        gotoXY(i,y+h);
+        cout << char(196);
+        gotoXY(i,y+h+2);
+        cout << char(196);
+    }
+    for (int i=y;i<=y+h+2;i++)
+    {
+        gotoXY(x,i); 
+        cout << char(179);
+        gotoXY(x+w,i);
+        cout << char(179);
+    }
+    gotoXY(x,y);cout << char(218);
+    gotoXY(x+w,y);cout << char(191);
+    gotoXY(x,y+h+2);cout << char(192);
+    gotoXY(x+w,y+h+2);cout << char(217);
+    gotoXY(x,y+h); cout << char(195);
+    gotoXY(x+w,y+h); cout << char(180);
+
+    SetColor(11);
+    gotoXY(x + 1, y + 1);
+    cout << "ID Khach hang: ";
+    gotoXY(x + 1, y + 3);
+    cout <<"SDT moi: ";
+    SetColor(15);
+}
+
 #endif

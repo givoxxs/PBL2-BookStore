@@ -304,7 +304,7 @@ void QuanlyKhachhang() {
     nd[0] = "Hien thi tat ca khach hang";
     nd[1] = "Dang ky khach hang";
     nd[2] = "Tim kiem khach hang";
-    nd[3] = "Thay doi thong tin khach hang";
+    nd[3] = "Thay doi SDT khach hang";
     nd[4] = "Lich su giao dich";
     nd[5] = "Quay lai";
 
@@ -328,10 +328,10 @@ void QuanlyKhachhang() {
                 customer::search();
                 break;
             case 3:
-                box(20, 0, 50, 2, 11, 75, "     Thay doi thong tin Khach hang");
+                box(70, 11, 50, 2, 11, 75, "     Thay doi thong tin Khach hang");
                 cout << "\n\n";
                 SetColor(15);
-                customer::change();
+                customer::re_phone();
                 system("pause");
                 break;
             case 4:
