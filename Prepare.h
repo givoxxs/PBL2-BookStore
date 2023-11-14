@@ -13,6 +13,10 @@
 #include <fstream>
 #include <sstream>
 
+void canhtren(int x);
+void canhnoi(int x);
+void canhduoi(int x);
+
 extern std::vector<Book> books;
 extern std::vector<customer> customers;
 extern std::vector<employee> employees;

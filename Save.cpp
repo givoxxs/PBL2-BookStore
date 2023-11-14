@@ -35,23 +35,26 @@ void Save::settSdt_cus(std::string sdt)
 {
     this->sdt_cus = sdt;
 }
-
 void Save::display()
 {
-    cout << "Ma hoa don: " << this->order_id << endl;
-    cout << "Thoi gian giao dich: ";
+    canhtren(100);
+    cout <<char(179)<<setw(100)<< (" Ma hoa don: " + this->order_id )<<char(179)<< endl;
+    cout <<char(179) << " Ngay ban: ";
     d.display();
-    cout << "ID nhan vien thuc hien giao dich: " << this->emp_id << endl;
-    cout << "SDT khach hang: " << this->sdt_cus << endl;
-    cout << "ID"
-         << "       "
-         << "So luong" << endl;
+    cout<<char(179)<<endl;
+    canhnoi(100);
+    cout <<char(179)<<setw(100)<<left<< (" ID nhan vien thuc hien giao dich: " + this->emp_id) <<char(179)<< endl;
+    cout <<char(179)<<setw(100)<<left<< (" SDT khach hang: " + this->sdt_cus) <<char(179)<< endl;
+    canhnoi(100);
+    cout <<char(179)<<setw(100)<<left<< " ID            So luong" <<char(179)<< endl;
     for (int i = 0; i < save.size(); i++)
     {
-        cout << save[i].get_book_id() << "            " << save[i].get_book_qtt() << endl;
+        cout <<char(179)<<setw(100)<<left<<(" "+ to_string(save[i].get_book_id()) + "               " + to_string(save[i].get_book_qtt())) <<char(179)<< endl;
     }
-    cout << "====================================================" << endl;
+    canhduoi(100);
+    cout <<endl<<endl;
 }
+
 
 void Save::display_All()
 {

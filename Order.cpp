@@ -289,48 +289,48 @@ void order::remove()
 
 // xuat don hang
 void order::display()
-{   
-    int x = 20;
-    int y = whereY() + 2;
-    gotoXY(x,y);
+{
     int daco = set_info();
     int discount = 0;
-    cout << "------------------------------------------------------------" << endl;
-    cout << setw(50) << "HOA DON CUA BAN: " << endl;
-    cout << "------------------------------------------------------------" << endl;
-    cout << "Ma hoa don: " << this->order_id << endl;
-    cout << "Ngay mua: ";
+    canhtren(100);  
+    cout << char(179)<<setw(100) <<left<< "                                           HOA DON CUA BAN: " <<char(179)<< endl;
+    canhnoi(100);   
+    cout << char(179)<<setw(100) <<left<< (" Ma hoa don: " + this->order_id )<<char(179) <<endl;
+    canhnoi(100);
     d.set_time();
+    cout <<char(179) << " Ngay mua: ";
     d.display();
-    cout << "------------------------------------------------------------" << endl;
-    cout << endl;
-    cout << setw(20) << left << "Ma nhan vien:  " << this->id_emp << endl;
+    cout<<char(179);
+    cout<<endl;
+    canhnoi(100);
+    cout << char(179)<<setw(100) << left << (" Ma nhan vien:   " + this->id_emp )<<char(179)<< endl;
     if (daco == 1)
     {
-        cout << setw(20) << left << "Ma khach hang: "
-             << "KH" << this->sdt_cus << endl;
+        cout << char(179)<<setw(100) << left << (" Ma khach hang:  KH " + this->sdt_cus )<<char(179)<< endl;
+        canhnoi(100);
     }
     else
     {
-        cout << setw(20) << left << "Ten khach hang: " << this->name_cus << endl;
-        cout << setw(20) << left << "SDT khach hang: " << this->sdt_cus << endl
-             << endl;
+        cout << char(179)<<setw(100) << left <<( " Ten khach hang: " + this->name_cus) <<char(179) <<endl;
+        cout << char(179)<<setw(100) << left << (" SDT khach hang: " + this->sdt_cus )<<char(179)<< endl;
+        canhnoi(100);
     }
-    cout << setw(20) << "So loai sach: " << so_loai << endl;
-    cout << setw(20) << "ID"<<setw(50)<<"Ten sach"<<setw(10)<<"Gia (VND)"<<setw(20)<< "So luong" << endl;
+    canhnoi(100);
+    cout << char(179)<<setw(100) <<( " So loai sach: " + to_string(so_loai)) <<char(179)<< endl;
+    cout <<  char(179)<<setw(20) << " ID"<<setw(50)<<"Ten sach"<<setw(15)<<"Gia (VND)"<<setw(15)<< "So luong" << char(179)<<endl;
     for (int i = 0; i < so_loai; i++)
     {
-        cout << setw(20) << book_sold[i].get_book_id();
+        cout <<char(179)<< " "<<setw(19) <<book_sold[i].get_book_id();
         for(int j=0;j<books.size();j++) {
             if(books[j].get_id() == book_sold[i].get_book_id()) {
                 cout<<setw(50)<<books[j].get_title();
-                cout<<setw(10)<<books[j].get_price();
+                cout<<setw(15)<<books[j].get_price();
                 break;
             }
         }
-        cout<< book_sold[i].get_book_qtt() << endl;
+        cout<< setw(15)<<book_sold[i].get_book_qtt() <<char(179)<< endl;
     }
-
+    canhnoi(100);
     Save s;
     s.setOrder_id(order_id);
     s.setDate(d);
@@ -358,14 +358,16 @@ void order::display()
     }
     change(sum - discount);
 
-    cout << setw(20) << "Tong tien: " << sum << "VND" << endl;
-    cout << setw(20) << "Tien nhan: " << pay_money << "VND" << endl;
+    cout <<char(179)<< setw(100) << (" Tong tien: " + to_string(sum) + "VND" )<<char(179)<< endl;
+    cout <<char(179)<< setw(100) << (" Tien nhan: " + to_string(pay_money) + "VND" )<<char(179)<< endl;
     if (discount > 0)
     {
-        cout << setw(20) << "Giam gia: " << discount << "VND" << endl;
+        cout <<char(179)<< setw(100) <<( " Giam gia: " + to_string(discount) + "VND" )<<char(179)<< endl;
     }
-    cout << setw(20) << "Tien thua: " << change_money << "VND" << endl;
-    cout << setw(20) << "XIN CAM ON <3" << endl;
+    cout <<char(179)<< setw(100) << (" Tien thua: " + to_string(change_money) + "VND") <<char(179)<< endl;
+    canhnoi(100);
+    cout <<char(179)<< setw(100) << "                                          XIN CAM ON <3" <<char(179)<< endl;
+    canhduoi(100);
 }
 
 void order::allthing()

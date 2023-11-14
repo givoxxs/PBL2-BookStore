@@ -1,5 +1,6 @@
 #include "Date.h"
 #include<iostream>
+#include<iomanip>
 #include<time.h>
 using namespace std;
 
@@ -27,8 +28,8 @@ void Date::set_time() {
 }
 
 void Date::display() {
-    cout<<this->hour<<":"<<this->minute<<":"<<this->second<<"   --  ";
-    cout<<this->day<<"/"<<this->month<<"/"<<this->year<<endl;
+    cout<<setw(89)<<(to_string(this->hour) + ":" +to_string(this->minute) + ":" + to_string(this->second)
+    + " -- " + to_string(this->day) + "/" + to_string(this->month) + "/" + to_string(this->year));
 }
 
 int Date::getSecond() {

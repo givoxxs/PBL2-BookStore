@@ -2,6 +2,40 @@
 #include <iostream>
 using namespace std;
 
+
+void canhtren(int x)
+{
+    std::cout << char(218);
+    for (int i = 0; i < x; i++)
+    {
+        std::cout << char(196);
+    }
+    std::cout << char(191);
+    std::cout << std::endl;
+}
+
+void canhduoi(int x)
+{
+    std::cout << char(192);
+    for (int i = 0; i < x; i++)
+    {
+        std::cout << char(196);
+    }
+    std::cout << char(217);
+    std::cout << std::endl;
+}
+
+void canhnoi(int x)
+{
+    std::cout << char(195);
+    for (int i = 0; i < x; i++)
+    {
+        std::cout << char(196);
+    }
+    std::cout << char(180);
+    std::cout << std::endl;
+}
+
 vector<Book> books;
 vector<customer> customers;
 vector<employee> employees;
