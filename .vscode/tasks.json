@@ -3,11 +3,11 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "${fileDirname}\\*.cpp",
-				"-o",
-				"${fileDirname}\\main.exe"
+                "-o",
+                "${fileDirname}\\main.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -19,7 +19,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "My C++ Builder."
+            "detail": "My C++ Builder"
         }
     ],
     "version": "2.0.0"

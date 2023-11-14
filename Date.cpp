@@ -28,7 +28,7 @@ void Date::set_time() {
 }
 
 void Date::display() {
-    cout<<setw(89)<<(to_string(this->hour) + ":" +to_string(this->minute) + ":" + to_string(this->second)
+    cout<<setw(89)<<left<<(to_string(this->hour) + ":" +to_string(this->minute) + ":" + to_string(this->second)
     + " -- " + to_string(this->day) + "/" + to_string(this->month) + "/" + to_string(this->year));
 }
 

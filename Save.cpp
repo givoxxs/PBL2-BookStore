@@ -38,7 +38,7 @@ void Save::settSdt_cus(std::string sdt)
 void Save::display()
 {
     canhtren(100);
-    cout <<char(179)<<setw(100)<< (" Ma hoa don: " + this->order_id )<<char(179)<< endl;
+    cout <<char(179)<<setw(100)<<left<< (" Ma hoa don: " + this->order_id )<<char(179)<< endl;
     cout <<char(179) << " Ngay ban: ";
     d.display();
     cout<<char(179)<<endl;
