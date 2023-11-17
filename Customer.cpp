@@ -202,8 +202,8 @@ void customer::order_history() {
     string check;
     bool co = false;
     cout<<"SDT khach hang: ";
-    getchar();
-    getline(cin, check);
+    // getchar();
+    cin>>check;
     cout<<"==================================================="<<endl;
     int size = saveOrder.size() - 1;
     for(int i=0;i<size;i++) {

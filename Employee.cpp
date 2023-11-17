@@ -29,7 +29,7 @@ string employee::getAddress() {
 
 int employee::get_wage()
 {
-    return wage;
+    return wage*1200000;
 }
 
 void employee::set_wage(int wage) {

@@ -281,7 +281,7 @@ void QuanlySach()
         switch (choose)
         {
         case 0:
-            box(20, 0, 40, 2, 11, 75, "    THONG TIN SACH TRONG CUA HANG");
+            box(20, 0, 40, 2, 11, 75, "        THONG TIN SACH TRONG CUA HANG");
             cout << "\n\n";
             SetColor(15);
             Book::display_All();
@@ -393,7 +393,7 @@ void QuanlyKhachhang()
             system("pause");
             break;
         case 4:
-            box(20, 0, 50, 2, 11, 75, "     Lich su giao dich");
+            box(20, 0, 50, 2, 11, 75, "             Lich su giao dich");
             cout << "\n\n";
             SetColor(15);
             customer::order_history();

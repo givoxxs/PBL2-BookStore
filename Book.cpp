@@ -38,6 +38,8 @@ std::string Book::no_space(const std::string s)
 void Book::search_title(std::string abc)
 {
     int count = 0;
+    cout << left << setw(5) << "ID" << setw(40) << "Tieu de" << setw(25) << "Tac gia" << setw(20) << "The loai" << setw(15) << "Gia (VND)";
+    cout << setw(10) << "So luong" << setw(30) << "Nha xuat ban" << setw(20) << "Nam xuat ban" << setw(15) << "Ke sach" << setw(15) << "Ngon ngu" << endl<<endl;
     for (int i = 0; i < books.size(); i++)
     {
         if (no_space(books[i].title).find(no_space(abc)) != string::npos)
@@ -54,6 +56,8 @@ void Book::search_title(std::string abc)
 void Book::search_author(std::string abc)
 {
     int count = 0;
+    cout << left << setw(5) << "ID" << setw(40) << "Tieu de" << setw(25) << "Tac gia" << setw(20) << "The loai" << setw(15) << "Gia (VND)";
+    cout << setw(10) << "So luong" << setw(30) << "Nha xuat ban" << setw(20) << "Nam xuat ban" << setw(15) << "Ke sach" << setw(15) << "Ngon ngu" << endl<<endl;
     for (int i = 0; i < books.size(); i++)
     {
         if (no_space(books[i].author).find(no_space(abc)) != string::npos)
@@ -70,6 +74,8 @@ void Book::search_author(std::string abc)
 void Book::search_genre(std::string abc)
 {
     int count = 0;
+    cout << left << setw(5) << "ID" << setw(40) << "Tieu de" << setw(25) << "Tac gia" << setw(20) << "The loai" << setw(15) << "Gia (VND)";
+    cout << setw(10) << "So luong" << setw(30) << "Nha xuat ban" << setw(20) << "Nam xuat ban" << setw(15) << "Ke sach" << setw(15) << "Ngon ngu" << endl<<endl;
     for (int i = 0; i < books.size(); i++)
     {
         if (no_space(books[i].genre).find(no_space(abc)) != string::npos)
@@ -86,6 +92,8 @@ void Book::search_genre(std::string abc)
 void Book::search_language(std::string abc)
 {
     int count = 0;
+    cout << left << setw(5) << "ID" << setw(40) << "Tieu de" << setw(25) << "Tac gia" << setw(20) << "The loai" << setw(15) << "Gia (VND)";
+    cout << setw(10) << "So luong" << setw(30) << "Nha xuat ban" << setw(20) << "Nam xuat ban" << setw(15) << "Ke sach" << setw(15) << "Ngon ngu" << endl<<endl;
     for (int i = 0; i < books.size(); i++)
     {
         if (no_space(books[i].language).find(no_space(abc)) != string::npos)
@@ -304,15 +312,15 @@ std::string Book::get_language()
 void Book::display_All()
 {
     std::cout << std::setiosflags(std::ios::left) << std::setw(5) << "ID";
-    std::cout << std::setw(40) << "Title";
-    std::cout << std::setw(25) << "Author";
-    std::cout << std::setw(20) << "Genre";
-    std::cout << std::setw(10) << "Price";
-    std::cout << std::setw(10) << "Quantity";
-    std::cout << std::setw(20) << "Publisher";
-    std::cout << std::setw(20) << "PublishingYear";
-    std::cout << std::setw(15) << "BookShelves";
-    std::cout << std::setw(15) << "Language" << std::endl
+    std::cout << std::setw(40) << "Tieu de";
+    std::cout << std::setw(25) << "Tac gia";
+    std::cout << std::setw(20) << "The loai";
+    std::cout << std::setw(15) << "Gia (VND)";
+    std::cout << std::setw(10) << "So luong";
+    std::cout << std::setw(30) << "Nha Xuat Ban";
+    std::cout << std::setw(20) << "Nam Xuat Ban";
+    std::cout << std::setw(15) << "Ke Sach";
+    std::cout << std::setw(15) << "Ngon ngu" << std::endl
               << std::endl;
 
     for (int i = 0; i < books.size(); i++)
@@ -377,7 +385,8 @@ void Book::delete_book()
     {
         if (books[i].get_id() == id_dlt)
         {
-            books.erase(books.begin() + i);
+            books[i].set_quantity(0);
+            cout<<"Xoa thanh cong"<<endl;
             break;
         }
     }

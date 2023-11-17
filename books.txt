@@ -1,4 +1,4 @@
-1,Suc Manh Tiem An,Nguyen Duy Can,Tu Luyen,20000,1000,Nha Xuat Ban Viet Nam,2010,Ke 1,Tieng Viet
+1,Suc Manh Tiem An,Nguyen Duy Can,Tu Luyen,20,3,Nha Xuat Ban Viet Nam,2010,Ke 1,Vietnamese
 2,The Da Vinci Code,Dan Brown,Mystery,30000,1000,Random House,2003,Shelf2,English
 3,Chien Tranh va Hoa Binh,Leo Tolstoy,Classics,45000,1000,Publisher15,1869,Shelf3,Vietnamese
 4,One Hundred Years of Solitude,Gabriel Garcia Marquez,Magic Realism,25000,1200,Publisher16,1967,Shelf4,Spanish
@@ -27,7 +27,7 @@
 27,Song Va Yeu Nhu Mot Quyen Sach,Nguyen Nhat Anh,Romance,70000,1500,Nha Nam,2015,Ke 27,Vietnamese
 28,The Count of Monte Cristo,Alexandre Dumas,Adventure,30000,700,Publisher30,1844,Shelf28,French
 29,Ahok: My Time Will Come,Ahok,Memoir,20000,800,Publisher31,2019,Shelf29,Indonesian
-30,Người Lớn Không Khóc,Nha Nam,Self-Help,100000,200,Nha Nam,2010,Ke 30,Vietnamese
+30,Nguoi lon khong khoc,Nha Nam,Self-Help,100000,200,Nha Nam,2010,Ke 30,Vietnamese
 31,The Old Man and the Sea,Ernest Hemingway,Classics,75000,1000,Publisher32,1952,Shelf31,English
 32,Dac Nhan Tam Cho Nguoi Moi Bat Dau,Dale Carnegie,Self-Help,68000,500,Nha Nam,1936,Ke 32,Vietnamese
 33,The Godfather,Mario Puzo,Crime,240000,900,Publisher33,1969,Shelf33,English
