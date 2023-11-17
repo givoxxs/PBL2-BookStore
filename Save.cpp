@@ -13,7 +13,8 @@ Save::Save(string order_id, Date d, string id, string sdt_cus, vector<sold> s)
     this->sdt_cus = sdt_cus;
     this->save = s;
 }
-void Save::setOrder_id(std::string order_id) {
+void Save::setOrder_id(std::string order_id)
+{
     this->order_id = order_id;
 }
 
@@ -38,23 +39,31 @@ void Save::settSdt_cus(std::string sdt)
 void Save::display()
 {
     canhtren(100);
-    cout <<char(179)<<setw(100)<<left<< (" Ma hoa don: " + this->order_id )<<char(179)<< endl;
-    cout <<char(179) << " Ngay ban: ";
+    cout << char(179) << setw(100) << left << (" Ma hoa don: " + this->order_id) << char(179) << endl;
+    cout << char(179) << " Ngay ban: ";
     d.display();
-    cout<<char(179)<<endl;
+    cout << char(179) << endl;
     canhnoi(100);
-    cout <<char(179)<<setw(100)<<left<< (" ID nhan vien thuc hien giao dich: " + this->emp_id) <<char(179)<< endl;
-    cout <<char(179)<<setw(100)<<left<< (" SDT khach hang: " + this->sdt_cus) <<char(179)<< endl;
+    cout << char(179) << setw(100) << left << (" ID nhan vien thuc hien giao dich: " + this->emp_id) << char(179) << endl;
+    cout << char(179) << setw(100) << left << (" SDT khach hang: " + this->sdt_cus) << char(179) << endl;
     canhnoi(100);
-    cout <<char(179)<<setw(100)<<left<< " ID            So luong" <<char(179)<< endl;
+    cout << char(179) << setw(20) << " ID" << setw(50) << "Ten sach" << setw(15) << "Gia (VND)" << setw(15) << "So luong" << char(179) << endl;
     for (int i = 0; i < save.size(); i++)
-    {
-        cout <<char(179)<<setw(100)<<left<<(" "+ to_string(save[i].get_book_id()) + "               " + to_string(save[i].get_book_qtt())) <<char(179)<< endl;
+   {
+        cout <<char(179)<< " "<<setw(19) <<save[i].get_book_id();
+        for(int j=0;j<books.size();j++) {
+            if(books[j].get_id() == save[i].get_book_id()) {
+                cout<<setw(50)<<books[j].get_title();
+                cout<<setw(15)<<books[j].get_price();
+                break;
+            }
+        }
+        cout<< setw(15)<<save[i].get_book_qtt() <<char(179)<< endl;
     }
     canhduoi(100);
-    cout <<endl<<endl;
+    cout << endl
+         << endl;
 }
-
 
 void Save::display_All()
 {
@@ -68,6 +77,7 @@ Date Save::getDate()
 {
     return this->d;
 }
+
 string Save::getEmp_id()
 {
     return this->emp_id;
